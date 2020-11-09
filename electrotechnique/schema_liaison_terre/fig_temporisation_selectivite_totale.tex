@@ -1,0 +1,73 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{tikzpicture}
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+axis x line=bottom, axis y line = left,
+no markers,
+width=\linewidth, height=6cm, %hauteur/largeur
+legend cell align={left}, legend style={at={(1,1.02)},anchor=south east},
+grid=major,
+grid=both,
+enlarge x limits=false, 
+xmode=log, xmin=10, xmax=12000, xtick={10, 100, 1000, 10000},
+xlabel style={text width=\linewidth}, ylabel style={text width=5cm},
+xlabel={Intensité du courant de fonctionnement résiduels assignés en \si{\milli\ampere}}, log ticks with fixed point,
+ymode=log, ymin=10, ymax=13000, ytick={10, 100, 1000, 10000},
+ylabel={Durée $t$ du passage du courant en \si{\milli\second}},
+]
+
+
+\path[name path=gbi] (14.517932133997183,10000) -- (14.517932133997183,10) -- (10000,10);
+\path[name path=hdi] (29.60932939627084,10000) -- (29.60932939627084,352.7323205216774) -- (146.77992676220705,40.34961693676772) -- (10000,40.34961693676772);
+\addplot [blue, opacity=0.5] fill between[of=gbi and hdi];
+\addlegendentry{Instantané \circrefseul{pas:40}};
+
+\path[name path=gbs] (10000,40.34961693676772) -- (2682.6957952797275,40.34961693676772) -- (1973.504382868977,48.54353364246499) -- (704.075200660645,60.39790821830388) -- (289.6708287824031,149.68644761350285) -- (150,502.0302968341689
+) -- (150,10000);
+\path[name path=hds] (10000,149.68644761350285) -- (1435.9617019622142,149.68644761350285) -- (590.7837911587943,213.04294320497598) -- (590.7837911587943,213.04294320497598) -- (299.357729472049,502.0302968341689
+) -- (299.357729472049,10000);
+\addplot [red, opacity=0.5] fill between[of=gbs and hds];
+\addlegendentry{Sélectif \circrefseul{pas:41}};
+
+\path[name path=gbr] (10000,150) -- (1655.9515234819182,150) -- (474.45002755086585,502.0302968341689) -- (474.45002755086585,10000);
+\path[name path=hdr] (10000,313.5814507256924) -- (4796.808502304898,313.5814507256924) -- (1033.441063880556,919.3982010218539) -- (1033.441063880556,10000);
+\addplot  [brown, opacity=0.5]  fill between[of=gbr and hdr];
+\addlegendentry{Retardé \circrefseul{pas:42}};
+
+\addplot (14.517932133997183,10000) -- (14.517932133997183,10) -- (10000,10) -- (10000,40.34961693676772) -- (146.77992676220705,40.34961693676772) -- (29.60932939627084,352.7323205216774) -- (29.60932939627084,10000) -- cycle;
+\addplot [red] (10000,40.34961693676772) -- (2682.6957952797275,40.34961693676772) -- (1973.504382868977,48.54353364246499) -- (704.075200660645,60.39790821830388) -- (289.6708287824031,149.68644761350285) -- (150,502.0302968341689
+) -- (150,10000) -- (299.357729472049,10000) -- (299.357729472049,502.0302968341689
+) -- (590.7837911587943,213.04294320497598) -- (590.7837911587943,213.04294320497598)  -- (1435.9617019622142,149.68644761350285) -- (10000,149.68644761350285) -- cycle;
+\addplot [brown] (10000,150) -- (1655.9515234819182,150) -- (474.45002755086585,502.0302968341689) -- (474.45002755086585,10000) -- (1033.441063880556,10000) -- (1033.441063880556,919.3982010218539) -- (4796.808502304898,313.5814507256924) -- (10000,313.5814507256924) -- cycle;
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+
+%\end{document}
+

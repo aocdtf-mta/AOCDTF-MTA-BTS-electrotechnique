@@ -1,0 +1,834 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Informations complémentaires sur les dangers de l'électricité}
+
+Cette annexe regroupe des données complémentaires mentionnées dans le \superref{chap:dangers_electricite}. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toute précision concernant ce chapitre.
+
+\section{\'Etat des lieux de la prévention des risques électriques\label{sec:etat_lieux_prevention_electrique}}
+
+\section{Statistiques}
+
+\subsection{Accidents d'origine électrique}
+
+Les accidents du travail d'origine électrique diminuent depuis la mise en place du décret du 14 novembre 1962 qui attrait à la protection des travailleurs contre les dangers de l'électricité. Entre 1962 et 2000, le nombre d'incidents a baissé de 74\%. 
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+date coordinates in=x,
+axis x line=bottom, axis y line = left,
+xmin=1975-01-01,
+xmax=2005-12-31,
+ymin=0,
+ymax=3100,
+legend cell align={left},
+no markers,
+grid=major,
+ytick={0, 500, 1000, 1500, 2000, 2500, 3000},
+xtick={1975-01-01, 1980-01-01, 1985-01-01, 1990-01-01, 1995-01-01, 2000-01-01, 2005-01-01},
+title={Variation du nombre d'accidents du travail d'origine électrique},
+height=8cm,width=\linewidth,
+ylabel={Nombre d'accidents},
+legend entries={Accidents avec arrêt, Accidents graves, Accidents mortels},
+xticklabel={\year},
+]
+
+\addplot[mark=none]table{donnees_accident_arret.txt};
+\addlegendentry{Accidents avec arrêt};
+\addplot[mark=none, red]table{donnees_accident_grave.txt};
+\addlegendentry{Accidents graves};
+\addplot[mark=none, blue]table{donnees_accident_mortel.txt};
+\addlegendentry{Accidents mortels};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Secteurs les plus atteints}
+
+Durant l'année 2008, on dénombrait 771 accidents d'origine électrique. Les secteurs les plus touchés sont : 
+\begin{description}
+\item[30\% :] bâtiment et travaux publics,\;
+\item[17\% :] métallurgie,\;
+\item[16\% :] service et travail temporaire,\;
+\item[11\% :] alimentation.
+\end{description}
+
+\subsection{Facteurs principaux}
+
+Les principaux facteurs ayant causé l'accident sont :
+\begin{description}
+\item[31\% :] mode opératoire inapproprié ou dangereux\,;
+\item[15\% :] application incomplète\,;
+\item[12\% :] formation insuffisante\,;
+\item[12\% :] état du matériel\,;
+\item[11\% :] état du sol.
+\end{description}
+
+\subsection{Type de contact}
+
+\begin{description}
+\item[75\% :] contact direct\,;
+\item[20\% :] contact indirect\,;
+\item[5\% :] non précisé.
+\end{description}
+
+\subsection{Type de dommages}
+
+Ces statistiques sur plusieurs années sont relativement constantes. Elles précisent que :
+\begin{description}
+\item[60\% :] brûlures\,;
+\item[$\approx$ 33\% :] localisation multiples (les yeux, les membres supérieurs et les mains sont les plus touchés)\,;
+\item[5\% :] lésions internes.
+\end{description}
+
+\subsection{Conclusion}
+
+On peut conclure de ces statistiques que depuis une trentaine d'années, le nombre d'accidents dus à l'électricité :
+\begin{itemize}
+\item diminue régulièrement\,;
+\item demeurent particulièrement graves.
+\end{itemize}
+
+Le risque d'accidents est certe mieux maitrisé qu'auparavant mais il reste toujours présent.
+
+\section{Différents effets du courant électriques\label{sec:effet_courant_électrique}}
+
+\subsection{Effet thermique}
+
+Il est admis que les brûlures électriques peuvent apparaitre à des intensités relativement faibles ($\approx \SI{10}{\milli\ampere}$), si le contact est maintenu quelques minutes
+
+\subsection{Effet tétanisant}
+
+Lorsque la tension est alternatif, les muscles se situant sur le trajet du courant électrique se contractent. Cet effet, surtout s'il s'agit des muscles de la main, peuvent empêcher tout dégagement volontaire de la victime. Pour l'extraire de cette situation, il convient de stopper le contact crispé en la poussant à l'aide d'un objet non conducteur.
+
+\subsection{Effets respiratoires et circulatoires}
+
+Les muscles respiratoires pouvant également être crispés par le courant, il suffit de \SI{60}{\second} pour bloquer la respiration. Cela provoque une asphyxie, appelée également \emph{syncope blanche}.\\
+Une fibrillation ventriculaire se manifeste également pour les mêmes ordres de grandeurs. C'est le résultat de la contraction anarchiques des fibrilles du muscle cardiaque. Ces battements du c\oe{}ur rapides et désordonnés ne permettent plus d'assurer une circulation sanguine adéquate et provoque ainsi une syncope cardiaque, appelée aussi \emph{syncope blanche}. Une défibrillation devient indispensable pour stopper cet effet du courant.\\
+Au-delà d'un \SI{1}{\ampere}, le courant entraîne un arrêt cardiaque par asystolie, une absence de battements cardiaques sur laquelle une défibrillation n'est pas recommandée.\\
+Les lésions cardiaques diffèrent selon certain paramètres, ces information peuvent aider les premiers secours à axer leurs interventions en situation d'extrême urgence : 
+\begin{description}
+\item[basse tension :] effet excito-moteur et fibrillation ventriculaire\,;
+\item[haute tension :] effet joule et asystolie\,;
+\item[foudre :] sidération myocardique (dysfonction des contractions du c\oe{}ur difficilement prise en charge).
+\end{description}
+
+Lors de la prise en charge d'un patient électrisé, il convient de bien suivre celui-ci sur plusieurs jours car les risques de malaises cardiaques dûs au choc électrique peuvent ressurgir durant une période plus ou moins longue selon les conditions d'électrisation.
+
+\section{Descriptifs des moyens de protections contre les contacts directs}
+
+Les différents moyens de protections sont ici décrits en profondeur à titre informatif.
+
+\subsection{Très basse tension\label{subsec:TBT}}
+
+Il existe trois types de TBT selon la classification du lieux et la nature du courant.
+
+\subsubsection{Principe}
+
+\paragraph{Très Basse Tension de Sécurité (ou Séparation)} Alimentation basse tension ou il n'existe aucun point commun entre le primaire et le secondaire du transformateur, utilisée pour alimenter des appareillages situés dans des locaux humides.
+\paragraph{Très Basse Tension de Protection} Alimentation basse tension ou il existe un point commun entre le commun du secondaire et le conducteur de protection, utilisée pour alimenter des machines-outils et automatisme. La liaison du commun au conducteur de protection du secondaire permet d'éviter les mises en marche intempestives pouvant survenir après deux défauts de masse consécutifs dans une commande de machine (alimentation possible d'une bobine de contacteur via la carcasse de l'armoire de commande).
+\paragraph{Très Basse Tension Fonctionnelle} Alimentation basse tension ou il existe plusieurs point commun entre le primaire et le secondaire du transformateur (autotransformateur), utilisée pour alimenter des appareillages ne requérant pas d'exigences de sécurité autre qu'une tension nominale de fonctionnement spécifique.
+
+\subsubsection{Architecture}
+\input{tab_type_TBT}
+\subsection{Indice de protection\label{subsec:indice_protection}}
+
+L'indice de protection (IP) est composé de deux chiffres (et parfois d'une ou deux lettres) et caractérise le degré de protection procuré par une enveloppe contre la pénétration de corps étrangers (1\ier chiffre) et d'eau (2\ieme chiffre). Cet indice est souvent accompagné d'un indice contre les chocs mécaniques IK.\\
+Lorsqu'un des deux indice n'est pas déterminé, il est remplacé par la lettre " x ".
+
+\begin{minipage}[t]{0.59\linewidth}
+\begin{table}[H]
+\caption{Descriptif de l'indice contre les chocs mécanique IK\label{tab:signes_mathematiques}}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\linewidth}{p{0.5cm} m{3cm} J C C}
+\toprule
+\thead{IK}		& \thead{Tests}										& \multicolumn{1}{c}{\thead{\'Energie}}		& \thead{AG\tnote{1}}		& \thead{Ancien\\IP} 	\\
+\midrule
+00 				& 																& \SI{0}{\joule}		& 										& 0							\\
+01 				& \includegraphics[scale=1]{K1.png}		& \SI{0,15}{\joule}	& 										& 								\\
+02 				& \includegraphics[scale=1]{K1.png}		& \SI{0,20}{\joule}	& 	AG1								& 1							\\
+03 				& \includegraphics[scale=1]{K3.png}		& \SI{0,35}{\joule}	& 										& 								\\
+04 				& \includegraphics[scale=1]{K4.png}		& \SI{0,50}{\joule}	& 										& 3							\\
+05 				& \includegraphics[scale=1]{K5.png}		& \SI{0,70}{\joule}	& 										& 								\\
+06 				& \includegraphics[scale=1]{K6.png}		& \SI{1}{\joule}		& 										& 								\\
+07 				& \includegraphics[scale=1]{K7.png}		& \SI{2}{\joule}		& 	AG2								& 5							\\
+08 				& \includegraphics[scale=1]{K8.png}		& \SI{5}{\joule}		& 	AG3								& 								\\
+08 				& \includegraphics[scale=1]{K8.png}		& \SI{5}{\joule}		& 	AG3								& 								\\
+09 				& \includegraphics[scale=1]{K9.png}		& \SI{10}{\joule}		& 	AG3								& 								\\
+10 				& \includegraphics[scale=1]{K10.png}	& \SI{20}{\joule}		& 	AG4								& 								\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] Corresponsdances avec le code AG de la classification des influences externes issu de la norme NF C 15-100.
+\end{tablenotes}
+\end{threeparttable} %note dans tableau
+\end{table}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.39\linewidth}
+\begin{table}[H]
+\caption{Lettre additionnelle sur les informations supplémentaires}
+\begin{tabularx}{\linewidth}{P{1.5cm} X}
+\toprule
+\thead{Lettre}		& \thead{Signification} \\
+\midrule
+f							& Résistant aux huiles \\
+\addlinespace
+H							& Appareil à haute tension \\
+\addlinespace
+M							& Appareil en déplacement durant le test à l'eau \\
+\addlinespace
+S							& Appareil immobile durant le test à l'eau \\
+\addlinespace
+W							& Conditions environnementales spécifiées \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{minipage}
+
+\newpage
+\begin{landscape}
+\newpage
+
+\input{tab_descriptif_IP}
+
+\newpage
+\end{landscape}
+\newpage
+
+\subsubsection{Classification des locaux selon l'IP}
+
+Selon les locaux à équiper, leurs emplacements et les conditions particulières d'installation, la norme NF C 15-100 indique une protection minimale spécifiée par les indices IP et IK.
+
+\input{tab_classification_locaux_IP}
+
+\subsection{Transformateur d'isolement\label{subsec:transformateur_isolement}}
+
+Le \emph{transformateur d'isolement} a pour but d'isoler l'utilisateur du réseau électrique. On le retrouve généralement dans les salles de bains d'ERP tels que les hôtels, intégré aux sèches-cheveux et rasoirs muraux.\\ 
+
+\input{fig_transformateur_isolement}
+
+Le secondaire de ce type de transformateur ne doit pas être relié à la terre et isolé \emph{galvaniquement} du primaire, c'est-à-dire qu'il n'y a aucune liaison électrique entre les deux bobinages du transformateur. Le tout afin que le corps humain n'offre pas de chemin pour que le courant effectue une boucle et revienne au transformateur d'où il vient, la différence de potentiel entre la terre et les conducteurs de phase et neutre est alors nulle.\\Cette situation est analogue à celle d'un oiseau perché sur une ligne électrique, tant qu'il ne touche pas deux conducteurs électriques en même temps, celui-ci ne risque rien.
+
+\section{Descriptifs des moyens de protection contre les contacts indirects\label{sec:moyens_protection_contacts_indirects}}
+
+Pour protéger les biens et les personnes contre les contacts indirects, on associe trois spécificités de l'installation électrique qui sont la MALT des appareils et structures conductrices, la prise de terre du poste de distribution électrique et l'usage d'un DDR. Cette association, selon le type de branchement, formera les \emph{schémas de liaisons à la terre} (SLT). En outre, le choix des \emph{classe d'isolation} d'un appareil électrique ou la mise hors de portées des appareils peuvent également constituer un moyen de protection contre les contacts indirects.
+
+\subsection{Classe d'isolation des appareils électriques}
+
+\begin{xltabular}{\textwidth}{c X p{3cm} p{2cm} c}
+\caption{Classe d'isolation électrique des appareils\label{tab:classe_isolation_electrique}}\\
+\toprule
+\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+\midrule
+\endfirsthead %en-tête de la première page du tableau  
+\multicolumn{5}{l}{\small\textit{Page précédente}} \\
+\midrule %filet de milieu de tableau
+\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+\midrule
+\endhead
+\midrule %filet de milieu de tableau
+\multicolumn{5}{r}{\small\textit{Page suivante}} \\
+\endfoot %pied de page de toutes les pages du tableau
+\bottomrule
+\endlastfoot %pied de page de la dernièredu tableau
+0		& Matériel ayant une simple isolation et ne présentant pas de dispositif de mise à la terre (interdit)		& Lampe de chevet ancienne en bois		& \emph{pas de symbole}			& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\addlinespace
+I		& Matériel ayant une simple isolation mais présentant un dispositif de mise à la terre			& Ordinateur, lampadaire, fer à repasser, fer à souder\ldots		&  \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_I.png}}} & \adjustbox{valign=t}{\includegraphics[width=2cm]{type_e.png}} \\
+\addlinespace
+II		& Matériel présentant une double isolation de la partie active \circrefseul{pas:1} (isolation fonctionnelle \circrefseul{pas:2} et isolation supplémentaire \circrefseul{pas:3}) ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\addlinespace
+III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \SI{24}{\volt}) et ne présentant pas de dangers pour les personnes (aucune précaution particulière à prendre)			& Circuits électriques, sonnette, smartphone\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_III.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{fiche_TBT.png}}
+\end{xltabular}
+
+\begin{figure}[h]
+\caption{Matériel de classe d'isolation II}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Shape: Rectangle [id:dp6431615116150586] 
+\draw   (120,100) -- (260,100) -- (260,160) -- (120,160) -- cycle ;
+%Shape: Rectangle [id:dp21722968746615745] 
+\draw   (110,90) -- (270,90) -- (270,170) -- (110,170) -- cycle ;
+%Shape: Inductor [id:dp2168804832907768] 
+\draw  [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ] (150,149.24) -- (150,121) .. controls (150,114.51) and (154.48,109.24) .. (160,109.24) .. controls (165.52,109.24) and (170,114.51) .. (170,121) .. controls (170,114.51) and (174.48,109.24) .. (180,109.24) .. controls (185.52,109.24) and (190,114.51) .. (190,121) .. controls (190,114.51) and (194.48,109.24) .. (200,109.24) .. controls (205.52,109.24) and (210,114.51) .. (210,121) .. controls (210,114.51) and (214.48,109.24) .. (220,109.24) .. controls (225.52,109.24) and (230,114.51) .. (230,121) -- (230,149.24) ;
+%Straight Lines [id:da9190346443391305] 
+\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (150,149.24) -- (150,180) ;
+%Straight Lines [id:da1556694134502471] 
+\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (230,149.24) -- (230,180) ;
+%Straight Lines [id:da6906822080495362] 
+\draw    (90,120) -- (148,120.97) ;
+\draw [shift={(150,121)}, rotate = 180.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8500651824334423] 
+\draw    (310,100) -- (272,100) ;
+\draw [shift={(270,100)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6409885852889874] 
+\draw    (310,140) -- (262,140) ;
+\draw [shift={(260,140)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (71,112) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:1}};
+% Text Node
+\draw (318,132) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:2}};
+% Text Node
+\draw (318,91) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:3}};
+\end{tikzpicture}
+\end{figure}
+
+
+\subsection{Dispositif Différentiel Résiduel\label{chap:DDR}}
+
+\subsubsection{Caractéristiques générales}
+
+\begin{definition}[Dispositif Différentiel Résiduel]
+Un Dispositif Différentiel Résiduel (DDR) est un appareil de protection chargé d'assurer la protection des personnes contre les défauts d'isolement provoquant potentiellement des contacts indirects (\superref{def:contact_indirect}). Son rôle est de surveiller les fuites de courant d'une installation électrique vers la terre.
+\end{definition}
+
+Il convient de bien différencier deux type de DDR :
+\begin{description}
+\item[Interrupteur différentiel :] protection des personnes contre les contacts indirects dont le symbole est : \\
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da2903329919565012] 
+\draw    (355,127.5) -- (367.5,150) -- (367.5,170) ;
+%Shape: Circle [id:dp3187615529298826] 
+\draw   (369.5,130) .. controls (369.5,128.9) and (368.6,128) .. (367.5,128) .. controls (366.4,128) and (365.5,128.9) .. (365.5,130) .. controls (365.5,131.1) and (366.4,132) .. (367.5,132) .. controls (368.6,132) and (369.5,131.1) .. (369.5,130) -- cycle ;
+%Straight Lines [id:da6291068913098858] 
+\draw    (367.5,128) -- (367.5,120) ;
+%Rounded Rect [id:dp5228947876486602] 
+\draw   (362.5,160) .. controls (362.5,158.62) and (363.62,157.5) .. (365,157.5) -- (390,157.5) .. controls (391.38,157.5) and (392.5,158.62) .. (392.5,160) -- (392.5,160) .. controls (392.5,161.38) and (391.38,162.5) .. (390,162.5) -- (365,162.5) .. controls (363.62,162.5) and (362.5,161.38) .. (362.5,160) -- cycle ;
+%Straight Lines [id:da9535405775656056] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (382.25,139.75) -- (357.5,140) -- (357.5,160) -- (362.5,160) ;
+%Straight Lines [id:da293136389225495] 
+\draw    (375,127.5) -- (387.5,150) -- (387.5,170) ;
+%Shape: Circle [id:dp1387355280779735] 
+\draw   (389.5,130) .. controls (389.5,128.9) and (388.6,128) .. (387.5,128) .. controls (386.4,128) and (385.5,128.9) .. (385.5,130) .. controls (385.5,131.1) and (386.4,132) .. (387.5,132) .. controls (388.6,132) and (389.5,131.1) .. (389.5,130) -- cycle ;
+%Straight Lines [id:da810942314060853] 
+\draw    (387.5,128) -- (387.5,120) ;
+
+\end{tikzpicture}
+\end{center}
+
+\item[Disjoncteur différentiel :] protection des personnes contre les contacts indirects et protection des circuits contre les surintensités et les court-circuits dont le symbole est : \\
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da26208223112851936] 
+\draw    (527.5,100) -- (540,122.5) -- (540,142.5) ;
+%Straight Lines [id:da5822281275248988] 
+\draw    (540,102.5) -- (540,92.5) ;
+%Rounded Rect [id:dp41055324766610257] 
+\draw   (535,132.5) .. controls (535,131.12) and (536.12,130) .. (537.5,130) -- (562.5,130) .. controls (563.88,130) and (565,131.12) .. (565,132.5) -- (565,132.5) .. controls (565,133.88) and (563.88,135) .. (562.5,135) -- (537.5,135) .. controls (536.12,135) and (535,133.88) .. (535,132.5) -- cycle ;
+%Straight Lines [id:da30592283799275743] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (554.75,112.25) -- (530,112.5) -- (530,132.5) -- (535,132.5) ;
+%Straight Lines [id:da7841914077845515] 
+\draw    (538,100.5) -- (542,104.5) ;
+%Straight Lines [id:da01685582709758693] 
+\draw    (542,100.5) -- (538,104.5) ;
+
+%Straight Lines [id:da7197353055881572] 
+\draw    (547.5,100) -- (560,122.5) -- (560,142.5) ;
+%Straight Lines [id:da316262731013633] 
+\draw    (560,102.5) -- (560,92.5) ;
+%Straight Lines [id:da6806510311797901] 
+\draw    (558,100.5) -- (562,104.5) ;
+%Straight Lines [id:da5532087619463947] 
+\draw    (562,100.5) -- (558,104.5) ;
+
+
+
+
+
+
+\end{tikzpicture}
+
+\end{center}
+\end{description}
+
+\begin{table}[h]
+\caption{Valeur du seuil de $I_{\Delta n}$ fonction de $R_{A}$ et $U_{L}$}
+\begin{tabularx}{\linewidth}{C i k S C i k S C i k S}
+\toprule
+\thead{$U_{L}$}	& \multicolumn{2}{c}{\thead{$R_{A}$ (\si{\ohm})}}	& 	{$I_{\Delta n}$ (\si{\ampere})}	& \thead{$U_{L}$}	& \multicolumn{2}{c}{\thead{$R_{A}$ (\si{\ohm})}}	& 	{$I_{\Delta n}$ (\si{\ampere})} & \thead{$U_{L}$}	& \multicolumn{2}{c}{\thead{$R_{A}$ (\si{\ohm})}}	& 	{$I_{\Delta n}$ (\si{\ampere})}	\\
+\midrule
+\SI{50}{\volt}	& \geq & 1660	&  0,030 		& \SI{25}{\volt}	& \geq & 500	& 	0,030	& \SI{12}{\volt}		& \geq & 400	&  0,030 \\
+						& \geq & 166		&  0,300 		& 							& \geq & 83	&  0,300 	& 								& \geq & 40	&  0,300  \\
+						& \geq & 100		&  0,500 		& 							& \geq & 50	&  0,500 	& 								& \geq & 24	&  0,500  \\
+						& \geq & 16		&  3				& 							& \geq & 8		& 		 3 		& 								& \geq & 4		&  3  \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Marquage normalisé}
+
+Comme tout appareil de protection, le DDR respecte des normes de qualité strictes (Conformité Européenne) et doivent présenter plusieurs marquages réglementaires, ainsi qu'un bouton \og TEST \fg{} pour informer l'installateur et l'utilisateur des caractéristiques du DDR. Cela informe de la conformité de l'appareil de protection.
+\startcstep %remet les compteurs des légendes en pastille à zéro
+\begin{center}
+\begin{figure}[h]
+\caption{Marquage d'un interrupteur différentiel}
+\begin{subfigure}[t]{0.49\linewidth}
+\subcaption{Vue de dessus}
+\begin{annotate}
+{\includegraphics[scale=1]{DDR_dessus}}{0.25}
+%\helpgrid[gray] 
+\node at (-11.8,4.3) {\cstep\label{pas:101}};
+\node at (-11.8,2.2) {\cstep\label{pas:102}};
+\node at (-11.8,-0.85) {\cstep\label{pas:103}};
+\node at (-11.8,-3.85) {\cstep\label{pas:104}};
+\node at (11.7,3.4) {\cstep\label{pas:105}};
+\node at (11.7,1.1) {\cstep\label{pas:106}};
+\node at (11.7,-2.1) {\cstep\label{pas:107}};
+\end{annotate} 
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\subcaption{Vue de dessus}
+\begin{annotate}
+{\includegraphics[scale=1]{DDR_avant}}{0.25}
+%\helpgrid[gray] 
+\node at (-11.8,6.7) {\cstep\label{pas:108}};
+\node at (-11.8,3.8) {\cstep\label{pas:109}};
+\node at (-11.9,-6.85) {\cstep\label{pas:110}};
+\node at (11.7,3.85) {\cstep\label{pas:111}};
+\node at (11.7,1) {\cstep\label{pas:112}};
+\node at (11.7,-2.05) {\cstep\label{pas:113}};
+\end{annotate} 
+\end{subfigure}
+\end{figure}
+\end{center}
+\begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
+	\begin{multicols}{2} %répartition du texte dans l'environnement en deux colonnes
+		\circref{pas:101}norme du produit\\ %légende automatique
+		\circref{pas:102}tension assignée $230/400\si{\volt}\sim$\\
+		\circref{pas:103}code de production\\
+		\circref{pas:104}signe \og Courant assigné de court-circuit \SI{10000}{\ampere} \fg{} en combinaison avec un fusible en amont \\
+		\circref{pas:105}pouvoir assigné de coupure \og \SI{1250}{\ampere} \fg{} \\
+		\circref{pas:106}signe de sécurité ESTI (équivalent de la norme NF pour la Suisse) \\
+		\circref{pas:107}signe \og Flocon de neige \fg{} (utilisation pour une température ambiante jusqu'à \SI{-25}{\degree}) \\
+		\columnbreak\\ %passage à la deuxième colonne
+		\circref{pas:108}couple de serrage \si{\newton\meter} \\
+		\circref{pas:109}désignation du type\\
+		\circref{pas:110}schéma des connexions\\
+		\circref{pas:111}courant assigné $I_n$ de \SI{40}{\ampere} et calibre du DDR $I_{\Delta n}$\\
+		\circref{pas:112}note concernant le test \og à effectuer tous les six mois \fg{}\\
+		 \circref{pas:113}type de courant différentiel (type F)
+	\end{multicols}
+\end{minipage}
+
+
+\subsubsection{Composante du courant de défaut}
+
+Les DDR peuvent détecter plusieurs composantes du courant de défaut. C'est un paramètre qui peut varier selon le type d'appareil électrique protégé par le DDR.
+
+\input{tab_type_DDR}
+
+\subsubsection{Principe de fonctionnement}
+
+Les éléments essentiels d'un DDR sont les suivants : \\
+\begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
+	\begin{multicols}{2} %répartition du texte dans l'environnement en deux colonnes
+	\startcstep %remet les compteurs des légendes en pastille à zéro
+		\circref{pas:20} bouton test d'essai du DDR\\ %légende automatique
+		\circref{pas:21} transformateur d'intensité (tore de détection)\\
+		\circref{pas:22} relais de déclenchement  \\
+		\circref{pas:23} mécanisme à déclenchement libre sans retour automatique \\
+		\columnbreak\\ %passage à la deuxième colonne
+		$I_1$ : courant \og d'arrivée \fg{} du récepteur \\
+		$I_2$ : courant \og de sortie \fg{} du récepteur \\
+		$I_d$ : courant de défaut\\
+		$I_c$ : courant de contact\\
+		$R_b$ : résistance de terre du neutre\\
+		$R_a$ : résistance de la prise de terre de l'installation électrique 
+	\end{multicols}
+\end{minipage}
+~\\
+Pour le fonctionnement d'un DDR, les conditions suivantes doivent être remplie :
+\begin{itemize}
+\item le point neutre du transformateur HT/BT doit être mis à la terre\,;
+\item aucune liaison entre le conducteur de neutre et le conducteur de protection ne doit être réalisée en aval du DDR\,;
+\item le conducteur de protection ne doit pas transiter dans le transformateur d'intensité\,;
+\item le réseau doit être alternatif.
+\end{itemize}
+
+\input{fig_mecanisme_DDR}
+	\startcstep %remet les compteurs des légendes en pastille à zéro
+
+\paragraph{Transformateur d'intensité}
+Les conducteurs de phase et le conducteur neutre sont bobinés autour du transformateur d'intensité. Les champs magnétiques des différents conducteurs génèrent un flux magnétique à l'intérieur du transformateur d'intensité. Si la somme des courants entrants est égale à la somme des courants sortants (1\iere{} loi de Kirchhoff), le flux magnétique s'annule.
+\paragraph{Relais de déclenchement}
+Si, en cas de défaut, un courant s'écoule par la terre, il y a alors un déséquilibre dans le transformateur d'intensité et un courant est induit dans la bobine du relais de déclenchement. Le courant induit est proportionnel au courant de défaut et entraîne la coupure du circuit principal à l'aide du relais déclencheur.\\
+La bobine de détection est dimensionné sur son tore selon le calibre de détection souhaité.
+\paragraph{Mécanisme de déclenchement}
+Le mécanisme de déclenchement assure la coupure omnipolaire du circuit principal en cas de défaut. La caractéristique \og libre \fg{} du mécanisme agit dans le cas où la manette reste bloquée en position enclenchée.
+\paragraph{Bouton de test d'essai du DDR}
+En appuyant sur le bouton test, un courant de défaut est généré à travers une résistance. Le circuit de courant du dispositif d'essai se trouve en dehors du transformateur d'intensité afin de pouvoir contrôler le fonctionnement de la bobine et du mécanisme de déclenchement. Le dispositif d'essai fonctionne seulement si la tension réseau est présente. L'essai est à réaliser régulièrement selon les normes en vigueur. Dans des installations mobiles, il est recommandé d'effectuer un essai tous les jours ouvrables.
+
+\subsubsection{Sélectivité et coordination des DDR}
+
+Dans le cas d'une installation électrique composée dont les DDR sont disposés en séries, il peut être nécessaire d'appliquer cette sélectivité sur les différents DDR. Elle fait appel à deux méthode : 
+\begin{itemize}
+\item temporisation des DDR entre eux\,;
+\item subdivision des circuits.
+\end{itemize}
+
+\begin{definition}[Sélectivité des DDR]
+Méthode d'installation et de calcul des temps de déclenchement des DDR permettant d'éviter le déclenchement des DDR autres que celui situé immédiatement en amont du défaut d'isolement.
+\end{definition}
+
+La sélectivité est totale si :
+\begin{itemize}
+\item le rapport entre les courants de fonctionnement résiduels assignés doit être supérieur à 3\,;
+\item présence d'un retard de la temporisation du déclenchement du DDR situé en amont.
+\end{itemize}
+Elle peut toutefois être prescrite selon les exigences de sécurité ou d'exploitation et est obtenue sur base des différents calibres de sensibilité standardisés (\SI{30}{\milli\ampere}, \SI{100}{\milli\ampere}, \SI{300}{\milli\ampere}, \SI{1}{\ampere}\ldots) et de la temporisation des temps de déclenchement comme dans la figure située \superref{fig:selectivite_totale}.
+
+\begin{figure}[H]
+\caption{Sélectivité totale à trois niveaux\label{fig:selectivite_totale}}
+\begin{subfigure}[b]{0.49\linewidth}
+\centering
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,218); %set diagram left start at 0, and has height of 218
+
+%Straight Lines [id:da9017814347617055] 
+\draw    (6.88,65) -- (193.13,65) ;
+%Straight Lines [id:da9177255960935432] 
+\draw    (40,22.5) -- (52.5,45) -- (52.5,65) ;
+%Shape: Circle [id:dp6537007148868619] 
+\draw   (54.5,25) .. controls (54.5,23.9) and (53.6,23) .. (52.5,23) .. controls (51.4,23) and (50.5,23.9) .. (50.5,25) .. controls (50.5,26.1) and (51.4,27) .. (52.5,27) .. controls (53.6,27) and (54.5,26.1) .. (54.5,25) -- cycle ;
+%Straight Lines [id:da35199593727193423] 
+\draw    (52.5,23) -- (52.5,15) ;
+%Rounded Rect [id:dp6193458384304921] 
+\draw   (47.5,55) .. controls (47.5,53.62) and (48.62,52.5) .. (50,52.5) -- (55,52.5) .. controls (56.38,52.5) and (57.5,53.62) .. (57.5,55) -- (57.5,55) .. controls (57.5,56.38) and (56.38,57.5) .. (55,57.5) -- (50,57.5) .. controls (48.62,57.5) and (47.5,56.38) .. (47.5,55) -- cycle ;
+%Straight Lines [id:da9527186101720663] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (47.5,35) -- (42.5,35) -- (42.5,55) -- (47.5,55) ;
+
+%Straight Lines [id:da11508322768940726] 
+\draw    (87.5,72.5) -- (100,95) -- (100,115) ;
+%Shape: Circle [id:dp3391289042502843] 
+\draw   (102,75) .. controls (102,73.9) and (101.1,73) .. (100,73) .. controls (98.9,73) and (98,73.9) .. (98,75) .. controls (98,76.1) and (98.9,77) .. (100,77) .. controls (101.1,77) and (102,76.1) .. (102,75) -- cycle ;
+%Straight Lines [id:da23522970219666894] 
+\draw    (100,73) -- (100,65) ;
+%Rounded Rect [id:dp7801124199714764] 
+\draw   (95,105) .. controls (95,103.62) and (96.12,102.5) .. (97.5,102.5) -- (102.5,102.5) .. controls (103.88,102.5) and (105,103.62) .. (105,105) -- (105,105) .. controls (105,106.38) and (103.88,107.5) .. (102.5,107.5) -- (97.5,107.5) .. controls (96.12,107.5) and (95,106.38) .. (95,105) -- cycle ;
+%Straight Lines [id:da8144885809103521] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (95,85) -- (90,85) -- (90,105) -- (95,105) ;
+
+%Straight Lines [id:da5030372720493737] 
+\draw    (40,122.5) -- (52.5,145) -- (52.5,165) ;
+%Shape: Circle [id:dp6407081872243225] 
+\draw   (54.5,125) .. controls (54.5,123.9) and (53.6,123) .. (52.5,123) .. controls (51.4,123) and (50.5,123.9) .. (50.5,125) .. controls (50.5,126.1) and (51.4,127) .. (52.5,127) .. controls (53.6,127) and (54.5,126.1) .. (54.5,125) -- cycle ;
+%Straight Lines [id:da6460091175696209] 
+\draw    (52.5,123) -- (52.5,115) ;
+%Rounded Rect [id:dp9609968233337836] 
+\draw   (47.5,155) .. controls (47.5,153.62) and (48.62,152.5) .. (50,152.5) -- (55,152.5) .. controls (56.38,152.5) and (57.5,153.62) .. (57.5,155) -- (57.5,155) .. controls (57.5,156.38) and (56.38,157.5) .. (55,157.5) -- (50,157.5) .. controls (48.62,157.5) and (47.5,156.38) .. (47.5,155) -- cycle ;
+%Straight Lines [id:da6179641442257855] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (47.5,135) -- (42.5,135) -- (42.5,155) -- (47.5,155) ;
+
+%Straight Lines [id:da00291106623493409] 
+\draw    (6.88,115) -- (193.13,115) ;
+%Straight Lines [id:da11915371021246435] 
+\draw    (132.5,122.5) -- (145,145) -- (145,165) ;
+%Shape: Circle [id:dp1952488345903889] 
+\draw   (147,125) .. controls (147,123.9) and (146.1,123) .. (145,123) .. controls (143.9,123) and (143,123.9) .. (143,125) .. controls (143,126.1) and (143.9,127) .. (145,127) .. controls (146.1,127) and (147,126.1) .. (147,125) -- cycle ;
+%Straight Lines [id:da16332456687050667] 
+\draw    (145,123) -- (145,115) ;
+%Rounded Rect [id:dp31893341091728067] 
+\draw   (140,155) .. controls (140,153.62) and (141.12,152.5) .. (142.5,152.5) -- (147.5,152.5) .. controls (148.88,152.5) and (150,153.62) .. (150,155) -- (150,155) .. controls (150,156.38) and (148.88,157.5) .. (147.5,157.5) -- (142.5,157.5) .. controls (141.12,157.5) and (140,156.38) .. (140,155) -- cycle ;
+%Straight Lines [id:da8418511360368651] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (140,135) -- (135,135) -- (135,155) -- (140,155) ;
+
+
+% Text Node
+\draw (13.5,168.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\footnotesize Alimentation 1}};
+% Text Node
+\draw (106,167) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\footnotesize Alimentation 2}};
+% Text Node
+\draw (54.5,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:40}};
+% Text Node
+\draw (102,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:41}};
+% Text Node
+\draw (147,130) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:42}};
+
+\end{tikzpicture}
+\subcaption{unifilaire de l'installation}
+\end{subfigure}
+\begin{subfigure}[b]{0.49\linewidth}
+\centering
+\input{fig_temporisation_selectivite_totale}
+\subcaption{courbe des courants de fonctionnement résiduels assignés en fonction du temps\supercite{Schneider:coordinationDDR}}
+\end{subfigure}
+\end{figure}
+
+\paragraph{Cas particulier de coordination avec les DDR de type B}
+
+\startcstep
+\begin{wrapfigure}{R}{0pt}
+\ffigbox[\FBwidth]
+{\caption{Cas d'une sélectivité à deux niveaux entre des DDR de type B\label{fig:selectivite_DDR_type_B}}}
+{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,138); %set diagram left start at 0, and has height of 138
+
+%Straight Lines [id:da8169631390975441] 
+\draw    (119.38,65) -- (305.63,65) ;
+%Straight Lines [id:da4319979510089893] 
+\draw    (152.5,22.5) -- (165,45) -- (165,65) ;
+%Shape: Circle [id:dp7461171752369792] 
+\draw   (167,25) .. controls (167,23.9) and (166.1,23) .. (165,23) .. controls (163.9,23) and (163,23.9) .. (163,25) .. controls (163,26.1) and (163.9,27) .. (165,27) .. controls (166.1,27) and (167,26.1) .. (167,25) -- cycle ;
+%Straight Lines [id:da8451811097550901] 
+\draw    (165,23) -- (165,15) ;
+%Rounded Rect [id:dp18053555138635746] 
+\draw   (160,55) .. controls (160,53.62) and (161.12,52.5) .. (162.5,52.5) -- (167.5,52.5) .. controls (168.88,52.5) and (170,53.62) .. (170,55) -- (170,55) .. controls (170,56.38) and (168.88,57.5) .. (167.5,57.5) -- (162.5,57.5) .. controls (161.12,57.5) and (160,56.38) .. (160,55) -- cycle ;
+%Straight Lines [id:da08951652624873063] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (160,35) -- (155,35) -- (155,55) -- (160,55) ;
+
+%Straight Lines [id:da7410030620837423] 
+\draw    (200,72.5) -- (212.5,95) -- (212.5,115) ;
+%Shape: Circle [id:dp05670563209773016] 
+\draw   (214.5,75) .. controls (214.5,73.9) and (213.6,73) .. (212.5,73) .. controls (211.4,73) and (210.5,73.9) .. (210.5,75) .. controls (210.5,76.1) and (211.4,77) .. (212.5,77) .. controls (213.6,77) and (214.5,76.1) .. (214.5,75) -- cycle ;
+%Straight Lines [id:da816027499463629] 
+\draw    (212.5,73) -- (212.5,65) ;
+%Rounded Rect [id:dp3947599360896624] 
+\draw   (207.5,105) .. controls (207.5,103.62) and (208.62,102.5) .. (210,102.5) -- (215,102.5) .. controls (216.38,102.5) and (217.5,103.62) .. (217.5,105) -- (217.5,105) .. controls (217.5,106.38) and (216.38,107.5) .. (215,107.5) -- (210,107.5) .. controls (208.62,107.5) and (207.5,106.38) .. (207.5,105) -- cycle ;
+%Straight Lines [id:da6953851857801584] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (207.5,85) -- (202.5,85) -- (202.5,105) -- (207.5,105) ;
+
+
+% Text Node
+\draw (167,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:50}};
+% Text Node
+\draw (214.5,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:51}};
+% Text Node
+\draw (38.5,4.5) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{76.744375pt}\setlength\topsep{0pt}
+\begin{flushright}
+DDR\\
+type B\\
+\SI{300}{\milli\ampere}\\
+type S
+\end{flushright}
+
+\end{minipage}};
+% Text Node
+\draw (86,69.5) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{76.744375pt}\setlength\topsep{0pt}
+\begin{flushright}
+DDR\\
+type B\\
+\SI{30}{\milli\ampere}
+\end{flushright}
+
+\end{minipage}};
+\end{tikzpicture}}
+\end{wrapfigure}
+
+En présence d'un courant de fuite à la terre possible en courant continu (typiquement le cas pour les chargeurs de voiture), un DDR de type B doit être utilisé pour la protection contre les contacts indirects. Dans ce cas, le DDR en amont ne doit pas être aveuglé par le courant résiduel continu possible et doit assurer sa protection normale lorsqu'un courant de défaut apparait dans une autre partie de l'installation.\\
+Par exemple, dans le schéma en \superref{fig:selectivite_DDR_type_B}, le DDR $I_{\Delta n} = \SI{30}{\milli\ampere}$ de type B au niveau 2 peut avoir un seuil de déclenchement courant continu maximum de $2 \times I_{\Delta n}$, selon la norme produit DDR CEI 62423\supercite{IEC:62423-2009}. Cela signifie que ce DDR de $I_{\Delta n} = \SI{30}{\milli\ampere}$ de type B pourrait laisser passer un courant résiduel de presque \SI{60}{\milli\ampere} $\mathdirectcurrent$ sans déclenchement et que le DDR en amont ne devrait perdre aucune de ses performances avec la présence de ce niveau élevé de courant résiduel $mathdirectcurrent$. C'est pourquoi il est souvent proposé d'utiliser un DDR de type B au niveau 1 pour éviter tout effet d'aveuglement par le courant continu.\\
+
+Toutefois, certains constructeurs implémentent dans leurs DDR de type A la capacité de ne pas être sensibles au courant résiduel $\mathdirectcurrent$ en dessous d'un certain seuil de courant de défaut ($\SI{60}{\milli\ampere}$ pour la marque Schneider\supercite{Schneider:coordinationDDR}. Cela permet d'éviter la pose d'un DDR de type B en amont, plus coûteux qu'un DDR de type A, tout en conservant les capacités de détection des DDR de types A et AC.
+
+\subsection{Mise à la terre des appareils et structures conductrices}
+
+\subsubsection{Mise à la terre des appareils électriques}
+
+Les appareils de classe d'isolation I doivent être raccordées à des prises 2P + T \circrefseul{pas:30} au moyen de fiches 2P + T \circrefseul{pas:31}. Ces prises équipent maintenant tous les logements dont l'installation respecte la norme NF C15-100. Si ces appareils ne présentent pas de fiches, elles sont raccordées au moyen de boitiers d'encastrements appropriés.\\
+Sont particulièrement concernés par cette connexion vers la terre les appareils combinant électricité et eau (lave-vaisselle, lave-linge, cafetière\ldots \circrefseul{pas:32}). Les fuites d'eau peuvent effectivement  provoquer relativement facilement la mise sous tension de la carcasse métallique de l'appareil.
+
+\subsubsection{Liaison équipotentielle}
+
+Pour protéger les biens et les personnes des contacts indirects, en plus de connecter toutes les carcasses métalliques des appareils de classe d'isolation II vers la terre, il convient de connecter toutes les structures métalliques du bâtiment susceptibles d'être en contact avec un individu \emph{et} d'être mise sous tension accidentellement. Sont concernés par la mise à la terre \circrefseul{pas:33} :
+\begin{itemize}
+\item tuyauterie (même non conductrice car l'eau y transitant l'est)\,;
+\item baignoire et bac de douche (fonte, métal\ldots)\,;
+\item charpente métallique\,;
+\item autres structures métalliques (pouvant varier selon les exigences de sécurité).
+\end{itemize}
+Cette connexion, effectuée par un \emph{conducteur de protection} PE \circrefseul{pas:34} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \circrefseul{pas:37} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \circrefseul{pas:38} par une \emph{barrette de mesure} \circrefseul{pas:39} (dénommé également \emph{couteau de terre}).\\
+
+Afin d'assurer la meilleure protection possible, les conducteurs de protection doivent présenter une section de câble et des raccordements dimensionnés à même de garantir une résistance de la liaison équipotentielle d'une valeur inférieure à \SI{2}{\ohm}. Cette résistance est contrôlée au moyen d'un \emph{testeur de continuité} spécifique.
+\begin{table}[H]
+\caption{Section des conducteurs de protection}
+\begin{tabularx}{\linewidth}{c X p{5,5cm}}
+\toprule
+\thead{Schéma}		& \thead{Type de conducteur}		& \thead{Section} \\
+\midrule
+\circrefseul{pas:34} 		& Conducteur de protection transitant dans la même canalisation que les phase(s) et neutre		& identique à celle des phase(s) et neutre \\
+\addlinespace
+	&		Conducteur de protection protégé mécaniquement																	& \SI{2,5}{\square\milli\meter} \\
+\addlinespace
+	&		Conducteur de protection non protégé mécaniquement															& \SI{4}{\square\milli\meter} \\
+\addlinespace
+\circrefseul{pas:35}		&	Conducteur principal de protection																							& \SI{16}{\square\milli\meter} en cuivre isolé \\
+\addlinespace
+\circrefseul{pas:36} 		& Conducteur de terre																												& 
+\begin{tabdescription}
+\item[Selon les caractéristiques :]\hfill
+\begin{compactitemize}
+\item \SI{16}{\square\milli\meter} en cuivre isolé\,;
+\item \SI{25}{\square\milli\meter} en cuivre nu\,;
+\item \SI{50}{\square\milli\meter} en aluminium ou en fer.
+\end{compactitemize} 
+\end{tabdescription}
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\input{fig_equipotentielle}
+
+\subsubsection{Prise de terre de l'installation électrique\label{subsec:prise_terre_installation_electrique}}
+
+Le courant de défaut $I_d$ transite par les conducteurs de la liaison équipotentielle et s'échappe vers la terre via la \emph{prise de terre de l'installation électrique} \circrefseul{pas:38} qui est simplement un électrode métallique en contact avec la terre.\\
+Cet électrode doit présenter également la plus faible \emph{résistance de terre} $R_A$ pour permettre au courant de défaut $I_d$ de s'échapper sous une \emph{tension de sécurité} $U_L$ la plus faible possible.  Cette valeur doit être régulièrement contrôlée par un \emph{contrôleur de terre}. Les paramètres $U_L$ et $I_{\Delta n}$ (calibre du DDR) étant des constantes déterminées par le DDR, le seul paramètre variable est donc la $R_A$, selon les conditions environnementales (géologie, humidité, corrosion\ldots).\\
+Elle ne doit jamais dépasser :
+\begin{description}
+\item[\SI{50}{\ohm} :] locaux humides\,;
+\item[\SI{100}{\ohm} :] locaux secs.
+\end{description}
+
+\begin{formule}[Valeur de la résistance de la prise de terre de l'installation électrique $R_T$\label{form:resistance_prise_terre}]
+\begin{align}
+R_A &\leq \frac{U_L}{I_{\Delta n}}
+\end{align}
+\end{formule}
+
+\begin{textvariables}
+R_A			& résistance		& ohm		& \ohm 		& résistance de la prise de terre \\
+U_L			& tension			& volt		& \volt		& tension de sécurité du local \\
+I_{\Delta n}	& intensité			& ampère	& \ampere	& intensité de sensibilité du DDR (calibre) \\
+\end{textvariables}
+
+Il existe trois méthode de mesure de $R_A$ :
+\begin{description}
+\item[mesure en ligne (des 62\%) :] un ou deux piquets selon les variantes\,;
+\item[mesure en triangle :] deux piquets disposés de façon à former un triangle équilatéral avec le piquet de terre.
+\end{description}
+
+La terre est un conducteur offrant une résistance bien plus élevée que le cuivre mais sa \og section \fg{} est théoriquement infinie, on va donc maximiser la surface de contact de la prise de terre de l'installation électrique. Il existe trois technique courant pour la réaliser :
+
+\paragraph{Boucle à fond de fouille}
+Cette technique consiste en un conducteur noyé dans les fondations et raccordée à la boucle. Elle est réalisée lors du terrassement précédant la construction de l'immeuble et constitue la solution privilégiée pour minimiser la résistance de terre $R_A$. Elle sera donc préférée aux deux solutions suivantes.\\
+Le conducteur utilisé doit cependant présenter une section minimale selon le matériau choisi :
+\begin{itemize}
+\item câble de cuivre nu de \SI{25}{\square\milli\meter}\,;
+\item câble en acier de \SI{95}{\square\milli\meter}\,;
+\item feuillard en acier de \SI{100}{\square\milli\meter} et de \SI{3}{\milli\meter} d'épaisseur.
+\end{itemize}
+\input{fig_boucle_terre}
+
+\paragraph{Câble en tranchée}
+Si la mise en \oe{}uvre de la boucle à fond de fouille n'est pas possible (bâtiment existant par exemple), on peut réaliser la mise à la terre de l'installation électrique par l'installation d'un câble en tranchée en respectant les règles de pose explicité dans le schéma \superref{fig:cable_tranchee}.\\
+Le conducteur utilisé doit aussi présenter une section minimale selon le matériau choisi :
+\begin{itemize}
+\item câble de cuivre nu de \SI{25}{\square\milli\meter}\,;
+\item câble en acier de \SI{95}{\square\milli\meter}.
+\end{itemize}
+
+\input{fig_cable_tranchee}
+
+\paragraph{Piquet de terre}
+Si aucune des deux solutions précédentes n'est envisageable, on peut réaliser la prise de terre au moyen d'un piquet enfoncé dans le sol en respectant les règles de pose explicité dans le schéma \superref{fig:piquet_terre}.\\
+Le piquet utilisé doit aussi présenter une section ou une surface minimale selon le matériau choisi :
+\begin{itemize}
+\item tube en acier de \SI{25}{\milli\meter} de diamètre\,;
+\item profilé en acier de \SI{60}{\square\milli\meter} de diamètre\,;
+\item une barre de cuivre ou d'acier cuivré de \SI{15}{\square\milli\meter} de diamètre.
+\end{itemize}
+
+\input{fig_piquet_terre}
+
+\subsection{Mise hors de portée des appareils électriques}
+
+Un dernier moyen de protection contre les contacts indirects est de mettre hors de portée les appareils électriques ou du moins installer des appareils présentant des indices de protections adaptés à l'environnement. Cette solution est obligatoirement appliquée dans les pièces humides comme les salles de bain ou de douches, et les règles d'installations sont régies par la norme NF-C15 100\supercite{NF:C15-100-2015}.\\
+L'eau étant conductrice, si l'on se retrouve immergé ou simplement mouillé, le risque d'électrocution lors de la manipulation d'appareils est plus important. Les zones humides font donc l'objet d'une attention particulière :
+\begin{itemize}
+\item règlementation de pose des appareils électrique\,;
+\item calibre du DDR plus faible ($I_{\Delta n}<\SI{30}{\milli\ampere}$)\,;
+\item liaison équipotentielle \emph{secondaire} (huisseries, tuyauterie, baignoire métallique, plancher chauffant, crépine\ldots).
+\end{itemize}
+
+\input{fig_volume_douche}
+\input{fig_volume_bain}
+
+\begin{table}[t]
+\caption{Caractéristiques des équipements électriques selon les volumes des salles d'eau}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\linewidth}{X ccccc}
+\toprule
+\multirow[c]{2}{*}{\thead{Appareils}} 	& \multirow[c]{2}{*}{\thead{Mesure de\\protection}}		& \thead{Volume 0}		& \thead{Volume 1}		& \thead{Volume 2}		& \multirow{2}{*}{\thead{Hors volume}} \\
+&&	IPX7		& IPX4\tnote{1}			& IPX4\tnote{1}			& \\
+\midrule
+Lave-linge, sèche-linge				& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Appareils de chauffage 				& classe I												& interdit						& interdit 						& interdit						& autorisé \\
+												&classe II												& interdit						& interdit 						& autorisé						& autorisé \\
+\addlinespace
+\'Eclairage									& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+												& classe II													& interdit						& interdit 						& autorisé						& autorisé \\
+												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}												& autorisé\tnote{2}						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
+\addlinespace
+Chauffe-eau instantané				& classe I													& interdit						& autorisé\tnote{4} 					& autorisé\tnote{4}						& autorisé \\
+\addlinespace
+Chauffe-eau à accumulation				& classe I												& interdit						& autorisé\tnote{5} 					& autorisé\tnote{4}						& autorisé \\
+\addlinespace
+Interrupteur								& 																& interdit						& interdit 						& interdit						& autorisé \\
+												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}	& interdit						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
+\addlinespace
+Prise de courant avec terre			& 																& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Prise rasoir (\SIrange{10}{50}{\watt})								& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{transformateur de séparation}}															& interdit						& interdit 						& autorisé						& autorisé \\
+\addlinespace
+Transformateur de séparation							& 															& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Canalisation							& 															& interdit						& autorisé\tnote{6} 						& autorisé\tnote{6}						& autorisé \\
+\addlinespace
+Boitier de connexion							& 															& interdit						& interdit\tnote{7} 						& interdit						& autorisé \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] IP X5 si le volume est soumis à des jets d'eau pour des raisons de nettoyage (piscines, bains publics\ldots)\,;
+    \item[2] Le transformateur de séparation doit être installé en dehors des volumes 1, 2 et 3\,;
+	\item[3] La tension peut être portée à \SI{230}{\volt}\,;
+	\item[4] Si l'appareil est alimenté directement sans boite de connexion\,;
+	\item[5] Chauffe-eau horizontal installé le plus haut possible\,;
+	\item[6] Limité à l'alimentation des appareils autorisés dans ces volumes\,;
+	\item[7] Pour l'alimentation en direct d'un appareil et avec le respect de l'IP exigée par le volume ou elle se situe.
+\end{tablenotes}
+\end{threeparttable} %note dans tableau
+\end{table}
+
+
+%\end{document}
