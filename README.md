@@ -1,2 +1,6 @@
-# electrotechnique-BTS-electrotechniqu
-Contenus pédagogiques pour le diplôme BTS Electrotechnique, format LaTeX
+# Electrotechnique : BTS électrotechnique
+
+Contenus pédagogiques :
+  - Métier : électrotechnicien
+  - Diplôme : BTS Electrotechnique
+  - Formats : LaTeX, Markdown
