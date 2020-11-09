@@ -2,6 +2,6 @@
 
 Contenus pédagogiques :
 - Corps de métiers : Métiers des Technologies Associées
-  - Métier : électrotechnicien
-  - Diplôme : BTS Electrotechnique
-  - Formats : LaTeX, Markdown
+- Métier : électrotechnicien
+- Diplôme : BTS Electrotechnique
+- Formats : LaTeX, Markdown
