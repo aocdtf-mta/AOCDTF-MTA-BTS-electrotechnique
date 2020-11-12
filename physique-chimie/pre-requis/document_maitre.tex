@@ -1,8 +1,4 @@
 %--------------------------------------
-%PRE-REQUIS
-%--------------------------------------
-
-%--------------------------------------
 %appel de la classe de document et de ses options
 %--------------------------------------
 
@@ -10,28 +6,31 @@
 
 \usepackage{AOCDTF}
 
+\addbibresource{../../../parametres/bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\addbibresource{../../../parametres/bibliographies/bib_sciences_naturelles.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\addbibresource{../../../parametres/bibliographies/bib_electrotechnique.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
 %--------------------------------------
 %données du document
 %--------------------------------------
 
-\title{Physique-Chimie -- Pré-requis}
-\date{\year}
-\author[1]{Douchy Bruno}
-%\author[2]{Prénom2 Nom2}
-%\author[3]{Prénom3 Nom3}
-%\author[4]{Prénom4 Nom4}
+\corpsdemetier{Métiers des technologies associées}
+\acronymemetier{MTA}
 
-%--------------------------------------
-%programmations spécifiques de mise-en-pages adaptables selon les matières et bibliographie
-%--------------------------------------
+\formation{BTS \'Electrotechnique}
+\matiere{Physique-chimie}
+\cours{Pré-requis}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+\auteura{Bruno}{Douchy}
+\acronymemetierauteura{MTA}
+\auteurb{}{}
+\acronymemetierauteurb{nul}
+\auteurc{}{}
+\acronymemetierauteurc{nul}
+\auteurd{}{}
+\acronymemetierauteurd{nul}
 
-%\input{DocSettings}%à executer lorsqu'on souhaite un nouveau numéro de version du document
-
-\addbibresource{../../../parametres/bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
-\addbibresource{../../../parametres/bibliographies/bib_sciences_naturelles.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
-\addbibresource{../../../parametres/bibliographies/bib_electrotechnique.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\decoupagechapitre{5} %espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (5cm vaut un espacement équivalement à la hauteur du marqueur, une page ne peut en contenir que 5 avec cet espacement-la mais il est le plus équilibré)
 
 %--------------------------------------
 %corps du document
@@ -51,9 +50,9 @@
 	%page de couverture et de titre
 	%--------------------------------------
 
-	\input{page_couverture}
-
-	\input{page_titre}
+\pagecouverture
+\pagetitre
+\marqueurchapitre
 
 	\pagestyle{plain} %style de page avec en-tête et pied-de-page
 	\pagenumbering{roman}
