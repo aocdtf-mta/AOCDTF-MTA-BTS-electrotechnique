@@ -1,8 +1,4 @@
 %--------------------------------------
-%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
-%--------------------------------------
-
-%--------------------------------------
 %appel de la classe de document et de ses options
 %--------------------------------------
 
@@ -16,20 +12,23 @@
 %données du document
 %--------------------------------------
 
-\title{\'Electrotechnique -- Schéma de liaison à la terre}
-\date{\year}
-\author[1]{Bruno Douchy}
-%\author[2]{Prénom2 Nom2}
-%\author[3]{Prénom3 Nom3}
-%\author[4]{Prénom4 Nom4}
+\corpsdemetier{Métiers des technologies associées}
+\acronymemetier{MTA}
 
-%--------------------------------------
-%programmations spécifiques de mise-en-pages adaptables selon les matières et bibliographie
-%--------------------------------------
+\formation{BTS \'Electrotechnique}
+\matiere{\'Electrotechnique}
+\cours{Schémas de liaison à la terre}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+\auteura{Bruno}{Douchy}
+\acronymemetierauteura{MTA}
+\auteurb{}{}
+\acronymemetierauteurb{nul}
+\auteurc{}{}
+\acronymemetierauteurc{nul}
+\auteurd{}{}
+\acronymemetierauteurd{nul}
 
-%\input{DocSettings}%à executer lorsqu'on souhaite un nouveau numéro de version du document
+\decoupagechapitre{5} %espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (5cm vaut un espacement équivalement à la hauteur du marqueur, une page ne peut en contenir que 5 avec cet espacement-la mais il est le plus équilibré)
 
 %--------------------------------------
 %corps du document
@@ -49,9 +48,9 @@
 	%page de couverture et de titre
 	%--------------------------------------
 
-	\input{page_couverture}
-
-	\input{page_titre}
+\pagecouverture
+\pagetitre
+\marqueurchapitre
 
 	\pagestyle{plain} %style de page avec en-tête et pied-de-page
 	\pagenumbering{roman}
