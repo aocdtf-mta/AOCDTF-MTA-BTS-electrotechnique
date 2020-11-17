@@ -10,7 +10,7 @@
 
 \usepackage{AOCDTF}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+\marqueurchapitre
 
 %--------------------------------------
 %corps du document
@@ -258,13 +258,13 @@ Pour protéger les biens et les personnes contre les contacts indirects, on asso
 \addlinespace
 I		& Matériel ayant une simple isolation mais présentant un dispositif de mise à la terre			& Ordinateur, lampadaire, fer à repasser, fer à souder\ldots		&  \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_I.png}}} & \adjustbox{valign=t}{\includegraphics[width=2cm]{type_e.png}} \\
 \addlinespace
-II		& Matériel présentant une double isolation de la partie active \circrefseul{pas:1} (isolation fonctionnelle \circrefseul{pas:2} et isolation supplémentaire \circrefseul{pas:3}) ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+II		& Matériel présentant une double isolation de la partie active \Circled{1} (isolation fonctionnelle \Circled{2} et isolation supplémentaire \Circled{3}) ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
 \addlinespace
 III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \SI{24}{\volt}) et ne présentant pas de dangers pour les personnes (aucune précaution particulière à prendre)			& Circuits électriques, sonnette, smartphone\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_III.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{fiche_TBT.png}}
 \end{xltabular}
 
 \begin{figure}[h]
-\caption{Matériel de classe d'isolation II}
+\caption{Matériel de classe d'isolation II} %lien éditeur Bruno Douchy : https://www.mathcha.io/editor/KxQmrUWBUm3TJwvgGohw0oEeWc2Mo9q7iLwLp4k
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
@@ -289,11 +289,11 @@ III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \S
 \draw [shift={(260,140)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 
 % Text Node
-\draw (71,112) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:1}};
+\draw (71,112) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{1}};
 % Text Node
-\draw (318,132) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:2}};
+\draw (318,132) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{2}};
 % Text Node
-\draw (318,91) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:3}};
+\draw (318,91) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{3}};
 \end{tikzpicture}
 \end{figure}
 
@@ -404,13 +404,13 @@ Comme tout appareil de protection, le DDR respecte des normes de qualité strict
 \begin{annotate}
 {\includegraphics[scale=1]{DDR_dessus}}{0.25}
 %\helpgrid[gray] 
-\node at (-11.8,4.3) {\cstep\label{pas:101}};
-\node at (-11.8,2.2) {\cstep\label{pas:102}};
-\node at (-11.8,-0.85) {\cstep\label{pas:103}};
-\node at (-11.8,-3.85) {\cstep\label{pas:104}};
-\node at (11.7,3.4) {\cstep\label{pas:105}};
-\node at (11.7,1.1) {\cstep\label{pas:106}};
-\node at (11.7,-2.1) {\cstep\label{pas:107}};
+\node at (-11.8,4.3) {\Circled{1}};
+\node at (-11.8,2.2) {\Circled{2}};
+\node at (-11.8,-0.85) {\Circled{3}};
+\node at (-11.8,-3.85) {\Circled{4}};
+\node at (11.7,3.4) {\Circled{5}};
+\node at (11.7,1.1) {\Circled{6}};
+\node at (11.7,-2.1) {\Circled{7}};
 \end{annotate} 
 \end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
@@ -418,32 +418,32 @@ Comme tout appareil de protection, le DDR respecte des normes de qualité strict
 \begin{annotate}
 {\includegraphics[scale=1]{DDR_avant}}{0.25}
 %\helpgrid[gray] 
-\node at (-11.8,6.7) {\cstep\label{pas:108}};
-\node at (-11.8,3.8) {\cstep\label{pas:109}};
-\node at (-11.9,-6.85) {\cstep\label{pas:110}};
-\node at (11.7,3.85) {\cstep\label{pas:111}};
-\node at (11.7,1) {\cstep\label{pas:112}};
-\node at (11.7,-2.05) {\cstep\label{pas:113}};
+\node at (-11.8,6.7) {\Circled{8}};
+\node at (-11.8,3.8) {\Circled{9}};
+\node at (-11.9,-6.85) {\Circled{10}};
+\node at (11.7,3.85) {\Circled{11}};
+\node at (11.7,1) {\Circled{12}};
+\node at (11.7,-2.05) {\Circled{13}};
 \end{annotate} 
 \end{subfigure}
 \end{figure}
 \end{center}
 \begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
 	\begin{multicols}{2} %répartition du texte dans l'environnement en deux colonnes
-		\circref{pas:101}norme du produit\\ %légende automatique
-		\circref{pas:102}tension assignée $230/400\si{\volt}\sim$\\
-		\circref{pas:103}code de production\\
-		\circref{pas:104}signe \og Courant assigné de court-circuit \SI{10000}{\ampere} \fg{} en combinaison avec un fusible en amont \\
-		\circref{pas:105}pouvoir assigné de coupure \og \SI{1250}{\ampere} \fg{} \\
-		\circref{pas:106}signe de sécurité ESTI (équivalent de la norme NF pour la Suisse) \\
-		\circref{pas:107}signe \og Flocon de neige \fg{} (utilisation pour une température ambiante jusqu'à \SI{-25}{\degree}) \\
+		\Circled{1} norme du produit\\ %légende automatique
+		\Circled{2} tension assignée $230/400\si{\volt}\sim$\\
+		\Circled{3} code de production\\
+		\Circled{4} signe \og Courant assigné de court-circuit \SI{10000}{\ampere} \fg{} en combinaison avec un fusible en amont \\
+		\Circled{5} pouvoir assigné de coupure \og \SI{1250}{\ampere} \fg{} \\
+		\Circled{6}signe de sécurité ESTI (équivalent de la norme NF pour la Suisse) \\
+		\Circled{7}signe \og Flocon de neige \fg{} (utilisation pour une température ambiante jusqu'à \SI{-25}{\degree}) \\
 		\columnbreak\\ %passage à la deuxième colonne
-		\circref{pas:108}couple de serrage \si{\newton\meter} \\
-		\circref{pas:109}désignation du type\\
-		\circref{pas:110}schéma des connexions\\
-		\circref{pas:111}courant assigné $I_n$ de \SI{40}{\ampere} et calibre du DDR $I_{\Delta n}$\\
-		\circref{pas:112}note concernant le test \og à effectuer tous les six mois \fg{}\\
-		 \circref{pas:113}type de courant différentiel (type F)
+		\Circled{8}couple de serrage \si{\newton\meter} \\
+		\Circled{9}désignation du type\\
+		\Circled{10}schéma des connexions\\
+		\Circled{11}courant assigné $I_n$ de \SI{40}{\ampere} et calibre du DDR $I_{\Delta n}$\\
+		\Circled{12}note concernant le test \og à effectuer tous les six mois \fg{}\\
+		 \Circled{13}type de courant différentiel (type F)
 	\end{multicols}
 \end{minipage}
 
@@ -460,10 +460,10 @@ Les éléments essentiels d'un DDR sont les suivants : \\
 \begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
 	\begin{multicols}{2} %répartition du texte dans l'environnement en deux colonnes
 	\startcstep %remet les compteurs des légendes en pastille à zéro
-		\circref{pas:20} bouton test d'essai du DDR\\ %légende automatique
-		\circref{pas:21} transformateur d'intensité (tore de détection)\\
-		\circref{pas:22} relais de déclenchement  \\
-		\circref{pas:23} mécanisme à déclenchement libre sans retour automatique \\
+		\Circled{1} bouton test d'essai du DDR\\ %légende automatique
+		\Circled{2} transformateur d'intensité (tore de détection)\\
+		\Circled{3} relais de déclenchement  \\
+		\Circled{4} mécanisme à déclenchement libre sans retour automatique \\
 		\columnbreak\\ %passage à la deuxième colonne
 		$I_1$ : courant \og d'arrivée \fg{} du récepteur \\
 		$I_2$ : courant \og de sortie \fg{} du récepteur \\
@@ -483,7 +483,6 @@ Pour le fonctionnement d'un DDR, les conditions suivantes doivent être remplie 
 \end{itemize}
 
 \input{fig_mecanisme_DDR}
-	\startcstep %remet les compteurs des légendes en pastille à zéro
 
 \paragraph{Transformateur d'intensité}
 Les conducteurs de phase et le conducteur neutre sont bobinés autour du transformateur d'intensité. Les champs magnétiques des différents conducteurs génèrent un flux magnétique à l'intérieur du transformateur d'intensité. Si la somme des courants entrants est égale à la somme des courants sortants (1\iere{} loi de Kirchhoff), le flux magnétique s'annule.
@@ -513,6 +512,10 @@ La sélectivité est totale si :
 \item présence d'un retard de la temporisation du déclenchement du DDR situé en amont.
 \end{itemize}
 Elle peut toutefois être prescrite selon les exigences de sécurité ou d'exploitation et est obtenue sur base des différents calibres de sensibilité standardisés (\SI{30}{\milli\ampere}, \SI{100}{\milli\ampere}, \SI{300}{\milli\ampere}, \SI{1}{\ampere}\ldots) et de la temporisation des temps de déclenchement comme dans la figure située \superref{fig:selectivite_totale}.
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Bruno Douchy : https://www.mathcha.io/editor/v06MWu1KFnvulQJgPnUgx55eGCnxY1x3CPLlzWv
 
 \begin{figure}[H]
 \caption{Sélectivité totale à trois niveaux\label{fig:selectivite_totale}}
@@ -577,11 +580,11 @@ Elle peut toutefois être prescrite selon les exigences de sécurité ou d'explo
 % Text Node
 \draw (106,167) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\footnotesize Alimentation 2}};
 % Text Node
-\draw (54.5,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:40}};
+\draw (54.5,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{1}};
 % Text Node
-\draw (102,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:41}};
+\draw (102,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{2}};
 % Text Node
-\draw (147,130) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:42}};
+\draw (147,130) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{3}};
 
 \end{tikzpicture}
 \subcaption{unifilaire de l'installation}
@@ -630,9 +633,9 @@ Elle peut toutefois être prescrite selon les exigences de sécurité ou d'explo
 
 
 % Text Node
-\draw (167,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:50}};
+\draw (167,30) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{1}};
 % Text Node
-\draw (214.5,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\cstep\label{pas:51}};
+\draw (214.5,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{2}};
 % Text Node
 \draw (38.5,4.5) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{76.744375pt}\setlength\topsep{0pt}
 \begin{flushright}
@@ -664,19 +667,19 @@ Toutefois, certains constructeurs implémentent dans leurs DDR de type A la capa
 
 \subsubsection{Mise à la terre des appareils électriques}
 
-Les appareils de classe d'isolation I doivent être raccordées à des prises 2P + T \circrefseul{pas:30} au moyen de fiches 2P + T \circrefseul{pas:31}. Ces prises équipent maintenant tous les logements dont l'installation respecte la norme NF C15-100. Si ces appareils ne présentent pas de fiches, elles sont raccordées au moyen de boitiers d'encastrements appropriés.\\
-Sont particulièrement concernés par cette connexion vers la terre les appareils combinant électricité et eau (lave-vaisselle, lave-linge, cafetière\ldots \circrefseul{pas:32}). Les fuites d'eau peuvent effectivement  provoquer relativement facilement la mise sous tension de la carcasse métallique de l'appareil.
+Les appareils de classe d'isolation I doivent être raccordées à des prises 2P + T \Circled{1} au moyen de fiches 2P + T \Circled{2}. Ces prises équipent maintenant tous les logements dont l'installation respecte la norme NF C15-100. Si ces appareils ne présentent pas de fiches, elles sont raccordées au moyen de boitiers d'encastrements appropriés.\\
+Sont particulièrement concernés par cette connexion vers la terre les appareils combinant électricité et eau (lave-vaisselle, lave-linge, cafetière\ldots \Circled{3}). Les fuites d'eau peuvent effectivement  provoquer relativement facilement la mise sous tension de la carcasse métallique de l'appareil.
 
 \subsubsection{Liaison équipotentielle}
 
-Pour protéger les biens et les personnes des contacts indirects, en plus de connecter toutes les carcasses métalliques des appareils de classe d'isolation II vers la terre, il convient de connecter toutes les structures métalliques du bâtiment susceptibles d'être en contact avec un individu \emph{et} d'être mise sous tension accidentellement. Sont concernés par la mise à la terre \circrefseul{pas:33} :
+Pour protéger les biens et les personnes des contacts indirects, en plus de connecter toutes les carcasses métalliques des appareils de classe d'isolation II vers la terre, il convient de connecter toutes les structures métalliques du bâtiment susceptibles d'être en contact avec un individu \emph{et} d'être mise sous tension accidentellement. Sont concernés par la mise à la terre \Circled{4} :
 \begin{itemize}
 \item tuyauterie (même non conductrice car l'eau y transitant l'est)\,;
 \item baignoire et bac de douche (fonte, métal\ldots)\,;
 \item charpente métallique\,;
 \item autres structures métalliques (pouvant varier selon les exigences de sécurité).
 \end{itemize}
-Cette connexion, effectuée par un \emph{conducteur de protection} PE \circrefseul{pas:34} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \circrefseul{pas:37} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \circrefseul{pas:38} par une \emph{barrette de mesure} \circrefseul{pas:39} (dénommé également \emph{couteau de terre}).\\
+Cette connexion, effectuée par un \emph{conducteur de protection} PE \Circled{5} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \Circled{8} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \Circled{9} par une \emph{barrette de mesure} \\Circled{10} (dénommé également \emph{couteau de terre}).\\
 
 Afin d'assurer la meilleure protection possible, les conducteurs de protection doivent présenter une section de câble et des raccordements dimensionnés à même de garantir une résistance de la liaison équipotentielle d'une valeur inférieure à \SI{2}{\ohm}. Cette résistance est contrôlée au moyen d'un \emph{testeur de continuité} spécifique.
 \begin{table}[H]
@@ -685,15 +688,15 @@ Afin d'assurer la meilleure protection possible, les conducteurs de protection d
 \toprule
 \thead{Schéma}		& \thead{Type de conducteur}		& \thead{Section} \\
 \midrule
-\circrefseul{pas:34} 		& Conducteur de protection transitant dans la même canalisation que les phase(s) et neutre		& identique à celle des phase(s) et neutre \\
+\Circled{5} 		& Conducteur de protection transitant dans la même canalisation que les phase(s) et neutre		& identique à celle des phase(s) et neutre \\
 \addlinespace
 	&		Conducteur de protection protégé mécaniquement																	& \SI{2,5}{\square\milli\meter} \\
 \addlinespace
 	&		Conducteur de protection non protégé mécaniquement															& \SI{4}{\square\milli\meter} \\
 \addlinespace
-\circrefseul{pas:35}		&	Conducteur principal de protection																							& \SI{16}{\square\milli\meter} en cuivre isolé \\
+\Circled{6}		&	Conducteur principal de protection																							& \SI{16}{\square\milli\meter} en cuivre isolé \\
 \addlinespace
-\circrefseul{pas:36} 		& Conducteur de terre																												& 
+\Circled{7} 		& Conducteur de terre																												& 
 \begin{tabdescription}
 \item[Selon les caractéristiques :]\hfill
 \begin{compactitemize}
@@ -711,7 +714,7 @@ Afin d'assurer la meilleure protection possible, les conducteurs de protection d
 
 \subsubsection{Prise de terre de l'installation électrique\label{subsec:prise_terre_installation_electrique}}
 
-Le courant de défaut $I_d$ transite par les conducteurs de la liaison équipotentielle et s'échappe vers la terre via la \emph{prise de terre de l'installation électrique} \circrefseul{pas:38} qui est simplement un électrode métallique en contact avec la terre.\\
+Le courant de défaut $I_d$ transite par les conducteurs de la liaison équipotentielle et s'échappe vers la terre via la \emph{prise de terre de l'installation électrique} \Circled{9} qui est simplement un électrode métallique en contact avec la terre.\\
 Cet électrode doit présenter également la plus faible \emph{résistance de terre} $R_A$ pour permettre au courant de défaut $I_d$ de s'échapper sous une \emph{tension de sécurité} $U_L$ la plus faible possible.  Cette valeur doit être régulièrement contrôlée par un \emph{contrôleur de terre}. Les paramètres $U_L$ et $I_{\Delta n}$ (calibre du DDR) étant des constantes déterminées par le DDR, le seul paramètre variable est donc la $R_A$, selon les conditions environnementales (géologie, humidité, corrosion\ldots).\\
 Elle ne doit jamais dépasser :
 \begin{description}
@@ -719,7 +722,7 @@ Elle ne doit jamais dépasser :
 \item[\SI{100}{\ohm} :] locaux secs.
 \end{description}
 
-\begin{formule}[Valeur de la résistance de la prise de terre de l'installation électrique $R_T$\label{form:resistance_prise_terre}]
+\begin{formule}[Valeur de la résistance de la prise de terre de l'installation électrique $R_A$\label{form:resistance_prise_terre}]
 \begin{align}
 R_A &\leq \frac{U_L}{I_{\Delta n}}
 \end{align}
