@@ -10,7 +10,7 @@
 
 \usepackage{AOCDTF}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+\marqueurchapitre
 
 %--------------------------------------
 %corps du document
@@ -34,7 +34,7 @@ Schéma de liaison à la terre dans lequel :
 \end{description}
 \end{definition}
 
-Dans le SLT TT, le neutre du transformateur HT/BT (point commun) est relié à la terre via la \emph{prise de terre du neutre} \Circled{1}. Cette liaison présente une certaine résistance, la \emph{résistance de la prise de terre du neutre} $R_B$ \Circled{2}. Sa mise en \oe{}uvre est à charge du fournisseur d'électricité et sa résistance globale doit être inférieure ou égale à \SI{15}{\ohm} \supercite{NF:C13-100-2015}.\\
+Dans le SLT TT, le point neutre du transformateur HT/BT (point commun) est relié à la terre via la \emph{prise de terre du neutre} \Circled{1}. Cette liaison présente une certaine résistance, la \emph{résistance de la prise de terre du neutre} $R_B$ \Circled{2}. Sa mise en \oe{}uvre est à charge du fournisseur d'électricité et sa résistance globale doit être inférieure ou égale à \SI{15}{\ohm} \supercite{NF:C13-100-2015}.\\
 Les masses sont quant à elles reliées à la terre via la \emph{prise de terre de l'installation électrique} \Circled{3}, qui présente aussi une certaine résistance, la \emph{résistance de la prise de terre de l'installation électrique} $R_A$ \Circled{4}. Sa mise en \oe{}uvre est à charge du propriétaire de l'installation (voir \superref{subsec:prise_terre_installation_electrique}).\\ 
 
 \section{Schémas de principe}
@@ -52,7 +52,7 @@ Les masses sont quant à elles reliées à la terre via la \emph{prise de terre 
 \end{figure}
 
 En cas de défaut d'isolement sur les masses métalliques, le courant de défaut $I_d$ dispose d'un chemin, via la terre, pour revenir au poste de transformateur HT/BT. Cela forme la \emph{boucle de défaut}.\\
-Dans les calculs, il faut tenir compte de la \emph{résistance de défaut} $R_d$ \circrefseul{pas:1} qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique.\\
+Dans les calculs, il faut tenir compte de la \emph{résistance de défaut} $R_d$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique.\\
 
 \pagebreak
 
