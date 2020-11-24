@@ -1,0 +1,62 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : 
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{xltabular}{\linewidth}{c CCCCCCCCCCCCCCCC}
+\caption{$L_{max}$ des circuits en mètre selon les sections des conducteurs en cuivre en schéma TN pour les disjoncteurs domestiques de type B\supercite{Schneider:schematncalculdefaut}}\\
+\toprule
+\multirow[c]{2}{*}{\thead{Section des\\conducteurs\\(\si{\square\milli\meter})}}	& \multicolumn{16}{l}{\thead{Courant assigné (\si{\ampere})}} \\
+\cmidrule(lr){2-17} 
+& \mcrot{1}{l}{60}{1} 	& \mcrot{1}{l}{60}{2} & \mcrot{1}{l}{60}{3}	& \mcrot{1}{l}{60}{4} & \mcrot{1}{l}{60}{6} & \mcrot{1}{l}{60}{10} & \mcrot{1}{l}{60}{16} & \mcrot{1}{l}{60}{20} &\mcrot{1}{l}{60}{25} & \mcrot{1}{l}{60}{32} & \mcrot{1}{l}{60}{40} & \mcrot{1}{l}{60}{50} & \mcrot{1}{l}{60}{63} & \mcrot{1}{l}{60}{80} & \mcrot{1}{l}{60}{100} & \mcrot{1}{l}{60}{125} \\
+\midrule
+\endfirsthead
+\multicolumn{17}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multirow[c]{2}{*}{\thead{Section des\\conducteurs\\(\si{\square\milli\meter})}}	& \multicolumn{16}{l}{\thead{Courant assigné (\si{\ampere})}} \\
+\cmidrule(lr){2-17} 
+& \mcrot{1}{l}{60}{1} 	& \mcrot{1}{l}{60}{2} & \mcrot{1}{l}{60}{3}	& \mcrot{1}{l}{60}{4} & \mcrot{1}{l}{60}{6} & \mcrot{1}{l}{60}{10} & \mcrot{1}{l}{60}{16} & \mcrot{1}{l}{60}{20} &\mcrot{1}{l}{60}{25} & \mcrot{1}{l}{60}{32} & \mcrot{1}{l}{60}{40} & \mcrot{1}{l}{60}{50} & \mcrot{1}{l}{60}{63} & \mcrot{1}{l}{60}{80} & \mcrot{1}{l}{60}{100} & \mcrot{1}{l}{60}{125} \\
+\midrule
+\endhead
+\midrule %filet de milieu de tableau
+\multicolumn{17}{r}{\small\textit{Page suivante}}
+\endfoot
+\bottomrule
+\endlastfoot %pied de page de toutes les pages du tableau
+1,5	&	1200	&	600	&	400	&	300	&	200	&	120	&	75		&	60		&	48		&	37		&	30	 	&	24		&	19		&	15		&	12	 	&	10 \\
+2,5	&			&	1000	&	666	&	500	&	333	&	200	&	125	&	100	&	80		&	62		&	50		&	40		&	32		&	25		&	20		&	16 \\
+4		&			&			&	1066	&	800	&	533	&	320	&	200	&	160	&	128	&	100	&	80		&	64		&	51		&	40		&	32		&	26	 \\
+6		&			&			&			&	1200	&	800	&	480	&	300	&	240	&	192	&	150	&	120	&	96		&	76		&	60		&	48		&	38 \\
+10		&			&			&			&			&			&	800	&	500	&	400	&	320	&	250	&	200	&	160	&	127	&	100	&	80		&	64 \\
+16		&			&			&			&			&			&			&	800	&	640	&	512	&	400	&	320	&	256	&	203	&	160	&	128	&	102 \\
+25		&			&			&			&			&			&			&			&			&	800	&	625	&	500	&	400	&	317	&	250	&	200	&	160 \\
+35		&			&			&			&			&			&			&			&			&			&	875	&	700	&	560	&	444	&	350	&	280	&	224 \\
+50		&			&			&			&			&			&			&			&			&			&			&			&	760	&	603	&	475	&	380	&	304 \\
+\end{xltabular}
+
+
+
+%\end{document}
+

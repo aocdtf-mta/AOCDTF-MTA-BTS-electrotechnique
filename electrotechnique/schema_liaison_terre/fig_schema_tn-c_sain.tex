@@ -4,7 +4,7 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-%\begin{comment}
+\begin{comment}
 
 \documentclass{standalone}
 
@@ -37,7 +37,10 @@
 
 \begin{document} %corps du document
 
-%\end{comment}
+\end{comment}
+
+
+
 
 % Pattern Info
  
@@ -49,8 +52,8 @@ pattern thickness = 0.3pt,
 pattern radius/.store in=\mcRadius, 
 pattern radius = 1pt}
 \makeatletter
-\pgfutil@ifundefined{pgf@pattern@name@_bmmmws9wn}{
-\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_bmmmws9wn}
+\pgfutil@ifundefined{pgf@pattern@name@_v1tzu2pxh}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_v1tzu2pxh}
 {\pgfqpoint{0pt}{0pt}}
 {\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
 {\pgfpoint{\mcSize}{\mcSize}}
@@ -64,15 +67,15 @@ pattern radius = 1pt}
 \makeatother
 \tikzset{every picture/.style={line width=0.5pt}} %set default line width to 0.75pt        
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.5,xscale=0.5]
-%uncomment if require: \path (0,293); %set diagram left start at 0, and has height of 293
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+%uncomment if require: \path (0,251); %set diagram left start at 0, and has height of 251
 
 %Straight Lines [id:da008483698413953467] 
 \draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (90,75) -- (460,75) ;
 %Straight Lines [id:da06944587101382871] 
 \draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (90,75) -- (460,75) ;
 %Straight Lines [id:da7402424217268804] 
-\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (87.5,222.5) -- (87.5,252.5) ;
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (87.5,162.5) -- (87.5,192.5) ;
 %Straight Lines [id:da5918343393245601] 
 \draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (240,135) -- (225,135) -- (225,75) ;
 %Straight Lines [id:da8855218059773354] 
@@ -82,9 +85,9 @@ pattern radius = 1pt}
 %Straight Lines [id:da636953775291555] 
 \draw [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ]   (112.5,55) -- (162.5,55) ;
 %Straight Lines [id:da6725148311968068] 
-\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (95.5,35) -- (87.5,75) -- (87.5,182.5) ;
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (95.5,35) -- (87.5,75) -- (87.5,122.5) ;
 %Straight Lines [id:da09238729671521517] 
-\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (95.5,35) -- (87.5,75) -- (87.5,182.5) ;
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (95.5,35) -- (87.5,75) -- (87.5,122.5) ;
 %Straight Lines [id:da8100957998136087] 
 \draw    (202.5,35) -- (460,35) ;
 %Straight Lines [id:da16093045358944136] 
@@ -115,22 +118,22 @@ pattern radius = 1pt}
 %Straight Lines [id:da6144198142388259] 
 \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ]   (292.5,130.5) -- (292.5,117.5) ;
 %Straight Lines [id:da08447178364240893] 
-\draw    (45,232.5) -- (460,232.5) ;
+\draw    (45,172.5) -- (460,172.5) ;
 %Shape: Rectangle [id:dp6917865548447948] 
-\draw  [draw opacity=0][pattern=_bmmmws9wn,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=0.75]  (45,232.5) -- (460,232.5) -- (460,247.5) -- (45,247.5) -- cycle ;
+\draw  [draw opacity=0][pattern=_v1tzu2pxh,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=0.75]  (45,172.5) -- (460,172.5) -- (460,187.5) -- (45,187.5) -- cycle ;
 %Straight Lines [id:da5758120659627904] 
 \draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (240,135) -- (225,135) -- (225,75) ;
 %Straight Lines [id:da3042650335499705] 
-\draw    (87.5,252.5) -- (87.5,267.5) ;
+\draw    (87.5,192.5) -- (87.5,207.5) ;
 %Straight Lines [id:da5819552828178339] 
-\draw    (77.5,267.5) -- (97.5,267.5) ;
+\draw    (77.5,207.5) -- (97.5,207.5) ;
 %Straight Lines [id:da5191842943668726] 
-\draw    (80,272.5) -- (95,272.5) ;
+\draw    (80,212.5) -- (95,212.5) ;
 %Straight Lines [id:da20267125061533042] 
-\draw    (82.5,277.5) -- (92.5,277.5) ;
+\draw    (82.5,217.5) -- (92.5,217.5) ;
 
 %Straight Lines [id:da1731291153518706] 
-\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (87.5,222.5) -- (87.5,252.5) ;
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 2.25pt off 2.25pt}]  (87.5,162.5) -- (87.5,192.5) ;
 %Straight Lines [id:da447845422109466] 
 \draw    (287.5,130) -- (292.5,130) ;
 %Shape: Rectangle [id:dp520581263360185] 
@@ -139,11 +142,11 @@ pattern radius = 1pt}
 \draw    (252.5,130) -- (257.5,130) ;
 
 %Straight Lines [id:da07643260567103483] 
-\draw    (87.5,217.5) -- (87.5,222.5) ;
+\draw    (87.5,157.5) -- (87.5,162.5) ;
 %Shape: Rectangle [id:dp008342316051101917] 
-\draw   (92.5,187.5) -- (92.5,217.5) -- (82.5,217.5) -- (82.5,187.5) -- cycle ;
+\draw   (92.5,127.5) -- (92.5,157.5) -- (82.5,157.5) -- (82.5,127.5) -- cycle ;
 %Straight Lines [id:da09697746232408333] 
-\draw    (87.5,182.5) -- (87.5,187.5) ;
+\draw    (87.5,122.5) -- (87.5,127.5) ;
 
 %Straight Lines [id:da1742958722449034] 
 \draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ]   (325,135) -- (310,135) -- (310,75) ;
@@ -195,12 +198,6 @@ pattern radius = 1pt}
 \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (290,75) .. controls (290,73.62) and (291.12,72.5) .. (292.5,72.5) .. controls (293.88,72.5) and (295,73.62) .. (295,75) .. controls (295,76.38) and (293.88,77.5) .. (292.5,77.5) .. controls (291.12,77.5) and (290,76.38) .. (290,75) -- cycle ;
 %Shape: Circle [id:dp2507630610609335] 
 \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (250,15) .. controls (250,13.62) and (251.12,12.5) .. (252.5,12.5) .. controls (253.88,12.5) and (255,13.62) .. (255,15) .. controls (255,16.38) and (253.88,17.5) .. (252.5,17.5) .. controls (251.12,17.5) and (250,16.38) .. (250,15) -- cycle ;
-%Straight Lines [id:da6877054516361302] 
-%\draw    (70,152.5) -- (81.83,185.62) ;
-%\draw [shift={(82.5,187.5)}, rotate = 250.35] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da6269819660832152] 
-%\draw    (142.5,212.5) -- (96.38,261.05) ;
-%\draw [shift={(95,262.5)}, rotate = 313.53] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Shape: Rectangle [id:dp19008190111612866] 
 \draw  [dash pattern={on 2.25pt off 2.25pt on 1pt off 2.25pt}] (242.5,115) -- (302.5,115) -- (302.5,145) -- (242.5,145) -- cycle ;
 %Shape: Circle [id:dp22840916642995968] 
@@ -251,20 +248,25 @@ pattern radius = 1pt}
 \draw    (172.5,15) -- (162.5,15) ;
 \draw [shift={(172.5,15)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (-3.35,0) -- (3.35,0)(0,3.35) -- (0,-3.35)   ;
 
+
 % Text Node
-%\draw (94.5,190.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {$R_b$};
+\draw (94.5,130.5) node [anchor=north west][inner sep=0.75pt] [font=\footnotesize]    [align=left] {$R_B$};
 % Text Node
-%\draw (55,124) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{2}};
+\draw (294.5,93) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]   [align=left] {1};
 % Text Node
-%\draw (130,186) node [anchor=north west][inner sep=0.75pt]   [align=left] {\Circled{1}};
+\draw (379.5,93) node [anchor=north west][inner sep=0.75pt] [font=\footnotesize]    [align=left] {2};
 % Text Node
-%\draw (294.5,93) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+\draw (464.5,93) node [anchor=north west][inner sep=0.75pt]   [font=\footnotesize]  [align=left] {3};
 % Text Node
-%\draw (379.5,93) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+\draw (461,7) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {L1};
 % Text Node
-%\draw (464.5,93) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+\draw (461,27) node [anchor=north west][inner sep=0.75pt]   [font=\footnotesize][align=left] {L2};
+% Text Node
+\draw (462,47) node [anchor=north west][inner sep=0.75pt] [font=\footnotesize]  [align=left] {L3};
+% Text Node
+\draw (466,67) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {PEN};
 
 
 \end{tikzpicture}
 
-\end{document}
+%\end{document}

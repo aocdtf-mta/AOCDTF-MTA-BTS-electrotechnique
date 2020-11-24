@@ -4,7 +4,7 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-%\begin{comment}
+\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
@@ -23,32 +23,29 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-%\end{comment}
+\end{comment}
 
-\begin{landscape}
-
-\begin{xltabular}{\textwidth}{c X X X c}
+\begin{xltabular}{\textwidth}{C >{\compress}X >{\compress}X >{\compress}X}
 \caption{Déclinaisons du SLT TN}\\
 \toprule
-\thead{Nom}		& \thead{Caractéristiques}		& \thead{Avantages}		& \thead{Inconvénients} & \thead{Schéma sain} \\
+\thead{Nom}		& \thead{Caractéristiques}		& \thead{Avantages}		& \thead{Inconvénients} \\
 \midrule
 \endfirsthead %en-tête de la première page du tableau  
-\multicolumn{5}{l}{\small\textit{Page précédente}} \\
+\multicolumn{4}{l}{\small\textit{Page précédente}} \\
 \midrule %filet de milieu de tableau
-\thead{Nom}		& \thead{Caractéristique}		& \thead{Schémas} 	& \thead{Inconvénients} 	& \thead{Schéma sain} \\
+\thead{Nom}		& \thead{Caractéristique}		& \thead{Avantages} 	& \thead{Inconvénients} \\
 \midrule
 \endhead
 \midrule %filet de milieu de tableau
-\multicolumn{5}{r}{\small\textit{Page suivante}} \\
+\multicolumn{4}{r}{\small\textit{Page suivante}} \\
 \endfoot %pied de page de toutes les pages du tableau
 \bottomrule
 \endlastfoot %pied de page de la dernièredu tableau
 Confondus (TN-C)		
 & 
 \begin{tabitemize}
-\item Conducteurs neutre et PE confondus\,;
-\item PE et neutre vert/jaune nommé conducteur Protection \'Equipotentielle Neutre (PEN)\,;
-\item Connexion à la \emph{prise de terre du neutre} du poste HT/BT.
+\item conducteurs neutre et PE confondus\,;
+\item PE et neutre vert/jaune nommé conducteur Protection \'Equipotentielle Neutre (PEN).
 \end{tabitemize}
 &
 \begin{tabitemize}
@@ -56,20 +53,44 @@ Confondus (TN-C)
 \end{tabitemize}
 &		
 \begin{tabitemize}
-\item utilisation de canalisations fixes et rigides\,;
+\item utilisation de canalisations fixes et rigides.
 \item interdiction de pose :
-	\begin{tabitemize}
+	\begin{compactitemize}
 	\item locaux à risques d'incendies\,;
 	\item alimentation d'équipements de traitement de l'information (présence de courant harmonique dans le neutre).
-	\end{tabitemize}
-\end{tabitemize}	
-& 
-\adjustbox{valign=t}{\includepdf{fig_schema_tn-c_sain.pdf}}
+	\end{compactitemize}
+\end{tabitemize}\\
+\addlinespace
+Séparés (TN-S)		
+&
+\begin{tabitemize}
+\item conducteurs neutre et PE séparés\,;
+\item PE et neutre vert/jaune séparés (PE+N).
+\end{tabitemize}
+&
+\begin{tabitemize}
+\item usage de conducteurs souples autorisés\,;
+\item séparation et protection du neutre possibles dans les locaux pollués.
+\end{tabitemize}
+&
+\begin{tabitemize}
+\item solution plus coûteuse que le schéma TN-C.
+\end{tabitemize}
 \\
-
+\addlinespace
+Mixte (TN-C-S)	
+&
+\begin{tabitemize}
+\item combinaison des SLT TN-C et TN-S dans une même installation\,;
+\item usage du SLT TN-C formellement interdit en aval du SLT TN-S.
+\end{tabitemize}
+&
+\begin{tabitemize}
+\item combinaison des avantages des deux SLT TN.
+\end{tabitemize}
+&\\
 \end{xltabular}
 
-\end{landscape}
 
-\end{document}
+%\end{document}
 

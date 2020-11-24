@@ -1,0 +1,78 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : 
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\newlength{\largeurtablmax}
+\settowidth{\largeurtablmax}{\bfseries\small{conducteurs}}
+
+\begin{table}[H]
+\caption{$L_{max}$ des circuits en mètre selon les sections des conducteurs en cuivre en schéma TN pour les disjoncteurs industriels\supercite{Schneider:schematncalculdefaut}}
+\begin{tabularx}{\linewidth}{c CCCCCCCCCCCCCCCC}
+\toprule
+\multirow[c]{2}{*}{\thead{Section des\\conducteurs\\(\si{\square\milli\meter})}}	& \multicolumn{16}{l}{\thead{Réglage du seuil de déclenchement magnétique $I_m$ des disjoncteurs (\si{\ampere})}} \\
+\cmidrule(lr){2-17} 
+& \mcrot{1}{l}{60}{50} 	& \mcrot{1}{l}{60}{63	} & \mcrot{1}{l}{60}{80}	& \mcrot{1}{l}{60}{100} & \mcrot{1}{l}{60}{125} & \mcrot{1}{l}{60}{160} & \mcrot{1}{l}{60}{200} & \mcrot{1}{l}{60}{250} &\mcrot{1}{l}{60}{320} & \mcrot{1}{l}{60}{400} & \mcrot{1}{l}{60}{500} & \mcrot{1}{l}{60}{560} & \mcrot{1}{l}{60}{630} & \mcrot{1}{l}{60}{700} & \mcrot{1}{l}{60}{800} & \mcrot{1}{l}{60}{875} \\
+\midrule
+1,5 	&	100		&	79		&	63		&	50		&	40		&	31		&	25		&	20		&	16		&	13		&	10		&	9		&	8		&	7		&	6		&		6		\\
+2,5	&	167		&	133	&	104	&	83		&	67		&	52		&	42		&	33		&	26		&	21		&	17		&	15		&	13		&	12		&	10		&		10		\\
+4		&	267		&	212	&	167	&	133	&	107	&	83		&	67		&	53		&	42		&	33		&	27		&	24		&	21		&	19		&	17		&		15		\\
+6		&	400		&	317	&	250	&	200	&	160	&	125	&	100	&	80		&	63		&	50		&	40		&	36		&	32		&	29		&	25		&		23 	\\
+10		&				&			&	417	&	333	&	267 	&	208	&	167	&	133	&	104	&	83		&	67		&	60		&	53		&	48		&	42		&		38		\\
+16		&				&			&			&			&	427	&	333	&	267	&	213	&	167	&	133	&	107	&	95		&	85		&	76		&	67		&		61		\\
+25		&				&			&			&			&			&			&	417	&	333	&	260	&	208	&	167	&	149	&	132	&	119	&	104	&		95		\\
+35		&				&			&			&			&			&			&			&	467	&	365	&	292	&	233	&	208	&	185	&	167	&	146	&		133	\\
+50		&				&			&			&			&			&			&			&			&	495	&	396	&	317	&	283	&	251	&	226	&	198	&		181	\\
+70		&				&			&			&			&			&			&			&			&			&			&			&	417	&	370	&	333	&	292	&		267	\\
+95		&				&			&			&			&			&			&			&			&			&			&			&			&			&	452	&	396	&		362	\\
+120	&				&			&			&			&			&			&			&			&			&			&			&			&			&			&			&		457 	\\
+\end{tabularx}
+\begin{tabularx}{\linewidth}{c CCCCCCCCCCCCC}
+\midrule
+\resizebox{\largeurtablmax}{!}{ } &	\mcrot{1}{l}{60}{1000} &	\mcrot{1}{l}{60}{1120}	&	\mcrot{1}{l}{60}{1250}	&	\mcrot{1}{l}{60}{1600}	&	\mcrot{1}{l}{60}{2000}	&	\mcrot{1}{l}{60}{2500}	&	\mcrot{1}{l}{60}{3200}	&	\mcrot{1}{l}{60}{4000}	&	\mcrot{1}{l}{60}{5000}	&	\mcrot{1}{l}{60}{6300}	&	\mcrot{1}{l}{60}{8000}	&	\mcrot{1}{l}{60}{10000}	&	\mcrot{1}{l}{60}{12500} \\
+\midrule
+1,5	&	5		&	4		&	4		&			&			&			&			&			&			&			&			&			& \\								
+2,5	&	8		&	7		&	7		&	5		&	4		&			&			&			&			&			&			&			& \\						
+4		&	13		&	12		&	11		&	8		&	7		&	5		&	4		&			&			&			&			&			& \\					
+6		&	20		&	18		&	16		&	13		&	10		&	8		&	6		&	5		&	4		&			&			&			&	\\		
+10		&	33		&	30		&	27		&	21		&	17		&	13		&	10		&	8		&	7		&	5		&	4		&			&	\\
+16		&	53		&	48		&	43		&	33		&	27		&	21		&	17		&	13		&	11		&	8		&	7		&	5		&	4 \\
+25		&	83		&	74		&	67		&	52		&	42		&	33		&	26		&	21		&	17		&	13		&	10		&	8		&	7 \\
+35		&	117	&	104	&	93		&	73		&	58		&	47		&	36		&	29		&	23		&	19		&	15		&	12		&	9 \\
+50		&	158	&	141	&	127	&	99		&	79		&	63		&	49		&	40		&	32		&	25		&	20		&	16		&	13 \\
+70		&	233	&	208	&	187	&	146	&	117	&	93		&	73		&	58		&	47		&	37		&	29		&	23		&	19 \\
+95		&	317	&	283	&	263	&	198	&	158	&	127	&	99		&	79		&	63		&	50		&	40		&	32		&	25 \\
+120	&	400	&	357	&	320	&	250	&	200	&	160	&	125	&	100	&	80		&	63		&	50		&	40		&	32 \\
+150	&	435	&	388	&	348	&	272	&	217	&	174	&	136	&	109	&	87		&	69		&	54		&	43		&	35 \\
+185	&			&	459	&	411	&	321	&	257	&	206	&	161	&	128	&	103	&	82		&	64		&	51		&	41 \\
+240	&			&			&			&	400	&	320	&	256	&	200	&	160	&	128	&	102	&	80		&	64		&	51 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+%\end{document}
+

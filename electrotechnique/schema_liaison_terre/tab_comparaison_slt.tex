@@ -1,0 +1,81 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien éditeur Bruno Douchy : https://www.mathcha.io/editor/zjygnFElSdyhJ72e3zT5ZgqwBT4DKnovswpXn1q
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{landscape}
+\begin{xltabular}{\linewidth}{X l c c c c c}
+\caption{Comparaison des différents schémas de liaison à la terre} \\
+\toprule
+\multicolumn{2}{c}{\thead{Critères de comparaison}} & \thead{TT} & \thead{TN-S} & \thead{TN-C} & \thead{IT\\individuelles} & \thead{IT\\interconnectées} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Critères de comparaison}} & \thead{TT} & \thead{TN-S} & \thead{TN-C} & \thead{IT\\individuelles} & \thead{IT\\interconnectées} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{\small\textit{Page suivante}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Protection des personnes contre les chocs électriques 														& contacts directs							& + 	& + 	& + 	& + 	& + \\
+																																	&	contacts indirects						& + 	& + 	& + 	& + 	& + \\
+\addlinespace		
+Protection des biens contre les risques d'incendie ou d'explosion d'origine électrique 		& incendie et explosion					&  - 	& - -  	& interdit 	& + 	& - - \\
+\addlinespace		
+Continuité de service							& creux de tension 				& + & - & - & ++ & - \\
+														& sélectivité							& - & + & + & ++ & + \\
+														& déclenchement					& - & - & - & + & - \\
+														& temps de recherche			& - & + & + & - & + \\
+														& temps de réparation			& - - & - - - & - - - & - & - - - \\
+\addlinespace		
+Protection contre les surtensions		& foudre sur la HT					& - & + & + & + & + \\
+														& claquage du transformateur	& - & + & + & + & + \\
+\addlinespace
+Compatibilité électromagnétique 		& rayonnements 					& + & - & - - & ++ & - \\
+														& chute de tension					&  + & - & - & ++ & - \\
+														& harmoniques						&  + & + & - - & + & + \\
+\addlinespace
+Coût à la conception					 		& étude la sélectivité 			& - & + & + & ++ & + \\
+														& calcul de $L_{max}$			& + & - & - & ++ & - \\
+\addlinespace
+Coût à l'installation					 		& nombre de câbles	 			& + & + & ++ & + & + \\
+														& nombre de pôles		 			& + & + & ++ & + & + \\
+														& pose des câbles		 			& - & - - & - - & ++ & - - \\
+														& matériel spécifiques	 		& - & + & + & - & + \\
+\addlinespace
+Coût à l'exploitation							& recherche de défauts			& - & + & + & - - & + \\
+														& coûts des réparations			& - - & - - - & - - - & - &  - - - \\
+														& vérifications des connexions& + & - & - & ++ & - \\
+														& facilité d'extension				& + & - & - & + & - \\
+\end{xltabular}
+
+\end{landscape}
+
+%\end{document}
+

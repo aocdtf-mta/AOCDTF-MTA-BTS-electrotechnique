@@ -1,0 +1,110 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Bruno Douchy : https://www.mathcha.io/editor/Kxxn3cWBUm3T7ynYmWi4KY0P9H9d6v9qFLQyMEE
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_mapwe9h2a}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_mapwe9h2a}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,255); %set diagram left start at 0, and has height of 255
+
+%Shape: Circle [id:dp5798472281121134] 
+\draw   (6,35) .. controls (6,18.43) and (19.43,5) .. (36,5) .. controls (52.57,5) and (66,18.43) .. (66,35) .. controls (66,51.57) and (52.57,65) .. (36,65) .. controls (19.43,65) and (6,51.57) .. (6,35) -- cycle ;
+%Straight Lines [id:da3615148482630621] 
+\draw    (33.5,192.5) -- (223.5,192.5) ;
+%Shape: Rectangle [id:dp3610308425690396] 
+\draw  [draw opacity=0][pattern=_mapwe9h2a,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=0.75]  (33.5,192.5) -- (223.5,192.5) -- (223.5,207.5) -- (33.5,207.5) -- cycle ;
+%Shape: Circle [id:dp29492494106175504] 
+\draw   (48.5,35) .. controls (48.5,18.43) and (61.93,5) .. (78.5,5) .. controls (95.07,5) and (108.5,18.43) .. (108.5,35) .. controls (108.5,51.57) and (95.07,65) .. (78.5,65) .. controls (61.93,65) and (48.5,51.57) .. (48.5,35) -- cycle ;
+%Straight Lines [id:da5864869759773715] 
+\draw    (143.5,45) -- (153.5,25) ;
+\draw [shift={(153.5,25)}, rotate = 296.57] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 2.01, y radius= 2.01]   ;
+%Straight Lines [id:da590516619145185] 
+\draw    (123.5,45) -- (133.5,25) ;
+%Straight Lines [id:da6583043188110688] 
+\draw    (118.5,45) -- (128.5,25) ;
+%Straight Lines [id:da30825691931695154] 
+\draw    (113.5,45) -- (123.5,25) ;
+
+%Straight Lines [id:da1737554447276327] 
+\draw    (111,127.5) -- (111,132.5) ;
+%Shape: Rectangle [id:dp748463406215852] 
+\draw   (116,97.5) -- (116,127.5) -- (106,127.5) -- (106,97.5) -- cycle ;
+%Straight Lines [id:da8876597368461879] 
+\draw    (111,92.5) -- (111,97.5) ;
+
+%Straight Lines [id:da503925874694277] 
+\draw    (111,132.5) -- (111,207.5) ;
+%Straight Lines [id:da6747215753993356] 
+\draw    (111,35) -- (111,92.5) ;
+%Straight Lines [id:da8063011305299009] 
+\draw    (111,207.5) -- (111,222.5) ;
+%Straight Lines [id:da6592255893720647] 
+\draw    (101,222.5) -- (121,222.5) ;
+%Straight Lines [id:da7136111013794798] 
+\draw    (103.5,227.5) -- (118.5,227.5) ;
+%Straight Lines [id:da3480313518683734] 
+\draw    (106,232.5) -- (116,232.5) ;
+
+%Shape: Circle [id:dp2159345798203055] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (108.5,35) .. controls (108.5,33.62) and (109.62,32.5) .. (111,32.5) .. controls (112.38,32.5) and (113.5,33.62) .. (113.5,35) .. controls (113.5,36.38) and (112.38,37.5) .. (111,37.5) .. controls (109.62,37.5) and (108.5,36.38) .. (108.5,35) -- cycle ;
+%Straight Lines [id:da29125439892383587] 
+\draw    (108.5,35) -- (213.5,35) ;
+%Straight Lines [id:da8502339793911636] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (213.5,35) -- (256,35) ;
+
+% Text Node
+\draw (118,100.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {$Z_{res}$};
+
+
+\end{tikzpicture}
+
+
+%\end{document}
