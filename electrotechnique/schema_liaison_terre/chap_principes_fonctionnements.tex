@@ -10,7 +10,7 @@
 
 \usepackage{AOCDTF}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+\marqueurchapitre %à personnaliser selon le nombre de chapitre dans le cours
 
 %--------------------------------------
 %corps du document
@@ -29,14 +29,18 @@
 La protection contre les contacts indirects dépend principalement des SLT (anciennement régime de neutre) qui sont fonction du branchement du neutre vis-à-vis de la terre et du branchement des masses conductrices vis-à-vis de la terre et du neutre.\\
 Il existe trois SLT :
 \begin{description}
-\item[SLT Terre-Terre (TT) :] distribution publique \,;
+\item[SLT Terre-Terre (TT) :] distribution du réseaux public \,;
 \item[SLT Terre-Neutre (TN) :] généralement installé dans le secteur de l'industrie\,;
 \begin{itemize}
 \item SLT Terre-Neutre \emph{Séparé} (TN-S)\,;
 \item SLT Terre-Neutre \emph{Commun} (TN-C)\,;
-\item SLT Terre-Neutre \emph{Commun} et \emph{Séparé} (TN-C-S)\,;
+\item SLT Terre-Neutre \emph{Commun} et \emph{Séparé} (TN-C-S).
 \end{itemize}
 \item[SLT Isolé/Impédant-Terre (IT) :] continuité de service en cas de défaut d'isolement.
+\begin{itemize}
+\item SLT IT \emph{Terres Individuelles}\,;
+\item SLT IT \emph{Terres Interconnectées}?
+\end{itemize}
 \end{description}
 
 \section{Définitions usuelles}
@@ -64,7 +68,7 @@ Partie conductrice d'un appareil électrique susceptible d'être touchée par un
 \item la deuxième lettre donne la position des masses par rapport à la terre où au neutre.
 \end{itemize}
 
-\begin{table}[h]
+\begin{table}[H]
 \caption{Désignation des différents schémas de liaisons à la terre}
 \begin{tabularx}{\linewidth}{XXX}
 \toprule
@@ -77,11 +81,11 @@ Régime IT						& Neutre Isolé/Impédant	& Masses reliées à la Terre \\
 \end{tabularx}
 \end{table}
 
-\subsection{Temps de coupure maximal\label{tab:temps_coupure_DDR}}
+\section{Temps de coupure maximal\label{tab:temps_coupure_DDR}}
 
-Le temps de coupure (ou de détection pour le schéma IT) des DDR en cas de défaut doit être le plus court possible et diminue avec l'augmentation de la \emph{tension nominale} $U_0$ entre phase et neutre.
+Le temps de coupure (ou de détection pour le schéma IT) des DDR et disjoncteurs en cas de défaut doit être le plus court possible et diminue avec l'augmentation de la \emph{tension nominale} $U_0$ entre phase et neutre.
 
-\begin{table}[h]
+\begin{table}[H]
 \caption{Temps de coupure maximal des circuits terminaux}
 \begin{tabularx}{\linewidth}{X cccccccc}
 \toprule

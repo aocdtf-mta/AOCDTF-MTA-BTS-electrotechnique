@@ -11,6 +11,7 @@
 \usepackage{AOCDTF}
 
 \marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
 
 %--------------------------------------
 %corps du document
@@ -30,12 +31,23 @@
 Schéma de liaison à la terre dans lequel :
 \begin{description}
 \item[Neutre :] relié à la terre\,;
-\item[Masse :] reliées à la terre.
+\item[Masses :] reliées à la terre.
 \end{description}
 \end{definition}
 
 Dans le SLT TT, le point neutre du transformateur HT/BT (point commun) est relié à la terre via la \emph{prise de terre du neutre} \Circled{1}. Cette liaison présente une certaine résistance, la \emph{résistance de la prise de terre du neutre} $R_B$ \Circled{2}. Sa mise en \oe{}uvre est à charge du fournisseur d'électricité et sa résistance globale doit être inférieure ou égale à \SI{15}{\ohm} \supercite{NF:C13-100-2015}.\\
 Les masses sont quant à elles reliées à la terre via la \emph{prise de terre de l'installation électrique} \Circled{3}, qui présente aussi une certaine résistance, la \emph{résistance de la prise de terre de l'installation électrique} $R_A$ \Circled{4}. Sa mise en \oe{}uvre est à charge du propriétaire de l'installation (voir \superref{subsec:prise_terre_installation_electrique}).\\ 
+
+Ce SLT présente les caractéristiques principales suivantes :
+\begin{itemize}
+\item entrainement d'une coupure de l'installation en défaut suite à une seule coupure\,;
+\item simplicité à l'étude et à l'installation\,;
+\item usage dans les installations alimentées directement par le réseau de distribution publique d'électricité\,;
+\item protection assurée par des DDR permettant, en plus de la protection des personnes contre les contacts indirects, la prévention des risques d'incendie (lorsque leur sensibilité $I_{\Delta n}\leq\SI{300}{\milli\ampere}$).
+\item permanence de surveillance en exploitation non nécessaire seulement un contrôle périodique des DDR via leur bouton test (\superref{subsubsec:principe_fonctionnement_ddr})\,;
+\item possibilité de sélectivité de protection des circuits (\superref{subsubsec:selectivite_coordination_ddr})\,;
+\item prise en compte d'appareils spécifiques pouvant provoquer des courants de défauts $I_d$ par le choix de DDR adaptés.
+\end{itemize}
 
 \section{Schémas de principe}
 
@@ -54,19 +66,17 @@ Les masses sont quant à elles reliées à la terre via la \emph{prise de terre 
 En cas de défaut d'isolement sur les masses métalliques, le courant de défaut $I_d$ dispose d'un chemin, via la terre, pour revenir au poste de transformateur HT/BT. Cela forme la \emph{boucle de défaut}.\\
 Dans les calculs, il faut tenir compte de la \emph{résistance de défaut} $R_d$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique.\\
 
-\pagebreak
-
 \input{fig_schema_tt_boucle_defaut}
 
 L'intensité de courant $I_d$ vaut alors :
-\begin{formule}[Courant de défaut $I_d$]
-\begin{align}
-		I_d &= \frac{V}{R_{B}+R_{A}+R_{d}}
-\end{align}
+\begin{formule}[Courant de défaut $I_d$ en schéma TT]
+\begin{align*}
+		I_d &= \frac{U_{0}}{R_{B}+R_{A}+R_{d}}
+\end{align*}
 \end{formule}
 
 \begin{textvariables}
-V								& tension							& volt			& \volt					& 	Différence de potentiel entre les masses métalliques et la terre 	\\
+U_{0}						& tension nominale simple						& volt			& \volt					& 	Différence de potentiel entre les masses métalliques et la terre 	\\
 R_{B}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre du neutre 	\\
 R_{A}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre de l'installation électrique 	\\
 R_{d}						& résistance						& ohm			& \ohm					& 	Résistance de défaut 	d'isolement \\
@@ -74,11 +84,11 @@ R_{d}						& résistance						& ohm			& \ohm					& 	Résistance de défaut 	d'is
 
 Le courant de défaut $I_d$ fera alors apparaître une \emph{tension de défaut} $U_d$ entre la masse métallique et la terre. Pour satisfaire aux normes de sécurité de la NF C15-100, il est imposé que la tension de défaut $U_d$ ne dépasse pas la tension de sécurité du local $U_L$ (voir \superref{subsec:prise_terre_installation_electrique}) :
 
-\begin{formule}[Tension de défaut $U_d$]
-\begin{align}
-		U_d &= R_{A} \cdot I_{d} \\
+\begin{formule}[Tension de défaut $U_d$ en schéma TT]
+\begin{align*}
+		U_d &= R_{A} \times I_{d} \\
 			   &< U_L
-\end{align}
+\end{align*}
 \end{formule}
 
 \begin{textvariables}
@@ -94,9 +104,9 @@ U_{L}						& tension							& volt			& \volt					& 	Tension de sécurité du loca
 Il est donc nécessaire de limiter $U_d$ à la valeur suivante (voir \superref{form:resistance_prise_terre}) :
 
 \begin{formule}[Calibre du DDR $I_{\Delta n}$]
-\begin{align}
+\begin{align*}
 		I_{\Delta n} &< \frac{U_{L}}{R_{A}}
-\end{align}
+\end{align*}
 \end{formule}
 
 \begin{textvariables}
@@ -111,14 +121,14 @@ R_{A}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de t
 \begin{exemple}[Calcul du calibre du DDR $I_{\Delta n}$]
 Si on considère que le transformateur est un transformateur $\SI{20}{\kilo\volt}/\SI{400}{\volt}$, que $R_A=\SI{20}{\ohm}$, que $R_B=\SI{10}{\ohm}$ et que $R_d$ est négligée, on peut déduire que le courant de défaut $I_d$ vaut :
 \begin{align*}
-		I_d 	&= \frac{V}{R_{B}+R_{A}} \\
+		I_d 	&= \frac{U_{0}}{R_{B}+R_{A}} \\
 				&=\frac{400}{20+10} \\
 				&= \SI{13,33}{\ampere} \\
 \end{align*}
 Si une personne touche une masse des récepteurs en défaut, elle sera soumise à une tension de défaut $U_d$ :
 \begin{align*}
-		U_d 	&= R_{A} \cdot I_{d} \\
-				&=20 \cdot 13,33 \\
+		U_d 	&= R_{A} \times I_{d} \\
+				&=20 \times 13,33 \\
 				&= \SI{266,6}{\volt}
 \end{align*}
 La tension de défaut $U_d$ est dangereuse quelle que soit la tension limite choisie :

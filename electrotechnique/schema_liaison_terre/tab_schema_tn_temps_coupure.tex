@@ -1,0 +1,46 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien éditeur Bruno Douchy : https://www.mathcha.io/editor/zjygnFElSdyhJ72e3zT5ZgqwBT4DKnovswpXn1q
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{table}[H]
+\caption{Temps de coupure maximal des disjoncteurs en schéma TN\label{tab:schema_tn_temps_coupure}}
+\begin{tabularx}{\textwidth}{C C C}
+\toprule
+\multirow[c]{2}{*}{\thead{Réseaux usuels}} & \multicolumn{2}{c}{\thead{Temps de coupure maximal en \si{\milli\second}}}\\
+\cmidrule(lr){2-3} 
+	& $U_{L}=\SI{50}{\volt}$ 	& 			$U_{L}=\SI{25}{\volt}$  \\
+\midrule
+\SI{127}{\volt}/\SI{230}{\volt}		& 800		& 350 \\
+\SI{230}{\volt}/\SI{400}{\volt}		& 400		& 200 \\
+\SI{400}{\volt}/\SI{690}{\volt}		& 200		& 50 \\
+\SI{690}{\volt}/\SI{1000}{\volt}	& 100		& 20 \\
+\bottomrule 
+\end{tabularx}
+\end{table}
+
+%\end{document}
+

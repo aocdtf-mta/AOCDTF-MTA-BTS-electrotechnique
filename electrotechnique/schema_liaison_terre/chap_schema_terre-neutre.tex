@@ -1,0 +1,226 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Schéma Terre-Neutre\label{chap:schema_tn}}
+\ChapFrame
+
+\section{Caractéristiques générales}
+
+\begin{definition}[Schéma TN]
+Schéma de liaison à la terre dans lequel :
+\begin{description}
+\item[Neutre :] relié à la terre\,;
+\item[Masses :] reliées au neutre du transformateur HT/BT.
+\end{description}
+\end{definition}
+
+Dans le SLT TN, le point neutre du transformateur HT/BT (point commun) est relié à la terre via la \emph{prise de terre du neutre}. Cette liaison présente une certaine résistance, la \emph{résistance de la prise de terre du neutre} $R_B$. Sa mise en \oe{}uvre est à charge du fournisseur d'électricité et sa résistance globale doit être inférieure ou égale à \SI{15}{\ohm} \supercite{NF:C13-100-2015}.\\
+
+Les masses sont quant à elles reliées au point neutre du transformateur HT/BT (point commun), cela peut être réalisé via trois déclinaisons du SLT TN :
+
+\input{tab_type_slt_tn}
+
+Ce SLT présente les caractéristiques principales suivantes :
+\begin{itemize}
+\item utilisation uniquement dans les installations électriques alimentées par un transformateur HT/BT (ou MT/BT ou BT/BT)\,;
+\item requiert l'installation de prises de terre uniformément réparties dans l'installation\,;
+\item requiert la vérification des déclenchements sur le premier défaut d'isolement, obtenue lors de l'étude par des calculs de dimensionnement et, lors de la mise en service par des mesures de test\,; 
+\item ne requiert pas de DDR dans l'absolu\,;
+\item requiert un installateur qualifié pour toute installation, modification ou encore extension\,;
+\item pouvant endommager de manière plus significative les bobinages et appareillages lors d'un défaut d'isolement, par rapport au SLT TT\,;
+\item danger plus élevé dans les locaux à risque d'incendie du fait de courants de défaut plus importants.
+\end{itemize}
+
+\section{Schémas de principe}
+
+\begin{figure}[H]
+\caption{Installation Terre-Neutre Confondus}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-c_sain}
+\subcaption{sans défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-c_defaut}
+\subcaption{avec défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Installation Terre-Neutre Séparés}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-s_sain}
+\subcaption{sans défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-s_defaut}
+\subcaption{avec défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Installation Terre-Neutre Confondus-Séparés}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-c-s_sain}
+\subcaption{sans défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_tn-c-s_defaut}
+\subcaption{avec défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+En cas de défaut d'isolement sur les masses métalliques, le courant de défaut $I_d$ dispose maintenant d'un chemin, via le conducteur PEN, pour revenir au poste de transformateur HT/BT. Cela forme la \emph{boucle de défaut} qui s'apparente à un court-circuit.\\
+
+\input{fig_schema_tn_boucle_defaut}
+
+Pour calculer le courant de défaut $I_d$, il existe trois méthode, mais ne sera détaillé dans ce chapitre que la première (plus de précisions sur les deux autres méthode \superref{ann:schema_tn}) :
+\begin{itemize}
+\item Méthode conventionnelle\,;
+\item Méthode des impédances\,;
+\item Méthode de composition.
+\end{itemize}
+
+\section{Méthode de dimensionnement conventionnelle des protections et des sections de conducteurs\label{sec:schema_tn_methode_conventionnelle}}
+
+Contrairement au SLT TT, il ne faut pas tenir compte de la \emph{résistance de défaut} $R_d$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique car il s'agit d'un court-circuit et elle sera donc très faible.\\
+$I_d$ s'apparente donc à un courant de court-circuit et son calcul est basé sur l'hypothèse que la tension de défaut reste supérieur à 80\% ou plus de la tension nominale simple. Cette valeur est issue d'une estimation de la chute de tension due à l'ensemble des impédances en amont de la protection du circuit en défaut. Elle est utilisée, avec l'impédance de la boucle de circuit, pour calculer ce courant de court-circuit.\\ 
+
+Ce facteur est calculé par l'estimation de la chute de tension due à l'ensemble des impédances en amont de cette origine. Dans une majorité des types de pose, les réactances inductive interne et entres les conducteurs sont négligées, ce qui revient à ne considérer que les résistances des conducteurs dans les calculs d'intensité de court-circuit. Cette approximation est considérée comme valable pour les sections de câble jusqu'à \SI{120}{\square\milli\meter}. Au-dessus de cette section, la résistance $R$ des conducteurs est augmentée selon le tableau ci-dessous :
+
+\begin{table}[H]
+\caption{Section des conducteurs (schéma TN / méthode conventionnelle)}
+\begin{tabular}{O k@{${\enspace{}}+{\enspace{}}$}i}
+\toprule
+\multicolumn{2}{c}{\thead{Section des conducteurs}} & \multicolumn{2}{c}{\thead{Ajustement de la résistance en \si{\ohm}}} \\
+\midrule
+S & \SI{150}{\square\milli\meter} & R & 15\% \\
+S & \SI{185}{\square\milli\meter} & R & 20\% \\
+S & \SI{240}{\square\milli\meter} & R & 25\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{formule}[Courant de défaut $I_d$ en schéma TN selon la méthode conventionnelle\label{form:courant_defaut_tn_conventionnel}]
+\begin{align*}
+		I_d &= \frac{0,8 \times U_{0}}{R_{PE}+R_{ph}} \\
+		I_d &= \frac{0,8 \times U_{0}}{Z_{c}}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\
+0,8							& facteur							& 					& 	/						& 	facteur d'approximation de la tension de défaut $U_d$ \\
+R_{PE}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur de phase traversé par un courant de défaut $I_d$	\\
+R_{ph}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur PE traversé par un courant de défaut $I_d$ \\
+Z_{c}						& impédance						& ohm			& \ohm					& Impédance de boucle du circuit en défaut (selon la méthode conventionnelle)\\
+\end{textvariables}
+
+Le courant de défaut $I_d$ fera alors apparaître une \emph{tension de défaut} $U_d$ entre la masse métallique et la terre :
+
+\begin{formule}[Tension de défaut $U_d$ en schéma TN selon la méthode conventionnelle] 
+\begin{align*}
+		U_d &= R_{PE} \times I_{d}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+R_{PE}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur PE traversé par un courant de défaut $I_d$	\\
+I_{d}							& intensité							& ampère		& \ampere				& 	Courant de défaut d'isolement \\
+\end{textvariables}
+
+La tension de défaut $U_d$ dans le cas d'un défaut d'isolement en régime TN est \emph{élevée} et donc \emph{dangereuse} si elle est supportée trop longtemps. La norme NF C15-100 a défini des temps de coupure maximum à respecter :
+
+\input{tab_schema_tn_temps_coupure}
+
+\begin{formule}[Seuil de réglage du disjoncteur $I_m$ en schéma TN]
+\begin{align*}
+		I_{m} &> I_{d}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+I_{m}						& intensité							& ampère			& \ampere					& 	Intensité de seuil de déclenchement de la protection magnétique du disjoncteur \\
+\end{textvariables}
+
+On peut calculer la longueur maximale d'un circuit d'une installation en schéma TN par la formule suivante 
+
+\begin{formule}[Longueur maximale d'un circuit $L_{max}$\label{form:schema_tn_longueur_max_circuit}]
+\begin{align*}
+		L_{max} &= \frac{0,8 \times U_{0} \times S_{ph}}{\rho \times (1+m) \times I_m}\\
+		m &= \frac{S_{ph}}{S_{PE}}
+\end{align*}
+\end{formule}
+\begin{textvariables}
+I_{m}						& intensité							& ampère			& \ampere							& 	Intensité de seuil de déclenchement de la protection magnétique du disjoncteur \\
+U_{0}						& tension							& volt				& \volt								& 	Tension nominale simple \\
+S_{ph}						& section							& millimètre\up{2}		& \si{\square\milli\meter}	& 	Section du conducteur de phase traversé par un courant de défaut $I_d$ \\
+S_{PE}						& section							& millimètre\up{2}		& \si{\square\milli\meter}	& 	Section du conducteur PE traversé par un courant de défaut $I_d$ \\
+\rho							& résistivité						& 		& \si{\ohm\square\milli\meter\per\meter}	& 	Résistivité du conducteur (selon la température et le matériau choisi) :
+\begin{tabdescription}
+\item[aluminium :] \SI{37.6 \times 10^{-3}}{\ohm\square\milli\meter\per\meter}
+\item[cuivre :] \SI{22.5 \times 10^{-3}}{\ohm\square\milli\meter\per\meter}
+\end{tabdescription}\\
+m								& facteur		& 			& /										& Facteur de correction à appliquer aux valeurs données dans les abaques de détermination des longueurs selon la section et l'intensité de déclenchement (\superref{subsubsec:facteur_correction_m}) 	 \\
+\end{textvariables}
+
+Pour vérifier rapidement un dimensionnement, les constructeurs de protections ont établis des abaques permettant de déterminer rapidement les longueurs maximale des conducteurs selon l'intensité, la section des conducteurs ou en encore les réglages du seuil de courant de déclenchement du disjoncteur ou encore le type de disjoncteurs. Ces abaques sont issus des norme IEC 60947-2\supercite{IEC:60947-2-2016} et IEC 60898\supercite{IEC:60898-2015}, qui concernent respectivement les disjoncteurs industriels et domestiques. Ils sont détaillés dans l'annexe \superref{ann:schema_tn}.
+
+\begin{exemple}[Calcul du courant de défaut $I_d$ en schéma TN]
+Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$, que $L_{ph}=\SI{50}{\meter}$ et est équivalent à $L_{PE}$, que $S_{ph}=\SI{35}{\square\milli\meter}$ et est équivalent à  $S_{PE}$, on peut déduire que le courant de défaut $I_d$ vaut :
+\begin{align*}
+		Z_{c}	&= 2 \times \rho \times \frac{L}{S}  								& 			I_d		&= \frac{U_0 \times 0,8}{Z_c} \\
+					&= 2 \times 22.5 \times 10^{-3} \times \frac{50}{35} 	&						&= \frac{230 \times 0,8}{64,3 \times 10^{-3}} \\
+					&= \SI{64,3}{\milli\ohm}						 						& 						&= \SI{2816}{\ampere}
+\end{align*}
+\end{exemple}
+
+\begin{exemple}[Calcul de la longueur maximale des conducteurs $L_{max}$ en schéma TN]
+Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$, que $L{ph}=\SI{50}{\meter}$ et est équivalent à $L{PE}$, que $S_{ph}=\SI{35}{\square\milli\meter}$ et est équivalent à  $S_{PE}$, on peut déduire que le courant de défaut $I_d$ vaut :
+\begin{align*}
+		Z_{c}	&= 2 \times \rho \times \frac{L}{S}  								& 			I_d		&= \frac{U_0 \times 0,8}{Z_c} \\
+					&= 2 \times 22.5 \times 10^{-3} \times \frac{50}{35} 			&				&= \frac{230 \times 0,8}{64,3e \times 10^{-3}} \\
+					&= \SI{64,3}{\milli\ohm}						 						& 						&= \SI{2816}{\ampere}
+\end{align*}
+
+Il convient de croiser cette valeur de $I_d$ avec les valeurs du seuil de déclenchement du disjoncteur Instantané et Court-retard et leurs temps de coupures respectifs (voir \superref{tab:schema_tn_temps_coupure}) pour valider le dimensionnement et le choix de la protection.
+
+\end{exemple}
+
+\section{Protection avec des DDR en schéma TN}
+
+La protection des circuits à l'aide de DDR en schéma TN est formellement interdite en schéma TN-C car le conducteur PE ne peut pas être sectionné. En schéma TN-C-S, son utilisation implique forcément que les conducteurs PE et N soient séparés en amont du DDR.\\
+
+Les DDR en schéma TN-S sont requis lorsque :
+\begin{itemize}
+\item l'impédance de la boucle de défaut $Z_c$ n'est pas précisément calculable\,;
+\item le courant de défaut est trop faible pour que la protection détecte le défaut comme s'apparentant à un court-circuit dans le temps de déconnexion requis.
+\end{itemize}
+
+Un DDR se déclenchant avec un courant de déclenchement de l'ordre que quelques ampères maximum, il convient bien à un circuit terminal d'une installation BT conséquente en schéma TN.
+
+
+
+
+
+%\end{document}

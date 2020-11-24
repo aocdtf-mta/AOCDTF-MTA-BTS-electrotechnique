@@ -1,0 +1,430 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Schéma Impédant-Terre\label{chap:schema_it}}
+\ChapFrame
+
+\section{Caractéristiques générales}
+
+\begin{definition}[Schéma IT]
+Schéma de liaison à la terre dans lequel le prise de terre du neutre du transformateur et la prise de terre des masses métalliques sont raccordées à la terre selon quatre variantes différentes :
+\begin{figure}[H]
+\begin{tabularx}{\linewidth}{XXXX}
+\toprule
+\multicolumn{2}{c}{\thead{Neutre transformateur HT/BT}} & \multicolumn{2}{c}{\thead{Masses conductrices}} \\
+\cmidrule(lr){1-2} 	\cmidrule(lr){3-4}
+\thead{Isolé ($Z_{res}$)}	& \thead{Impédant ($Z_{N}$)}	& \thead{Interconnectées}	& \thead{Individuelles} \\
+\midrule
+Neutre du transformateur pas raccordé du tout. Terme \og isolé \fg{} à nuancer car l'installation électrique en aval du transformateur HT/BT ne sera jamais complètement isolée par rapport à la terre. Il subsistera toujours un courant de défaut $I_d$ plus ou moins minime due à une impédance de fuite $Z_{res}$ présente dans tous les réseaux électriques (voir \superref{sec:isolation_installation_schema_it}).
+& 
+Neutre du transformateur raccordé à la prise de terre par une \emph{impédance de limitation} dont la valeur dépend de la fréquence de la tension :
+\begin{compactitemize}
+\item$F=\SI{50}{\hertz}$ : \SI{1500}{\ohm}\,;
+\item$F=\SI{2,5}{\hertz}$ : \SI{2,5}{\ohm}.
+\end{compactitemize}
+Cette impédance fixe donc une différence de potentiel définie entre le neutre et la terre, elle est installée lorsque le réseau électrique est court et que l'impédance de fuite $Z_{res}$ est élevée.
+&
+Masses \emph{interconnectées} au moyen d'un conducteur PE et raccordées à la terre au niveau du transformateur HT/BT. Raccordement similaire au schéma TN, à la différence que le neutre du transformateur n'est pas raccordé au conducteur PE et à la terre.
+&
+Masses mise à la terre \emph{individuellement} ou par groupe à des prises de terre propres. Type de raccordement similaire au schéma TT avec installation de DDR en tête de chaque circuit.
+\end{tabularx}
+\end{figure}
+\end{definition}
+
+Il s'agit d'un SLT un peu plus atypique ayant pour but d'assurer une \emph{continuité de service} à l'installation électrique malgré un \emph{premier défaut d'isolement} tout en assurant la protection des personnes contre les contacts indirects. Selon les quatre variantes de raccordement, le premier défaut entrainera un fonctionnement identique des protections mais à l'apparition d'un deuxième défaut entrainera un fonctionnement des protection différent.\\
+
+Dans la pratique, le schéma IT présente les caractéristiques suivantes :
+\begin{itemize}
+\item continuité de service assurée après un premier défaut d'isolement\,;
+\item contrôle permanent de l'isolement de l'installation par rapport à la terre avec signalisation de toute dépassement du seuil d'isolement défini à l'aide d'un Contrôleur Permanent d'Isolement (CPI)\,;
+\item protection du neutre assurée\,;
+\item raccordement possible d'un limiteur de tension (éclateur) entre la terre et le point neutre du transformateur HT/BT\,;
+\item présence continue d'une équipe pour assurer rapidement la recherche du premier défaut d'isolement aussitôt signalé, facilitée avec du matériel de localisation automatique\,;
+\item coupure automatique de l'installation dès l'apparition d'un second défaut d'isolement sur un conducteur actif différent de celui ou le premier défaut d'isolement est apparu.
+\end{itemize}
+
+Le courant de défaut du premier défaut d'isolement va dépendre de l'impédance de limitation du neutre et de l'état d'isolement de l'installation électrique. Pour toutefois protéger les personnes, il doit être suffisamment bas pour satisfaire la règle $I_{d} \times R_{A} \pm \SI{50}{\volt}$, de sorte à ce que la tension de défaut $U_d$ ne présente aucun danger.
+
+\section{Isolation de l'installation électrique en schéma IT\label{sec:isolation_installation_schema_it}}
+
+Dans le cas d'un schéma IT ou le neutre est isolé, l'isolement de l'installation de l'installation électrique n'est pas infini par rapport à la terre car les isolants ne présentent jamais une résistance infinie. Une résistance de fuite du de l'installation électrique apparaitra toujours et dépendra de plusieurs facteurs :
+\begin{itemize}
+\item nature des isolants (PVC, air\ldots)\,;
+\item âge de l'installation
+\item degré d'humidité\,;
+\item longueur de l'installation.
+\end{itemize}
+Pour une installation neuve, on considère que la résistance de fuite est estimée à \SI{3,3}{\mega\ohm} pour \SI{1}{\kilo\meter} de réseau électrique.
+\begin{formule}[Résistance de fuite du réseaux $R_{res}$ d'une installation neuve]
+\begin{align*}
+	R_{res} &= \frac{3,3}{n}
+\end{align*} 
+\end{formule}
+\begin{textvariables}
+R_{res}						& résistance					& méga-ohm			& \mega\ohm							& 	Résistance de fuite du réseaux électrique \\
+n								& 									& 							& /										& 	Nombre de \si{\kilo\meter} de réseaux électrique \\
+\end{textvariables}
+
+\input{fig_schema_it_resistance_installation}
+
+Un réseau électrique présente également une capacité de fuite de par sa constitution (conducteur sous tension + isolant + terre). Celle-ci est estimée à \SI{0,9}{\micro\farad} pour \SI{1}{\kilo\meter} de réseau électrique.
+
+\input{fig_schema_it_capacite_installation}
+
+Une capacité de \SI{0,9}{\micro\farad} par \si{\kilo\meter} de réseau électrique équivaut, à une fréquence de \SI{50}{\hertz}, à une réactance de fuite $X_{res}$ de \SI{3500}{\kilo\ohm} par \si{\kilo\meter} de réseau électrique neuf.
+
+\begin{formule}[Réactance de fuite du réseaux $X_{res}$ d'une installation neuve]
+\begin{align*}
+	X_{res} &= \frac{3,5}{n}
+\end{align*} 
+\end{formule}
+\begin{textvariables}
+X_{res}						& résistance					& kilo-ohm			& \kilo\ohm								& 	Réactance de fuite du réseaux électrique \\
+n								& 									& 							& /										& 	Nombre de \si{\kilo\meter} de réseaux électrique \\
+\end{textvariables}
+
+\input{fig_schema_it_reactance_installation}
+
+La valeur de la réactance de fuite $X_{res}$ et bien plus faible que celle de la résistance de fuite $Z_{res}$ de l'installation. C'est donc la réactance qui va être le facteur limitant dans le calcul de l'impédance de réseau $Z_{res}$.
+
+\begin{figure}[H]
+\caption{Impédance de fuite $Z_{res}$ d'un réseau électrique de plusieurs \si{\kilo\meter}}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_impedance_installation_equivalent}
+\subcaption{Impédance de fuite équivalente}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_impedance_installation}
+\subcaption{Impédance de fuite $Z_{res}$}
+\end{subfigure}
+\end{figure}
+
+L'impédance de réseau $Z_{res}$ (appelée aussi impédance capactivite $Z_C$) dépend donc de la longueur du réseau électrique et va en s'abaissant au fur et à mesure que celle-ci augmente.
+
+\begin{table}[h]
+\caption{Valeur de l'impédance de réseau $Z_{res}$ en fonction de la longueur du réseau électrique}
+\begin{tabular}{l c c c c c c}
+\toprule
+{\small \textbf{Longueur $L$ (\si{\kilo\meter})}} & 1 & 2 & 3 & 4 & 5 & 6 \\
+\midrule
+{\small \textbf{Impédance $Z_{res}$  (\si{\ohm})}} & 3538 & 1770 & 1180 & 884 & 707 & 590 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Schémas de principe}
+
+\subsection{Neutre isolé et masses mises à la terre individuellement}
+
+Le neutre du transformateur HT/BT est isolé de la prise de terre, mais protégé par un limiteur de surtension \Circled{1} contre les surtensions à fréquence industrielle, et les masses conductrices sont reliées à la terre par des prises de terre propres à chaque masse. Il subsiste néanmoins une impédance de fuite $Z_{res}$ présente dans toutes les installations électriques (voir \superref{sec:isolation_installation_schema_it}).  \\
+\begin{figure}[H]
+\caption{Installation Isolé-Individuelle}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_sain_isole_individuelle}
+\subcaption{Sans défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_defaut1_isole_individuelle}
+\subcaption{avec un premier défaut d'isolement}
+\end{subfigure}
+\end{figure}
+En cas de premier défaut d'isolement de la phase 1 sur les masses métalliques, un premier courant de défaut $I_{d1}$ dispose d'un chemin, via la terre, pour revenir au poste de transformateur HT/BT. Cela forme la \emph{boucle de défaut}.\\
+Dans les calculs, il faut tenir compte de la \emph{résistance de défaut} $R_d$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique de l'appareil 1.\\
+
+\input{fig_schema_it_boucle_defaut1_isole_individuelle}
+
+L'intensité de courant $I_d1$ vaut alors :
+\begin{formule}[Courant du premier défaut $I_d1$ en schéma Isolé-Individuel]
+\begin{align*}
+		I_d &= \frac{U_{0}}{Z_{res}+R_{A1}+R_{d1}}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U_{0}						& tension nominale simple						& volt			& \volt					& 	Différence de potentiel entre les masses métalliques et la terre 	\\
+Z_{res}						& impédance											& ohm			& \ohm					& 	Impédance de fuite $Z_res$ du réseau électrique 	\\
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+R_{d1}						& résistance											& ohm			& \ohm					& 	Résistance de défaut 	d'isolement de l'appareil 1\\
+\end{textvariables}
+
+Le courant de défaut $I_{d1}$ fera alors apparaître une \emph{tension de défaut} $U_{d1}$ entre la masse métallique de l'appareil 1 et la terre. Cette tension, limitée par l'impédance de fuite, sera très largement inférieure à  $U_L$ et ne sera donc pas dangereuse. La situation sera similaire avec un schéma Impédant-Individuel $Z_N$, ou l'impédance de limitation limitera également le courant de défaut :
+
+\begin{formule}[Tension de défaut $U_{d1}$ en schéma Isolé-Individuel]
+\begin{align*}
+		U_{d1} &= R_{A1} \times I_{d1} \\
+			   &\ll	 U_L
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+I_{d1}							& intensité							& ampère		& \ampere				& 	Courant de défaut de l'appareil 1\\
+U_{L}						& tension							& volt			& \volt					& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+\end{textvariables}
+
+Le fonctionnement d'un schéma IT sera également identique au premier défaut, que les masses soient interconnectées ou individuellement raccordées à la terre.
+
+\begin{exemple}[Tension de défaut $U_{d1}$ en schéma Isolé-Individuel au premier défaut]
+Si on considère que le transformateur est un transformateur $\SI{20}{\kilo\volt}/\SI{400}{\volt}$, que $Z_{res}=\SI{3500}{\ohm}$, $R_{A1}=\SI{40}{\ohm}$ et que $R_d = \SI{2}{\ohm}$, on peut déduire que le courant de défaut $I_d$ vaut :
+\begin{align*}
+		I_{d1} &= \frac{U_{0}}{Z_{res}+R_{A1}+R_{d1}} \\
+				&=\frac{400}{3500+40+2} \\
+				&= \SI{64,9}{\milli\ampere} \\
+\end{align*}
+Si une personne touche à la masse du récepteur 1, elle sera soumise à une tension de défaut $U_{d1}$ :
+\begin{align*}
+		U_{d1} &= R_{A1} \times I_{d1} \\
+				&=40 \times 0,0649 \\
+				&= \SI{2,6}{\volt}
+\end{align*}
+\end{exemple}
+
+Lors de l'apparition d'un deuxième défaut d'isolement sur un autre conducteur actif, un courant de défaut $I_{d2}$ va apparaitre. Celui-ci va s'apparenter à un court-circuit et de ce fait, $I_{d1}$ sera négligé. \\
+Dans les calculs, il faut encore tenir compte de la \emph{résistance de défaut} $R_d$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et les résistances des carcasses métalliques des appareils 1 et 2.\\
+
+\begin{figure}[H]
+\caption{Installation Isolé-Individuelle}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_defaut1_isole_individuelle}
+\subcaption{avec un premier défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_defaut2_isole_individuelle}
+\subcaption{avec un deuxième défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+\input{fig_schema_it_boucle_defaut2_isole_individuelle}
+
+L'intensité de courant $I_{d2}$ vaut alors :
+\begin{formule}[Courant du deuxième défaut $I_{d2}$ en schéma Isolé-Individuel]
+\begin{align*}
+		I_{d2} &= \frac{U}{R_{d1}+R_{A1}+R_{A2}+R_{A2}} \\
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U								& tension nominale composée				& volt			& \volt					& 	Différence de potentiel entre deux conducteurs actifs (à préciser s'il s'agit du conducteur neutre)	\\
+R_{d1}						& résistance											& ohm			& \ohm					& 	Résistance de défaut 	d'isolement de l'appareil 1\\
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+R_{A2}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 2 	\\
+R_{d2}						& résistance											& ohm			& \ohm					& 	Résistance de défaut 	d'isolement de l'appareil 1\\
+\end{textvariables}
+
+Le courant de défaut $I_{d1}$ fera alors apparaître une \emph{tension de défaut} $U_{d1}$ entre la masse métallique de l'appareil 1 et la terre. Cette tension, limitée par l'impédance de fuite, sera très largement inférieure à  $U_L$ et ne sera donc pas dangereuse. La situation sera similaire avec un schéma Impédant-Individuel $Z_N$, ou l'impédance de limitation limitera également le courant de défaut :
+
+\begin{formule}[Tension de défaut $U_{d1}$ en schéma Isolé-Individuel]
+\begin{align*}
+		U_{d1} &= R_{A1} \times I_{d2} \\
+					&<	U_L
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+I_{d2}						& intensité												& ampère		& \ampere				& 	Courant de défaut de l'appareil 2 \\
+U_{L}						& tension							& volt			& \volt										& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+\end{textvariables}
+
+Le cas est similaire à ceux rencontrés en schéma TT, on procèdera de la même manière en protégeant chaque groupe de masses par un DDR au calibre adapté \Circled{1}. Il est donc nécessaire de limiter $U_{d1}$ à la valeur suivante (voir \superref{form:resistance_prise_terre}) :
+
+\begin{formule}[Calibre du DDR $I_{\Delta n}$]
+\begin{align}
+		I_{\Delta n} &< \frac{U_{L}}{R_{A1}}
+\end{align}
+\end{formule}
+
+\begin{textvariables}
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+U_{L}						& tension							& volt			& \volt					& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+R_{A1}						& résistance											& ohm			& \ohm					& 	Résistance de la prise de terre de l'appareil 1 	\\
+\end{textvariables}
+
+L'usage de DDR implique de tenir du courant du premier défaut d'isolement $I_{d1}$ afin que la protection ne coupe pas le circuit dès le premier défaut :
+
+\begin{table}[h]
+\caption{Correspondance entre la capacité de fuite et le courant de premier défaut d'isolement}
+\begin{tabular}{cc}
+\toprule
+\thead{Capacité de fuite (\si{\micro\farad})} 	&	\thead{Courant de premier défaut (\si{\ampere})} \\
+\midrule
+1		&	0,07 \\
+5		& 0,36 \\
+30		& 2,17 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{exemple}[Tension de défaut $U_{d1}$ en schéma Isolé-Individuel au deuxième défaut]
+Si on considère que le transformateur est un transformateur $\SI{20}{\kilo\volt}/\SI{400}{\volt}$, que $R_{A1}=R_{A2}=\SI{40}{\ohm}$ et que $R_{d1} =R_{d1}= \SI{2}{\ohm}$, on peut déduire que le courant de défaut $I_{d2}$ vaut :
+\begin{align*}
+		I_{d2} &= \frac{U}{R_{d1}+R_{A1}+R_{A2}+R_{A2}} \\
+					&=\frac{400}{2+40+40+2} \\
+				&= \SI{4,76}{\ampere} \\
+\end{align*}
+Si une personne touche à la masse du récepteur 1, elle sera soumise à une tension de défaut $U_{d1}$ :
+\begin{align*}
+		U_{d1} &= R_{A1} \times I_{d2} \\
+				&=40 \times 4,76 \\
+				&= \SI{190,4}{\volt}
+\end{align*}
+La tension de défaut $U_{d1}$ est dangereuse quelle que soit la tension limite choisie :
+\begin{itemize}
+\item coupure la plus rapide possible\,;
+\item protection des personnes.
+\end{itemize}
+~\\
+\begin{minipage}[t]{0.5\linewidth}
+Dans le cas d'un local sec :
+\begin{align*}
+	I_{\Delta n} 	&< \frac{U_{L}}{R_{A1}} \\
+						&< \frac{50}{40} \\
+						&< \SI{1,25}{\ampere}
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+Dans le cas d'un local humide :
+\begin{align*}
+	I_{\Delta n} 	&< \frac{U_{L}}{R_{A1}} \\
+						&< \frac{25}{40} \\
+						&< \SI{0,625}{\ampere}
+\end{align*}
+\end{minipage}
+~\\
+D'après le tableau situé en \superref{tab:temps_coupure_DDR}, le DDR protégeant la carcasse de l'appareil 1 doit présenter un temps de coupure de moins de \SI{200}{\milli\second} avec une tension de défaut $U_d$ de \SI{190,4}{\volt} :
+
+\begin{table}[h]
+\begin{tabularx}{\linewidth}{X cccccccc}
+\toprule
+Tension nominale		& \multicolumn{2}{c}{$\SI{50}{\volt}<U_0\leq\SI{120}{\volt}$} 	& \multicolumn{2}{c}{$\SI{120}{\volt}<U_0\leq\SI{230}{\volt}$} & \multicolumn{2}{c}{$\SI{230}{\volt}<U_0\leq\SI{400}{\volt}$}		& \multicolumn{2}{c}{$U_0>\SI{400}{\volt}$}\\
+\midrule
+Type de courant		& alternatif	& continu	& alternatif	& continu	& alternatif	& continu	& alternatif	& continu \\
+\addlinespace
+Schéma TN/IT	& \SI{0,8}{\second}	&	\SI{5}{\second}	&	\SI{0,4}{\second}	&	\SI{5}{\second}	&	\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\SI{0,1}{\second}	&	\SI{0,1}{\second} \\	
+\addlinespace
+Schéma TT	& \SI{0,3}{\second}	&	\SI{5}{\second}	&	\cellcolor{green}\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\SI{0,07}{\second}	&	\SI{0,2}{\second}	&	\SI{0,04}{\second}	&	\SI{0,1}{\second} \\	
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{exemple}
+
+\subsection{Neutre isolé et masses interconnectées et mise à la terre}
+
+Les situations saines et au premier défaut d'isolement d'une installation en schéma IT avec les masses conductrices interconnectées et reliés en un seul point seront similaires au schéma IT avec les masses mise à la terre individuellement. Au deuxième défaut d'isolement, la situation sera différente, la prise en charge du défaut va s'apparenter à celle qu'on rencontre en schéma TN avec l'apparition d'un court-circuit.
+
+ \begin{figure}[H]
+\caption{Installation Isolé-Interconnectée}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_defaut1_isole_interconnecte}
+\subcaption{avec un premier défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_defaut2_isole_interconnecte}
+\subcaption{avec un deuxième défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+Contrairement au SLT IT avec les masses isolées, il ne faut pas tenir compte des \emph{résistances de défaut} $R_{d1}$ et $R_{d2}$ qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique car il s'agit d'un court-circuit et elle sera donc très faible.\\
+
+\input{fig_schema_it_boucle_defaut2_isole_interconnecte}
+
+L'intensité de courant $I_{d2}$ vaut alors :
+\begin{formule}[Courant du deuxième défaut $I_{d2}$ en schéma Isolé-Interconnecté]
+\begin{align*}
+		I_{d2} &= \frac{0,5 \times U}{R_{ph1}+R_{ph2}} \\
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U								& tension nominale composée				& volt			& \volt					& 	Différence de potentiel entre deux conducteurs actifs (à préciser s'il s'agit du conducteur neutre)	\\
+R_{ph1}					& résistance											& ohm			& \ohm					& 	Résistance de du conducteur actif alimentant l'appareil 1\\
+R_{ph2}					& résistance											& ohm			& \ohm					& 	Résistance de du conducteur actif alimentant l'appareil 2\\
+\end{textvariables}
+
+Le courant de défaut $I_{d1}$ fera alors apparaître une \emph{tension de défaut} $U_{d}$ entre la masse métallique de l'appareil 1 et la masse métallique de l'appareil 2. \\
+On néglige également la résistance du conducteur PE devant celle des phases. Dans ce contexte-là, la tension de défaut $U_d$ vaut alors :
+
+\begin{formule}[Tension de défaut $U_{d}$ en schéma Isolé-Individuel]
+\begin{align*}
+		U_{d} &= \frac{0,5 \times U}{2} \\
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U								& tension nominale composée				& volt			& \volt					& 	Différence de potentiel entre deux conducteurs actifs (à préciser s'il s'agit du conducteur neutre)	\\
+I_{d2}						& intensité												& ampère		& \ampere				& 	Courant de défaut de l'appareil 2 \\
+U_{L}						& tension							& volt			& \volt										& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+\end{textvariables}
+
+Cette tension de défaut est dangereuse et il faut obligatoirement couper l'alimentation en protégeant les circuits par des disjoncteurs magnéto-thermique, qui doivent respecter les temps de coupure suivant :
+
+\input{tab_schema_it_temps_coupure}
+
+La longueur maximale des conducteurs en schéma IT avec les masses interconnectées se calculent avec les mêmes méthodes que pour les installations en schéma TN (voir \superref{sec:schema_tn_methode_conventionnelle}).
+
+\section{Contrôle permanent de l'installation en schéma IT}
+
+Quand l'installation électrique est en schéma IT, il est nécessaire d'avoir une équipe de maintenance à disposition pour intervenir rapidement en cas de premier défaut. Pour les détecter au plus vite, il faut installer un Contrôleur Permanent d'Isolement (CPI). Il s'agit d'un appareil placé en dérivation qui va calculer en permanence deux paramètres de l'installation :
+\begin{description}
+\item[\Circled{1} niveau d'isolement général $Z_{res}$ :] injection d'une tension (continue ou alternative de basse fréquence) entre le neutre et la terre, générant un \emph{courant de fuite} $I_f$ dont l'intensité sera proportionnellement inverse au niveau d'isolement général de l'installation électrique. Au-dessous d'un certain seuil d'isolement réglable (généralement entre \numrange{0,7}{100}\si{\kilo\ohm}), le CPI déclenche une alarme. 
+\item[\Circled{2} apparition d'un défaut franc sur un circuit :] installation de tores de détection sur les circuits à surveiller, calculant la différence entre le courant entre et sortant (mécanisme similaire à ceux des DDR). Cela permet de localiser précisément les circuits en défaut.
+\end{description} 
+
+ \begin{figure}[H]
+\caption{Installation Isolé-Individuelle avec CPI}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_cpi_defaut1}
+\subcaption{avec un premier défaut d'isolement}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\input{fig_schema_it_cpi_defaut2}
+\subcaption{avec un deuxième défaut d'isolement}
+\end{subfigure}
+\end{figure}
+
+\section{Inconvénients du schéma IT}
+
+Le schéma IT présente l'inconvénient majeur de nécessiter une installation dont le niveau d'isolement doit être toujours au-dessus du seuil défini par le CPI. Dans la pratique, les réseaux IT présenteront relativement rapidement des défauts d'isolement et la présence d'une équipe de maintenance et d'un matériel de détection seront coûteuses. De plus, certains équipements peuvent polluer le réseau électrique et perturber ainsi le bon fonctionnement des CPI, il conviendra d'alimenter ceux-ci par un transformateur d'isolement et cela peut ajouter un coût non négligeable à l'ensemble de l'installation.\\
+Les installations neuves dont la continuité de service doit être assurée (équipement médical, événementiel, zone militaire\ldots) présentent actuellement une répartition fragmentée du réseau et une multiplication des sources principales et de secours pour que le défaut puisse être isolé.
+
+%\end{document}
+
+

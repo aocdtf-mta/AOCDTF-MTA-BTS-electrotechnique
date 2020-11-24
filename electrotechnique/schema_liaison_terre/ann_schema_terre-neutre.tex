@@ -1,0 +1,104 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Informations complémentaires sur le SLT TN\label{ann:schema_tn}}
+
+Cette annexe regroupe des données complémentaires mentionnées dans le \superref{chap:schema_tn}. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toutes précisions concernant ce chapitre.
+
+\section{Méthodes de dimensionnement des protections et des sections des conducteurs}
+
+\subsection{Méthode conventionelle}
+
+La série de tableaux suivants, applicables au SLT TN, ont été calculés selon la méthode conventionnelle (\superref{sec:schema_tn_methode_conventionnelle}). Si les longueurs détaillées ci-dessus sont dépassées pour un seuil de déclenchement donné, la résistance du conducteur limitera l'appel d'intensité à un niveau inférieur à celui nécessaire pour déclencher le disjoncteur protégeant le circuit dans les conditions de rapidité requises pour assurer la protection des personnes.\\
+
+Ces tableaux prennent compte de différents critères :
+\begin{itemize}
+\item type de protection (disjoncteur ou fusible)\,;
+\item réglages des seuils de courants de déclenchements\,;
+\item section des conducteurs de phase et des conducteurs de protection\,;
+\item type de SLT\,;
+\item courbe de déclenchement des disjoncteurs (B, C ou D).
+\end{itemize}
+
+
+\subsubsection{Facteur de correction $m$\label{subsubsec:facteur_correction_m}}
+
+Le facteur de correction $m$ est à appliquer sur les données des tableaux suivants et correspond au rapport entre la section du conducteur de phase $S_{ph}$ et la section du conducteur de protection $S_{PE}$ (voir \superref{form:schema_tn_longueur_max_circuit}).\\
+
+\input{tab_schema_tn_facteur_correction}
+
+\subsubsection{$L_{max}$ des conducteurs protégés par des disjoncteurs industriels}
+
+Pour les disjoncteurs industriels, on peut appliquer une tolérance de $\pm20\%$ pour le calcul du seuil de déclenchement réel $I_a$ par rapport au seuil de déclenchement magnétique $I_m$ du disjoncteur.\\
+Dans les abaques, cette tolérance est incluse dans les calculs prenant en compte le cas le plus défavorable, à savoir $I_{a}=I_{m} \times 1,2$.
+
+\input{tab_schema_tn_lmax_cuivre_industriel}
+
+\subsubsection{$L_{max}$ des conducteurs protégés par des disjoncteurs domestiques}
+
+Pour les disjoncteurs domestiques, on n'applique pas cette tolérance de $\pm20\%$ pour le calcul du seuil de déclenchement réel $I_a$ par rapport au seuil de déclenchement magnétique $I_m$ du disjoncteur.\\ La valeur du courant de court-circuit est donc égale à $I_m$ sans aucune tolérance.
+
+\input{tab_schema_tn_lmax_cuivre_type_b}
+\input{tab_schema_tn_lmax_cuivre_type_c}
+\input{tab_schema_tn_lmax_cuivre_type_d}
+
+\subsection{Méthode des impédances}
+
+Cette méthode consiste en la détermination de toutes les résistances et réactances présentes dans la boucle de défaut, pour pouvoir calculer le courant de court-circuit selon la formule suivante :
+
+\begin{formule}[Courant de défaut $I_d$ en schéma TN selon la méthode des impédances] 
+\begin{align*}
+		I_{d} &= \frac{U_{0}}{\sqrt{(\sum R)^{2} + (\sum X)^{2}}} \\
+		I_{d} &= Z_{S}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\
+R								& résistance						& ohm			& \ohm					& 	Résistance présente dans le circuit en défaut \\
+X								& réactance						& ohm			& \ohm					& 	Réactance présente dans le circuit en défaut \\
+Z_{S}						& impédance						& ohm			& \ohm					& 	Impédance totale de la boucle de défaut \\
+\end{textvariables}
+
+L'application de cette méthode n'est pas forcément évidente car il faut implique de connaitre toutes les caractéristiques électriques de chaque élément de la boucle de défaut. Dans la pratique, cela est réalisé par des logiciels qui vont certifier le dimensionnement.
+
+\subsection{Méthode de composition}
+
+Cette méthode permet la détermination du courant de court-circuit en fin de circuit $I$ en connaissant le courant de court-circuit $I_{cc}$  à l'origine du même circuit selon la formule suivante :
+
+\begin{formule}[Courant de court-circuit en schéma TN selon la méthode de composition] 
+\begin{align*}
+		I &= \frac{U_{0} \times I_{cc}}{U_{0} + Z{S} \times I_{cc}}
+\end{align*}
+\end{formule}
+
+\begin{textvariables}
+I								& intensité							& ampère		& \ampere				& 	Intensité de court-circuit à l'extrémité du circuit en défaut \\
+U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\\\
+I_{cc}						& intensité							& ampère		& \ampere				& 	Intensité de court-circuit à l'origine du circuit en défaut \\
+Z_{S}						& impédance						& ohm			& \ohm					& 	Impédance totale de la boucle de défaut \\
+\end{textvariables}
+
+Cette méthode consiste à ajouter les impédances, ce qui abaisse la valeur du courant de défaut $I_d$ par rapport à la méthode des impédances. Ainsi, si les paramètres de surintensité sont basés sur cette valeur calculée, le fonctionnement du disjoncteur est assuré car plus $I_d$ calculé est plus faible qu'en réalité.
+
+%\end{document}

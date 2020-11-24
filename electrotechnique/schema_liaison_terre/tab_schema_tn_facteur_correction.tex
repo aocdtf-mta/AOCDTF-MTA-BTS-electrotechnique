@@ -1,0 +1,45 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : 
+
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{figure}[H]
+\caption{Facteur de correction m à appliquer aux abaques des longueurs maximales des câbles $L_max$}
+\begin{tabularx}{\linewidth}{c X c c c c}
+\toprule
+\multirow[c]{2}{*}{\thead{Circuit}}		& \makecell[C]{\multirow[c]{2}{*}{\thead{Matériau conducteur}}}			& \multicolumn{4}{c}{\thead{$m=S_{ph}/S_{PE(N)}$}}\\
+\cmidrule(lr) {3-6} 
+	&	&	$m=1$ &	$m=2$	&	$m=3$	& $m=4$ \\
+\midrule
+\multirow[c]{2}{*}{3P + N ou P + N}	& cuivre		& 1 		& 0,67		&	0,50	& 0,40 \\
+															& aluminium	& 0,62 	& 0,42		&	0,31	& 0,25 \\
+\bottomrule
+\end{tabularx}
+\end{figure}
+
+%\end{document}
+

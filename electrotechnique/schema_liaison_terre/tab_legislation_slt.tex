@@ -1,0 +1,44 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien éditeur Bruno Douchy : https://www.mathcha.io/editor/zjygnFElSdyhJ72e3zT5ZgqwBT4DKnovswpXn1q
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{table}[H]
+\caption{Législation encadrant le choix d'un SLT}
+\begin{tabularx}{\textwidth}{X X X}
+\toprule
+\thead{Utilisation} & \thead{Type de SLT} & \thead{Textes de lois} \\
+\midrule
+Bâtiment alimenté par un réseaux de distribution publique (habitat, petit tertiaire, petit atelier, commerce\ldots) 	& neutre à la terre (TT) & Arrêté interministériel du 13/02/1970 \\
+\'Etablissement Recevant du Public (ERP)	& neutre isolé (IT) 	& Règlement de sécurité contre les risques de panique et d'incendie dans les ERP \\
+Circuits d'éclairage de sécurité soumis au décret de protection des travailleurs & neutre isole (TT) & Arrêté interministériel du 10/11/1976 relatifs aux circuits et installations de sécurité (J.O. \no{}102 NC du 01/12/1976) \\
+Mines et carrières & neutre isolé (IT) ou neutre à la terre (TT) & Décret \no{}76-48 du 09/01/1976, circulaire du 09/01/1976 et règlement sur la protection du personnel dans les mines et carrières, annexée au décret 76-48 \\
+\bottomrule 
+\end{tabularx}
+\end{table}
+
+%\end{document}
+

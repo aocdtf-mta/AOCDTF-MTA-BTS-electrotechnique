@@ -23,7 +23,7 @@
 
 \chapter{Informations complémentaires sur les dangers de l'électricité}
 
-Cette annexe regroupe des données complémentaires mentionnées dans le \superref{chap:dangers_electricite}. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toute précision concernant ce chapitre.
+Cette annexe regroupe des données complémentaires mentionnées dans le \superref{chap:dangers_electricite}. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toutes précisions concernant ce chapitre.
 
 \section{\'Etat des lieux de la prévention des risques électriques\label{sec:etat_lieux_prevention_electrique}}
 
@@ -298,7 +298,7 @@ III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \S
 \end{figure}
 
 
-\subsection{Dispositif Différentiel Résiduel\label{chap:DDR}}
+\subsection{Dispositif Différentiel Résiduel\label{subsec:DDR}}
 
 \subsubsection{Caractéristiques générales}
 
@@ -435,15 +435,15 @@ Comme tout appareil de protection, le DDR respecte des normes de qualité strict
 		\Circled{3} code de production\\
 		\Circled{4} signe \og Courant assigné de court-circuit \SI{10000}{\ampere} \fg{} en combinaison avec un fusible en amont \\
 		\Circled{5} pouvoir assigné de coupure \og \SI{1250}{\ampere} \fg{} \\
-		\Circled{6}signe de sécurité ESTI (équivalent de la norme NF pour la Suisse) \\
-		\Circled{7}signe \og Flocon de neige \fg{} (utilisation pour une température ambiante jusqu'à \SI{-25}{\degree}) \\
+		\Circled{6} signe de sécurité ESTI (équivalent de la norme NF pour la Suisse) \\
+		\Circled{7} signe \og Flocon de neige \fg{} (utilisation pour une température ambiante jusqu'à \SI{-25}{\degree}) \\
 		\columnbreak\\ %passage à la deuxième colonne
-		\Circled{8}couple de serrage \si{\newton\meter} \\
-		\Circled{9}désignation du type\\
-		\Circled{10}schéma des connexions\\
-		\Circled{11}courant assigné $I_n$ de \SI{40}{\ampere} et calibre du DDR $I_{\Delta n}$\\
-		\Circled{12}note concernant le test \og à effectuer tous les six mois \fg{}\\
-		 \Circled{13}type de courant différentiel (type F)
+		\Circled{8} couple de serrage \si{\newton\meter} \\
+		\Circled{9} désignation du type\\
+		\Circled{10} schéma des connexions\\
+		\Circled{11} courant assigné $I_n$ de \SI{40}{\ampere} et calibre du DDR $I_{\Delta n}$\\
+		\Circled{12} note concernant le test \og à effectuer tous les six mois \fg{}\\
+		 \Circled{13} type de courant différentiel (type F)
 	\end{multicols}
 \end{minipage}
 
@@ -454,7 +454,7 @@ Les DDR peuvent détecter plusieurs composantes du courant de défaut. C'est un 
 
 \input{tab_type_DDR}
 
-\subsubsection{Principe de fonctionnement}
+\subsubsection{Principe de fonctionnement\label{subsubsec:principe_fonctionnement_ddr}}
 
 Les éléments essentiels d'un DDR sont les suivants : \\
 \begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
@@ -469,8 +469,8 @@ Les éléments essentiels d'un DDR sont les suivants : \\
 		$I_2$ : courant \og de sortie \fg{} du récepteur \\
 		$I_d$ : courant de défaut\\
 		$I_c$ : courant de contact\\
-		$R_b$ : résistance de terre du neutre\\
-		$R_a$ : résistance de la prise de terre de l'installation électrique 
+		$R_B$ : résistance de terre du neutre\\
+		$R_A$ : résistance de la prise de terre de l'installation électrique 
 	\end{multicols}
 \end{minipage}
 ~\\
@@ -494,7 +494,7 @@ Le mécanisme de déclenchement assure la coupure omnipolaire du circuit princip
 \paragraph{Bouton de test d'essai du DDR}
 En appuyant sur le bouton test, un courant de défaut est généré à travers une résistance. Le circuit de courant du dispositif d'essai se trouve en dehors du transformateur d'intensité afin de pouvoir contrôler le fonctionnement de la bobine et du mécanisme de déclenchement. Le dispositif d'essai fonctionne seulement si la tension réseau est présente. L'essai est à réaliser régulièrement selon les normes en vigueur. Dans des installations mobiles, il est recommandé d'effectuer un essai tous les jours ouvrables.
 
-\subsubsection{Sélectivité et coordination des DDR}
+\subsubsection{Sélectivité et coordination des DDR\label{subsubsec:selectivite_coordination_ddr}}
 
 Dans le cas d'une installation électrique composée dont les DDR sont disposés en séries, il peut être nécessaire d'appliquer cette sélectivité sur les différents DDR. Elle fait appel à deux méthode : 
 \begin{itemize}
@@ -598,7 +598,6 @@ Elle peut toutefois être prescrite selon les exigences de sécurité ou d'explo
 
 \paragraph{Cas particulier de coordination avec les DDR de type B}
 
-\startcstep
 \begin{wrapfigure}{R}{0pt}
 \ffigbox[\FBwidth]
 {\caption{Cas d'une sélectivité à deux niveaux entre des DDR de type B\label{fig:selectivite_DDR_type_B}}}
@@ -791,7 +790,7 @@ L'eau étant conductrice, si l'on se retrouve immergé ou simplement mouillé, l
 \begin{threeparttable} %note dans tableau
 \begin{tabularx}{\linewidth}{X ccccc}
 \toprule
-\multirow[c]{2}{*}{\thead{Appareils}} 	& \multirow[c]{2}{*}{\thead{Mesure de\\protection}}		& \thead{Volume 0}		& \thead{Volume 1}		& \thead{Volume 2}		& \multirow{2}{*}{\thead{Hors volume}} \\
+\makecell[C]{\multirow[c]{2}{*}{\thead{Appareils}}} 	& \multirow[c]{2}{*}{\thead{Mesure de\\protection}}		& \thead{Volume 0}		& \thead{Volume 1}		& \thead{Volume 2}		& \multirow{2}{*}{\thead{Hors volume}} \\
 &&	IPX7		& IPX4\tnote{1}			& IPX4\tnote{1}			& \\
 \midrule
 Lave-linge, sèche-linge				& classe I													& interdit						& interdit 						& interdit						& autorisé \\

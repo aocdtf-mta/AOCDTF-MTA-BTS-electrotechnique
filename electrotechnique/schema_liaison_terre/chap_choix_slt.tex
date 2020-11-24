@@ -1,0 +1,79 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Choix d'un schéma de liaison à la terre}
+\ChapFrame
+
+\section{Introduction}
+
+Les différents schémas de liaison à la terre présentent chacun des avantages et des inconvénients, ils sont recommandés selon les critères suivants pour le choix d'un SLT ou de plusieurs SLT imbriqués les uns dans les autres :
+
+\begin{itemize}
+\item lois et décrets\,;
+\item protection des personnes contre les chocs électriques\,;
+\item protection des biens contre les incendies ou explosions d'origine électrique\,;
+\item continuité de service\,;
+\item protection contre les surtensions\,;
+\item compatibilité électromagnétique\,;
+\item coût de revient de l'installation.
+\end{itemize} 
+
+\section{Lois et décrets}
+
+Le choix d'un SLT est parfois fortement recommandé voire imposé par la législation en vigueur :
+
+\input{tab_legislation_slt}
+
+\section{Protection des personnes contre les chocs électriques}
+
+Pour ce critère, les trois SLT assurent une protection des personnes considérée comme équivalente si les principes d'installation sont bien respectés. Toutefois, le SLT TN exige des compétences techniques en électricité lors des calculs des impédances de boucles de court-circuit à l'installation mais également lors d'extensions de l'installation. Il conviendra d'être vigilant lors des installations de ces extensions et spécialement pour la re-calibration des protections.
+
+\section{Protection des biens contre les incendies ou explosions d'origine électrique}
+
+De part l'installation de DDR, une exploitation correcte des installations en schéma IT et TT conduit à un risque d'incendie quasi-nul. Le SLT IT est même recommandé dans les installations à fort risque explosif. Pour autant, le SLT TN-C présente un risque d'incendie plus élevé. 
+
+\section{Continuité de service}
+
+La continuité de service caractérise l'aptitude d'une installation électrique à assurer un fonctionnement le plus longtemps possible sans coupure. Cette caractéristique est primordiale dans les installations dites \emph{sensibles} ou la sécurité des personnes est en jeu (médical, militaire, éclairage de secours\ldots) ou dans les installations dont les arrêts peuvent engendrer des pertes financières importantes (ligne de production, événementiel\ldots).\\
+Dans ces cas-là, le SLT IT est le choix de prédilection parce qu'il permet cette continuité de service lors d'un premier défaut d'isolement. Toutefois, du fait de la propension naturelle des installations à accumuler les défauts d'isolement avec l'âge et les conditions, et du fait de l'obligation d'avoir une équipe de maintenance qualifiée et disponible pour prospecter au premier défaut, on se tourne vers d'autres solutions techniques permettant d'assurer une continuité de service (multiplication des sources principales et de secours\ldots). 
+
+\section{Protection contre les surtensions}
+
+Une surtension peut apparaître sur l'installation basse tension lors d'un claquage sur la partie HT de l'installation, ou plus fréquemment en raison de la foudre. Lorsque celle-ci frappe le sol, le potentiel des prises de terre va s'élever de manière significative à proximité de l'impact et mettre à mal l'équipotentialité des masses conductrices.\\
+Pour palier à cette problématique, et sur tous les SLT dans les zones à haut niveau kéraunique AQ2 (classification de densité d'impact de foudre), il est nécessaire d'installer un parafoudre.\\
+En schéma TT et TN-S, il doivent être installés en \emph{mode commun} et en \emph{mode différentiel} (un parafoudre au plus proche de chaque équipement). En schéma IT et TN-C, ils ne doivent installés qu'en \emph{mode commun}.
+
+\section{Compatibilité électromagnétique}
+
+Les appareils électriques de type \emph{courants faibles} (informatique, électronique\ldots) sont sensibles aux perturbations électromagnétiques engendrés par le passage du \emph{courant fort} dans les conducteurs à proximité. Le schéma TN-C provoquant des courants de court-circuit à chaque défaut d'isolement, il est fortement déconseillé d'alimenter des appareils sensibles sous ce schéma.
+
+\section{Le coût de revient}
+
+Ce critère est décisif dans le choix d'un SLT car les trois SLT ne sont pas équivalents d'un point de vue économique. Différents coûts sont à prendre en compte lors de la conception (calculs), de l'installation (prix du matériel spécifique) et d'exploitation (entretien par un personnel qualifié ou non). Le moins onéreux sera le SLT TN, suivi du TT et le SLT IT sera le plus coûteux.
+
+\section{Tableau récapitulatif des différents schémas de liaison à la terre}
+
+\input{tab_comparaison_slt}
+
+%\end{document}
