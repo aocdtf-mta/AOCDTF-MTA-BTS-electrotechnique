@@ -66,12 +66,11 @@ Pour les disjoncteurs domestiques, on n'applique pas cette tolérance de $\pm20\
 
 Cette méthode consiste en la détermination de toutes les résistances et réactances présentes dans la boucle de défaut, pour pouvoir calculer le courant de court-circuit selon la formule suivante :
 
-\begin{formule}[Courant de défaut $I_d$ en schéma TN selon la méthode des impédances] 
+\begin{formule}{Courant de défaut $I_d$ en schéma TN selon la méthode des impédances}{}
 \begin{align*}
 		I_{d} &= \frac{U_{0}}{\sqrt{(\sum R)^{2} + (\sum X)^{2}}} \\
 		I_{d} &= Z_{S}
 \end{align*}
-\end{formule}
 
 \begin{textvariables}
 U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\
@@ -79,6 +78,7 @@ R								& résistance						& ohm			& \ohm					& 	Résistance présente dans le 
 X								& réactance						& ohm			& \ohm					& 	Réactance présente dans le circuit en défaut \\
 Z_{S}						& impédance						& ohm			& \ohm					& 	Impédance totale de la boucle de défaut \\
 \end{textvariables}
+\end{formule}
 
 L'application de cette méthode n'est pas forcément évidente car il faut implique de connaitre toutes les caractéristiques électriques de chaque élément de la boucle de défaut. Dans la pratique, cela est réalisé par des logiciels qui vont certifier le dimensionnement.
 
@@ -86,11 +86,10 @@ L'application de cette méthode n'est pas forcément évidente car il faut impli
 
 Cette méthode permet la détermination du courant de court-circuit en fin de circuit $I$ en connaissant le courant de court-circuit $I_{cc}$  à l'origine du même circuit selon la formule suivante :
 
-\begin{formule}[Courant de court-circuit en schéma TN selon la méthode de composition] 
+\begin{formule}{Courant de court-circuit en schéma TN selon la méthode de composition}{}
 \begin{align*}
 		I &= \frac{U_{0} \times I_{cc}}{U_{0} + Z{S} \times I_{cc}}
 \end{align*}
-\end{formule}
 
 \begin{textvariables}
 I								& intensité							& ampère		& \ampere				& 	Intensité de court-circuit à l'extrémité du circuit en défaut \\
@@ -98,6 +97,7 @@ U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\\\
 I_{cc}						& intensité							& ampère		& \ampere				& 	Intensité de court-circuit à l'origine du circuit en défaut \\
 Z_{S}						& impédance						& ohm			& \ohm					& 	Impédance totale de la boucle de défaut \\
 \end{textvariables}
+\end{formule}
 
 Cette méthode consiste à ajouter les impédances, ce qui abaisse la valeur du courant de défaut $I_d$ par rapport à la méthode des impédances. Ainsi, si les paramètres de surintensité sont basés sur cette valeur calculée, le fonctionnement du disjoncteur est assuré car plus $I_d$ calculé est plus faible qu'en réalité.
 

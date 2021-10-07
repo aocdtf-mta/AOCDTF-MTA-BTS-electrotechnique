@@ -28,7 +28,7 @@
 \begin{xltabular}{\textwidth}{l c >{\compress}X c c }
 \caption{Différents types de DDR selon les composantes du courant de défaut}\\
 \toprule
-\thead{Type}		& \thead{Symbole}		& \thead{Caractéristiques}	& \thead{Forme d'onde}		& \thead{Type de charge} \\
+	& \thead{Symbole}		& \thead{Caractéristiques}	& \thead{Forme d'onde}		& \thead{Type de charge} \\
 \midrule
 \endfirsthead %en-tête de la première page du tableau  
 \multicolumn{5}{l}{\small\textit{Page précédente}} \\
@@ -41,7 +41,9 @@
 \endfoot %pied de page de toutes les pages du tableau
 \bottomrule
 \endlastfoot %pied de page de la dernièredu tableau
-Type AC		& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_ac.png}}		& 
+\multicolumn{5}{l}{\textit{Type AC}}	 \\
+\middashrule
+& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_ac.png}}		& 
 \begin{tabitemize}
 \item détection des courants alternatifs différentiels\,;
 \item utilisation courante en domestique couvrant la plupart des besoin.
@@ -95,12 +97,10 @@ Type AC		& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_ac.png}}		&
 \end{tikzpicture}}
 
   \\
-    \addlinespace
-  \addlinespace
-
-  
-  
-  Type A		& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_a.png}}		& 
+\addlinespace
+\multicolumn{5}{l}{\textit{Type A}}		\\
+\middashrule
+  	& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_a.png}}		& 
 \begin{tabitemize}
 \item détection des courants différentiels alternatifs et des courants différentiels continus pulsés\,;
 \item utilisation spécifique pour les charges électriques monophasées de type 1.
@@ -178,11 +178,10 @@ redressée\\monophasée
 }
 
   \\
-    \addlinespace
-  \addlinespace
-
-  
-    Type F		& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_f.png}}		& 
+\addlinespace
+\multicolumn{5}{l}{\textit{Type F}}		\\*
+\middashrule
+  & \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_f.png}}		& 
 \begin{tabitemize}
 \item détection des courants différentiels alternatifs, les courants différentiels continus pulsés et les courants différentiels de fréquences mixtes jusqu'à \SI{1}{\kilo\hertz}\,;
 \item utilisation spécifique pour circuits comportant des variateurs de vitesse monophasés.
@@ -291,11 +290,10 @@ convertie\\monophasée
 }
 
   \\
-    \addlinespace
-        \addlinespace
-
-
-      Type B		& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_b.png}}		& 
+\addlinespace
+\multicolumn{5}{l}{\textit{Type B}}		\\*
+\middashrule
+	& \adjustbox{valign=t}{\includegraphics[height=0.4cm]{type_b.png}}		& 
 \begin{tabitemize}
 \item détection des courants différentiels alternatifs, les courants différentiels continus pulsés, des courants différentiels de fréquences mixtes jusqu'à \SI{1}{\kilo\hertz} et des courants différentiels continus lisses\,;
 \item utilisation spécifique pour circuits comportant des variateurs de vitesse triphasés, un système photovoltaïque, une borne de recharge de véhicule électrique ou encore des équipements médicaux.
@@ -382,5 +380,5 @@ redressée\\triphasée
 \end{xltabular}
 
 
-%\end{document}
+%end{document}
 
