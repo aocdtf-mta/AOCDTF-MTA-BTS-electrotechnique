@@ -1,25 +1,25 @@
-%--------------------------------------
-%PRE-REQUIS
-%--------------------------------------
-
-%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
-
-\begin{comment}
-
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
 \usepackage{AOCDTF}
 
-\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+%\input{glossary_entry}
+%\input{acronym_entry}
+
+\typemedia{paper} %choix screen ou paper pour les vidéos et schémas animés
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : 
 
 %--------------------------------------
 %corps du document
 %--------------------------------------
 
 \begin{document} %corps du document
-	\openleft %début de chapitre à gauche
 
-\end{comment}
 
 \chapter{Unité de mesure et grandeurs physique}
 
@@ -188,8 +188,8 @@ Différence de potentiel électrique		& $U, V$							& volt				& 	\volt						&	\
 Capacité électrique							& $C$								& farad				& 	\farad					& \si{\coulomb\per\volt} \\
 Résistance électrique							& $R$								& ohm				& 	\ohm						& \si{\volt\per\ampere} \\
 Conductance électrique						& $G$								& siemens			&	\siemens				& \si{\per\ohm} \\
-Flux magnétique								& $\Phi$							& weber			&	\weber					& \si{\volt\second} \\
-Induction magnétique						& $\overrightarrow{B}$		& tesla				& \tesla						& \si{\weber\per\square\meter} \\
+Flux d'induction magnétique				& $\Phi$							& weber			&	\weber					& \si{\volt\second} \\
+Induction (champ) magnétique			& $\overrightarrow{B}$		& tesla				& \tesla						& \si{\weber\per\square\meter} \\
 Inductance										& $L$								& henry				& \henry					& \si{\weber\per\ampere} \\
 Température Celsius							& $T$								& celsius			& \celsius					& \kelvin - 273,15 \\
 Flux lumineux									& $J$									& lumen			& \lumen					& \si{\candela\steradian} \\
@@ -428,4 +428,4 @@ Distance						& d, r				& 						&							& \\
 Rayon (vecteur)				& \mathbf{r}		&						&							& \\
 \end{xltabular}
 
-%\end{document}
+\end{document}

@@ -4,7 +4,6 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
@@ -24,7 +23,6 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-\end{comment}
 
 \begin{xltabular}{\linewidth}{c CCCCCCCCCCCCCCCC}
 \caption{$L_{max}$ des circuits en mètre selon les sections des conducteurs en cuivre en schéma TN pour les disjoncteurs domestiques de type D\supercite{Schneider:schematncalculdefaut}} \\
@@ -47,17 +45,25 @@
 \bottomrule
 \endlastfoot %pied de page de toutes les pages du tableau
 1,5		&	429		&	214		&	143		&	107		&	71		&	43		&	27		&	21		&	17		&	13		&	11		&	9		&	7		&	5		&	4		&	3 \\
+\middashrule
 2,5		&	714		&	357		&	238		&	179		&	119	&	71		&	45		&	36		&	29		&	22		&	18		&	14		&	11		&	9		&	7		&	6 \\
+\middashrule
 4			&				&	571		&	381		&	286		&	190	&	114	&	71		&	57		&	46		&	36		&	29		&	23		&	18		&	14		&	11		&	9 \\
+\middashrule
 6			&				&	857		&	571		&	429		&	286	&	171	&	107	&	86		&	69		&	54		&	43		&	34		&	27		&	21		&	17		&	14 \\
+\middashrule
 10			&				&				&	952		&	714		&	476	&	286	&	179	&	143	&	114	&	89		&	71		&	57		&	45		&	36		&	29		&	23 \\
+\middashrule
 16			&				&				&				&				&	762	&	457	&	286	&	229	&	183	&	143	&	114	&	91		&	73		&	57		&	46		&	37 \\
+\middashrule
 25			&				&				&				&				&			&	714	&	446	&	357	&	286	&	223	&	179	&	143	&	113	&	89		&	71		&	57 \\
+\middashrule
 35			&				&				&				&				&			&			&	625	&	500	&	400	&	313	&	250	&	200	&	159	&	125	&	100	&	80 \\
+\middashrule
 50			&				&				&				&				&			&			&			&	679	&	543	&	424	&	339	&	271	&	215	&	170	&	136	&	109 \\
 \end{xltabular}
 
 
 
-%\end{document}
+\end{document}
 

@@ -4,11 +4,11 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
 \usepackage{AOCDTF}
+\typemedia{paper} %choix screen ou paper pour les vidéos et schémas animés
 
 \marqueurchapitre
 \decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
@@ -20,14 +20,13 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-\end{comment}
 
 \chapter{Schéma Terre-Neutre\label{chap:schema_tn}}
 \ChapFrame
 
 \section{Caractéristiques générales}
 
-\begin{definition}[Schéma TN]
+\begin{definition}{Schéma TN}{}
 Schéma de liaison à la terre dans lequel :
 \begin{description}
 \item[Neutre :] relié à la terre\,;
@@ -110,7 +109,7 @@ Ce facteur est calculé par l'estimation de la chute de tension due à l'ensembl
 
 \begin{table}[H]
 \caption{Section des conducteurs (schéma TN / méthode conventionnelle)}
-\begin{tabular}{O k@{${\enspace{}}+{\enspace{}}$}i}
+\begin{tabularx}{0.8\linewidth}{Q K@{${\enspace{}}+{\enspace{}}$}I}
 \toprule
 \multicolumn{2}{c}{\thead{Section des conducteurs}} & \multicolumn{2}{c}{\thead{Ajustement de la résistance en \si{\ohm}}} \\
 \midrule
@@ -118,15 +117,14 @@ S & \SI{150}{\square\milli\meter} & R & 15\% \\
 S & \SI{185}{\square\milli\meter} & R & 20\% \\
 S & \SI{240}{\square\milli\meter} & R & 25\% \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
-\begin{formule}[Courant de défaut $I_d$ en schéma TN selon la méthode conventionnelle\label{form:courant_defaut_tn_conventionnel}]
+\begin{formule}{Courant de défaut $I_d$ en schéma TN selon la méthode conventionnelle}{courant_defaut_tn_conventionnel}
 \begin{align*}
 		I_d &= \frac{0,8 \times U_{0}}{R_{PE}+R_{ph}} \\
 		I_d &= \frac{0,8 \times U_{0}}{Z_{c}}
 \end{align*}
-\end{formule}
 
 \begin{textvariables}
 U_{0}						& tension							& volt			& \volt					& 	Tension nominale simple \\
@@ -135,58 +133,60 @@ R_{PE}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur d
 R_{ph}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur PE traversé par un courant de défaut $I_d$ \\
 Z_{c}						& impédance						& ohm			& \ohm					& Impédance de boucle du circuit en défaut (selon la méthode conventionnelle)\\
 \end{textvariables}
+\end{formule}
 
 Le courant de défaut $I_d$ fera alors apparaître une \emph{tension de défaut} $U_d$ entre la masse métallique et la terre :
 
-\begin{formule}[Tension de défaut $U_d$ en schéma TN selon la méthode conventionnelle] 
+\begin{formule}{Tension de défaut $U_d$ en schéma TN selon la méthode conventionnelle}{}
 \begin{align*}
 		U_d &= R_{PE} \times I_{d}
 \end{align*}
-\end{formule}
 
 \begin{textvariables}
 R_{PE}						& résistance						& ohm			& \ohm					& 	Résistance du conducteur PE traversé par un courant de défaut $I_d$	\\
 I_{d}							& intensité							& ampère		& \ampere				& 	Courant de défaut d'isolement \\
 \end{textvariables}
+\end{formule}
 
 La tension de défaut $U_d$ dans le cas d'un défaut d'isolement en régime TN est \emph{élevée} et donc \emph{dangereuse} si elle est supportée trop longtemps. La norme NF C15-100 a défini des temps de coupure maximum à respecter :
 
 \input{tab_schema_tn_temps_coupure}
 
-\begin{formule}[Seuil de réglage du disjoncteur $I_m$ en schéma TN]
+\begin{formule}{Seuil de réglage du disjoncteur $I_m$ en schéma TN}{}
 \begin{align*}
 		I_{m} &> I_{d}
 \end{align*}
-\end{formule}
 
 \begin{textvariables}
 I_{m}						& intensité							& ampère			& \ampere					& 	Intensité de seuil de déclenchement de la protection magnétique du disjoncteur \\
 \end{textvariables}
+\end{formule}
 
-On peut calculer la longueur maximale d'un circuit d'une installation en schéma TN par la formule suivante 
+On peut calculer la longueur maximale d'un circuit d'une installation en schéma TN par la formule suivante :\\
 
-\begin{formule}[Longueur maximale d'un circuit $L_{max}$\label{form:schema_tn_longueur_max_circuit}]
+\begin{formule}{Longueur maximale d'un circuit $L_{max}$}{schema_tn_longueur_max_circuit}
 \begin{align*}
 		L_{max} &= \frac{0,8 \times U_{0} \times S_{ph}}{\rho \times (1+m) \times I_m}\\
 		m &= \frac{S_{ph}}{S_{PE}}
 \end{align*}
-\end{formule}
 \begin{textvariables}
 I_{m}						& intensité							& ampère			& \ampere							& 	Intensité de seuil de déclenchement de la protection magnétique du disjoncteur \\
 U_{0}						& tension							& volt				& \volt								& 	Tension nominale simple \\
 S_{ph}						& section							& millimètre\up{2}		& \si{\square\milli\meter}	& 	Section du conducteur de phase traversé par un courant de défaut $I_d$ \\
 S_{PE}						& section							& millimètre\up{2}		& \si{\square\milli\meter}	& 	Section du conducteur PE traversé par un courant de défaut $I_d$ \\
-\rho							& résistivité						& 		& \si{\ohm\square\milli\meter\per\meter}	& 	Résistivité du conducteur (selon la température et le matériau choisi) :
+\rho							& résistivité						& 									& /	& 	Résistivité du conducteur (selon la température et le matériau choisi) :
 \begin{tabdescription}
-\item[aluminium :] \SI{37.6 \times 10^{-3}}{\ohm\square\milli\meter\per\meter}
-\item[cuivre :] \SI{22.5 \times 10^{-3}}{\ohm\square\milli\meter\per\meter}
+\item[aluminium :] \SI{37.6e-3}{\ohm\square\milli\meter\per\meter}
+\item[cuivre :] \SI{22.5e-3}{\ohm\square\milli\meter\per\meter}
 \end{tabdescription}\\
 m								& facteur		& 			& /										& Facteur de correction à appliquer aux valeurs données dans les abaques de détermination des longueurs selon la section et l'intensité de déclenchement (\superref{subsubsec:facteur_correction_m}) 	 \\
 \end{textvariables}
+\end{formule}
+
 
 Pour vérifier rapidement un dimensionnement, les constructeurs de protections ont établis des abaques permettant de déterminer rapidement les longueurs maximale des conducteurs selon l'intensité, la section des conducteurs ou en encore les réglages du seuil de courant de déclenchement du disjoncteur ou encore le type de disjoncteurs. Ces abaques sont issus des norme IEC 60947-2\supercite{IEC:60947-2-2016} et IEC 60898\supercite{IEC:60898-2015}, qui concernent respectivement les disjoncteurs industriels et domestiques. Ils sont détaillés dans l'annexe \superref{ann:schema_tn}.
 
-\begin{exemple}[Calcul du courant de défaut $I_d$ en schéma TN]
+\begin{exemple}{Calcul du courant de défaut $I_d$ en schéma TN selon la méthode conventionnelle}{}
 Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$, que $L_{ph}=\SI{50}{\meter}$ et est équivalent à $L_{PE}$, que $S_{ph}=\SI{35}{\square\milli\meter}$ et est équivalent à  $S_{PE}$, on peut déduire que le courant de défaut $I_d$ vaut :
 \begin{align*}
 		Z_{c}	&= 2 \times \rho \times \frac{L}{S}  								& 			I_d		&= \frac{U_0 \times 0,8}{Z_c} \\
@@ -195,7 +195,7 @@ Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$
 \end{align*}
 \end{exemple}
 
-\begin{exemple}[Calcul de la longueur maximale des conducteurs $L_{max}$ en schéma TN]
+\begin{exemple}{Calcul de la longueur maximale des conducteurs $L_{max}$ en schéma TN selon la méthode conventionnelle}{}
 Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$, que $L{ph}=\SI{50}{\meter}$ et est équivalent à $L{PE}$, que $S_{ph}=\SI{35}{\square\milli\meter}$ et est équivalent à  $S_{PE}$, on peut déduire que le courant de défaut $I_d$ vaut :
 \begin{align*}
 		Z_{c}	&= 2 \times \rho \times \frac{L}{S}  								& 			I_d		&= \frac{U_0 \times 0,8}{Z_c} \\
@@ -204,7 +204,6 @@ Si on considère que les conducteurs sont en cuivre, que $U_{0}=\SI{230}{\volt}$
 \end{align*}
 
 Il convient de croiser cette valeur de $I_d$ avec les valeurs du seuil de déclenchement du disjoncteur Instantané et Court-retard et leurs temps de coupures respectifs (voir \superref{tab:schema_tn_temps_coupure}) pour valider le dimensionnement et le choix de la protection.
-
 \end{exemple}
 
 \section{Protection avec des DDR en schéma TN}
@@ -219,8 +218,4 @@ Les DDR en schéma TN-S sont requis lorsque :
 
 Un DDR se déclenchant avec un courant de déclenchement de l'ordre que quelques ampères maximum, il convient bien à un circuit terminal d'une installation BT conséquente en schéma TN.
 
-
-
-
-
-%\end{document}
+\end{document}
