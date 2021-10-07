@@ -1,0 +1,165 @@
+%--------------------------------------
+%CANEVAS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : https://www.mathcha.io/editor/5QmlWTYniVvh1nmzz0UV5K06oSl7KVnLfejoDdo
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Système technique}
+\ChapFrame
+
+\section{Caractéristiques}
+
+\begin{definition}{Système}{}
+Un système est un ensemble d'éléments qui doivent répondre à deux critères :
+\begin{itemize}
+\item éléments \emph{organisés}\,;
+\item ensemble d'éléments servant à \emph{réaliser} quelque chose.
+\end{itemize}
+\end{definition}
+
+\begin{definition}{Système technique}{}
+Un système technique est un système constitué d'éléments issus de divers \emph{technologies} (mécanique, informatique, électrique\ldots). Sa fonction est dénommée \emph{fonction globale} et caractérise son \emph{rôle}, elle est représentée par un verbe à l'infinitif écrit en majuscule.
+\end{definition}
+
+La finalité d'un système technique est d'apporter une valeur ajoutée à la matière d'\oe{}uvre :
+\begin{definition}{Matière d'\oe{}uvre}{}
+Produit subissant la transformation (matière, information, énergie\ldots).
+\begin{description}
+\item [matière d'\oe{}uvre entrante :] matière d‘\oe{}uvre dans son état initial\,;
+\item [matière d'\oe{}uvre sortante :] matière d‘\oe{}uvre transformée.
+\end{description}
+Les systèmes techniques ont une action sur quatre grandes familles de matière d'\oe{}uvre :
+\begin{itemize}
+\item matière\,;
+\item énergie\,;
+\item information\,;
+\item être vivant.
+\end{itemize}
+\end{definition}
+
+\begin{definition}{Valeur ajoutée}{}
+Modification des caractéristiques de la matière d'\oe{}uvre après son passage dans le système (transformation, déplacement\ldots). Elle est catégorisée en trois grandes familles :
+\begin{itemize}
+\item transformation\,;
+\item déplacement\,;
+\item stockage.
+\end{itemize}
+\end{definition}
+
+L'ensemble des données nécessaires au bon fonctionnement d'un système sont appelées les \emph{données de contrôle}. Elle sont souvent nombreuses par système et une étude approfondie devra être effectuée pour en déterminer les principales :
+\begin{itemize}
+\item énergies\,;
+\item signaux de commande venant de l'utilisateur\,;
+\item programmes\,;
+\item consommables (outils, lubrifiants\ldots).
+\end{itemize}
+
+En fonctionnement, un système peut produire d'autres choses que la matière d'\oe{}uvre transformée, dénommées \emph{sorties secondaires} et classées en trois grandes familles :
+\begin{description}
+\item [signaux pour l'utilisateur :] sous forme de voyants, messages\ldots
+\item [déchets :] poussières, copeaux, chutes\ldots
+\item [nuisances :] perturbation de l'environnement (bruit, chaleur\ldots).
+\end{description}
+
+\begin{exemple}{Le lave-linge comme système technique}{}
+\begin{description}
+\item [fonction globale :] LAVER du linge\,;
+\item [finalité :] la \emph{matière d'\oe{}uvre} est le linge (matière) et la \emph{valeur ajoutée} est la propreté (transformation)\,;
+\item [données de contrôle :] eau, électricité, lessive, ensemble de programmes (blanc, couleurs, délicat\ldots), choix du programme par l'utilisateur, commande de mise en marche par l'utilisateur\ldots
+\item [sorties secondaires :] ~
+\begin{description}
+\item [déchets :] eaux usées\,;
+\item [signaux :] voyant d'avancement pour l'utilisateur\,;
+\item [nuisances :] bruit et vibrations.
+\end{description}
+\end{description}
+\end{exemple}
+
+\begin{definition}{Système automatisé}{}
+Un système automatisé est un système technique dont l'énergie nécessaire à la transformation de la matière d'\oe{}uvre est fournit par une source extérieure, et dont la succession des opérations sont dirigée par un \emph{automate}, sans intervention de l'homme. L'homme peut surveiller le système et dialoguer avec lui par l'intermédiaire d'une interface de \emph{dialogue homme-machine}.
+\end{definition}
+
+\section{Structures d'un système automatisé}
+
+\subsection{Structure matérielle d'un système automatisé}
+
+\begin{definition}{Structure matérielle d'un système automatisé}{}
+Un système automatisé est constitué de trois parties matérielles distinctes qui échangent des informations :\\
+\Circled{1} dialogue homme-machine\\
+\Circled{2} partie commande\\
+\Circled{3} partie opérative\\
+\end{definition}
+
+\input{fig_systeme_automatise_materiel}
+
+\begin{definition}{Dialogue homme-machine}{}
+Cette partie permet le dialogue entre l'opérateur et la partie commande. L'opérateur envoie des \emph{consignes opérateurs} et reçoit des \emph{informations visuelles}.
+Les consignes opérateurs permettent à l'opérateur de donner des ordres d'exécution à la partie commande et les informations visuelles permettent à l'opérateur de suivre la production.
+\end{definition}
+
+\begin{definition}{Partie commande}{}
+La partie commande élabore les \emph{consignes opératives} à partir des \emph{consignes opérateurs}, des \emph{compte-rendus} des capteurs et du programme intégré. Les consignes opératives correspondent aux ordres que la partie commande donne à la partie opérative et les compte-rendus, élaborés par les différents capteurs placés sur la partie opérative, informent la partie commande de la bonne exécution des ordres envoyés.
+\end{definition}
+
+\begin{definition}{Partie opérative}{}
+La partie opérative assure la transformation de la \emph{matière d'\oe{}uvre}.
+\end{definition}
+
+\subsection{Structure fonctionnelle d'un système automatisé}
+
+\begin{definition}{Structure fonctionnelle d'un système automatisé}{}
+Un \emph{système technique} peut être considéré comme la coordination d'une \emph{chaine d'acquisition} et d'une \emph{chaine d'énergie}, comportant chacune des fonctions propres.
+\end{definition}
+
+\input{fig_systeme_automatise_fonctionnel}
+
+
+
+
+Les fonctions techniques régissant ces chaines sont les suivantes :
+\begin{description}
+\item [Chaine d'information :] regroupement de tous les organes de prélèvement, de traitement et de communication des informations, dont la chaîne d'acquisition est l'un des éléments\,;
+	\begin{description}
+	\item [Acquérir :] premier élément de la chaine d'information qui permet le prélèvement des informations par l'intermédiaire de capteurs et d'autres systèmes d'acquisition. Ces informations proviennent de trois parties du système technique :
+		\begin{description}
+		\item [Informations provenant d'un autre système :] organes de traitement et parties commandes pouvant échanger des informations et des ressources lorsqu'ils sont interconnectés en réseau\,;
+		\item [Informations provenant de l'utilisateur :] transmission par l'utilisateur du système d'informations et consignes au système, par l'intermédiaire d'un clavier ou d'éléments du pupitre de dialogue\,;
+		\item [Grandeurs physiques à acquérir :] transmission d'informations d'état du système par des \emph{capteurs} placés sur la chaine d'énergie\,;
+		\end{description}
+	\item [Traiter :] organe de traitement de l'information prénommé \emph{partie commande}, s'agissant presqu'exclusivement de systèmes électroniques (programmables ou non)\,;
+		\begin{description}
+		\item []
+		\end{description}
+	\end{description}
+\end{description}
+
+
+
+
+
+
+
+%\end{document}
+

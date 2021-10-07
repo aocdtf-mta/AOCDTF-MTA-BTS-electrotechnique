@@ -1,0 +1,204 @@
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+%\input{glossary_entry}
+%\input{acronym_entry}
+
+\typemedia{screen} %choix screen ou paper pour les vidéos et schémas animés
+
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
+\marqueurchapitre
+
+%lien d'édition des figures Tikz sur le site mathcha.io (rajouter le lien d'une modification effectuée sur la figure tikz avec le nom du modificateur car il n'y a qu'un lien par compte)
+
+%lien mathcha Nom Prénom : 
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+
+	%--------------------------------------
+	%espace de rédaction du document
+	%--------------------------------------
+	
+\chapter{Code binaire}
+\ChapFrame
+
+\section{Introduction}
+
+\section{Base}
+
+Actuellement, notre système numérique s'est généralisé sur une \emph{base 10}, ou encore \emph{système décimal}. Celui-ci nous est naturellement venu que nous comptons avec nos dix doigts.\\ 
+Cela signifie que l'on peut compter jusqu'au \emph{chiffre} 9 avant de devoir former un \emph{nombre} pour passer au rang supérieur (dizaine, centaines\ldots).
+On utilise d'autres systèmes numériques ou dérivés pour certains usages, comme les minutes où les heures sur une base 60 ou les années sur une base 12.\\
+
+\begin{definition}{Base}{}
+Base dont le nombre indique le nombre de symboles distincts dans système de numération. Dans une base X, chaque symbole doit être strictement inférieur à X et chaque nombre peut être écrit sa forme polynomiale.
+\begin{exemple*}{Bases}{}
+\begin{description}
+\item[base 10 / système décimal :] \numlist{0;1;2;3;4;5;6;7;8;9}
+\item[base 2 / système binaire :] \numlist{0;1}
+\item[base 16 / système hexadécimal :] \numlist{0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15}
+\end{description}
+\end{exemple*}
+\end{definition}
+
+En base 10, nous pouvons dès lors décomposer un nombre sous sa forme \emph{polynomiale} :
+\begin{align*}
+7962,56 &= 7\cdot10^3 + 9\cdot10^2 + 6\cdot10^1 + 2\cdot10^1 + 5\cdot10^{-1} + 6\cdot10^{-2}
+\end{align*}
+
+Jusqu'à la fin du Moyen Âge, le système numérique utilisé était en base 20, la base 10 importée avec les nombres arabes n'étant pas encore utilisée. On trouve des trace de cette base dans la langue française avec par exemple le nombre quatre-vingt, qui est resté malgré le changement de base.
+
+\section{Système binaire}
+
+Les premières traces écrites du système binaire remonte à 1703, dans \pprbcite{Leibnitz1703}. L'auteur fait remonter à la Chine ancienne les origines du système binaire avec les \emph{hexagrammes} présent dans le \emph{Yi Jing}, un traité de divination chinois datant du \millenaire{1} \avjc{}. Ces hexagrammes correspondaient aux nombres binaire de \numrange{0}{111111}.
+Il a placé cette numération au centre de sa théologie, avec l'idée symbolique de la \emph{creatio ex nihilo} chrétienne (création à partir de rien). Pour autant, il n'a pas trouvé d'utilité à ce système numérique.\\
+
+En 1807, George Boole publie un article, \emph{L'analyse mathématique de la logique}, décrivant un système algébrique de la logique, prénommé maintenant \emph{algèbre de Boole}. Il s'agit du point de départ du code informatique et des portes logiques, dont l'usage fut théorisé par Claude Shannon en 1937.
+
+Pour toute donnée traitée par un système informatique, la base utilisée est la \emph{base 2}, ou encore le \emph{système binaire}. Cela est du au fait que les systèmes informatiques sont constitués de composants électronique soumis à une tension ou non, ils ne peuvent que présenter deux états.\\
+Le système binaire permet de traduire numériquement ces deux états, avec le chiffre 0 qui traduit une absence de tension et le chiffre 1 qui traduit une présence de tension. Ce système est à la base des \emph{opérations logiques de base}, que l'on retrouve dans la pratique en automatisme.\\
+
+	
+\section{\'Ecriture binaire}
+
+Pour écrire en base 2, il faut donc passer de rang une fois le chiffre 1 atteint, pour former un nombre. Les chiffres en système binaire sont appelés des \emph{bit} (en minuscule) pour \emph{binary digit}.\\
+Comme dans un nombre décimal, le bit le plus à gauche est le appelé le bit du poids fort, celui le plus à droite le bit du poids faible.
+\\
+
+
+\begin{longtableau}{\linewidth}{c c c c}{4}{Nombre en binaire avec équivalent décimal}{
+\thead{Valeur en décimal}	&	\thead{\'Equivalent en binaire}	&	\thead{Valeur en décimal}	&	\thead{\'Equivalent en binaire}\\
+}
+0	&	0		&	10	&	1010\\
+1	&	1		&	11	&	1011\\
+2	&	10	&	12	&	1100\\
+3	&	11	&	13	&	1101\\
+4	&	100	&	14	&	1110\\
+5	&	101	&	15	&	1111\\
+6	&	110	&	16	&	10000\\
+7	&	111	&	17	&	10001\\
+8	&	1000	&	18	&	10010\\
+9	&	1001	&	19	&	10011\\
+\end{longtableau}
+
+On peut également écrire :
+\begin{align*}
+(19)_{10} &= (10011)_2
+\end{align*}
+	
+\section{Conversion binaire/décimal}
+
+\subsection{Méthode 1 : puissance de deux}	
+
+Pour convertir un nombre décimal en binaire, il faut décomposer le nombre décimal en somme de puissance de 2.\\
+
+\begin{tabularx}{\linewidth}{JJJJJJJJJJJJJJ}
+\toprule
+\ldots	&	2^{12}	&	2^{11}	&	2^{10}	&	2^{9}	&	2^{8}	&	2^{7}	&	2^{6}	&	2^{5}	&	2^{4}	&	2^{3}	&	2^{2}	&	2^{1}	&	2^{0}	\\
+\ldots	&	4096 & 2048 & 1024 & 512 & 256 & 128 & 64  & 32 & 16 & 8 & 4 & 2 & 1\\
+\bottomrule
+\end{tabularx}\\
+
+Si l'on prend par exemple le nombre 26, il faut le décomposer avec des nombres qui sont des puissances de deux en partant en débutant toujours avec le plus élevé :
+
+\begin{exemple}{Décomposition d'un réel en puissance de deux}{}
+\begin{align*}
+26 	&= 16 + 8 + 2\\
+26	&=1\cdot2^4 + 1\cdot2^3+0\cdot2^2+1\cdot2^1+0\cdot2^0\\
+\end{align*}
+Ce qui donne :
+\begin{align*}
+(26)_{10} &= (11010)_2
+\end{align*}
+\end{exemple}
+
+Cette méthode est simple à comprendre mais peut se révéler fastidieuse pour la conversion de grand nombre.
+
+\subsection{Méthode 2 : division euclidienne}	
+
+Dans cette méthode de conversion, il convient d'effectuer des divisions euclidiennes successives du nombre décimal par 2, le reste de chaque division formera le nombre binaire.
+\begin{exemple}{Conversion d'un réel entier d'une base 10 à une base 2}{}
+\baseexpansion{568}\hfill	\baseexpansion{34}
+
+\end{exemple}
+
+Dans le cas d'un nombre réel avec partie fractionnelle :
+\begin{itemize}
+\item la partie entière est transformée en effectuant des divisions successives\,;
+\item la partie fractionnelle est transformée en effectuant des multiplications successives. Le chiffre avant la virgule de cette multiplication donnera le bit et il faut multiplier le résultat en ne conservant que la partie fractionnelle, la partie entière est remise à zéro.
+\end{itemize}
+ 
+ La conversion d'un nombre réel avec partie fractionnelle s'effectue avec une marge de précision, plus la partie fractionnelle sera multipliée par deux, plus précise sera la conversion.
+
+\begin{exemple}{Conversion d'un réel fractionnel d'une base 10 à une base 2}{}
+\begin{align*}
+(0,7)_{10} &= (?)_2 \rightarrow (0,7)_{10} = (0,10110)_2\\
+0,7\cdot2 &= \color{red}1\color{black},4\\
+0,4\cdot2 &= \color{red}0\color{black},8\\
+0,8\cdot2 &= \color{red}1\color{black},6\\
+0,6\cdot2 &= \color{red}1\color{black},2\\
+0,2\cdot2 &= \color{red}0\color{black},4\\
+\end{align*}
+\end{exemple}
+
+\section{Représentation de l'information}
+
+\subsection{Généralités}
+
+L'information en langage binaire est structurée en plusieurs catégories selon l'usage et leur format diffèrent pour permettre leur bonne lecture par la machine.
+
+\begin{figure}[H]
+\caption{Organigramme de l'information numérique}
+\input{fig_representation_information}
+\end{figure}
+
+\subsection{Nombre entier}
+
+Il existe deux types d'entiers :
+\begin{itemize}
+\item les entiers \emph{non signés} strictement positifs\,;
+\item les entiers \emph{signés} positifs ou négatifs.
+\end{itemize}
+
+Il existe trois méthode pour indiquer à une machine que l'entier est positif ou négatif en binaire :
+\begin{itemize}
+\item signe/ valeur absolue\,;
+\item complément à 1 / restreint\,;
+\item complément à 2 / à vrai.
+\end{itemize}
+
+\subsection{Nombre réel}
+
+Il existe deux types de réels :
+\begin{itemize}
+\item réels à virgules fixe\,;
+\item réels à virgules flottantes.
+\end{itemize}
+
+Les réels à virgules flottantes sont caractérisés par une écriture mathématique incluant un \emph{mantisse} M.
+
+\begin{align*}
+N =& \pm M \cdot b^{e}
+13,11=0,1311 \cdot 10^2
+\end{align*}
+
+En virgule flottante, on attribue un bit pour le signe (0=+ et 1=-), p bit pour l'expression de l'exposant (complément à deux ou exposant biaisé) et 8 bit pour l'expression du mantisse.
+
+\subsection{Portes logiques}
+
+Les portes logiques permettent de créer des circuits logiques à partir de fonctions complexes. Elles souvent utilisées en programmation pour caractériser les fonctions booléennes. 
+
+\input{tab_portes_logiques}
+
+\subsection{Nombres entiers}
+
+
+	
+\end{document}
+
+

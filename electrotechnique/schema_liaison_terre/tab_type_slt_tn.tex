@@ -25,15 +25,15 @@
 
 \end{comment}
 
-\begin{xltabular}{\textwidth}{C >{\compress}X >{\compress}X >{\compress}X}
+\begin{xltabular}{\textwidth}{l >{\compress}X >{\compress}X >{\compress}X}
 \caption{Déclinaisons du SLT TN}\\
 \toprule
-\thead{Nom}		& \thead{Caractéristiques}		& \thead{Avantages}		& \thead{Inconvénients} \\
+	& \thead{Caractéristiques}		& \thead{Avantages}		& \thead{Inconvénients} \\
 \midrule
 \endfirsthead %en-tête de la première page du tableau  
 \multicolumn{4}{l}{\small\textit{Page précédente}} \\
 \midrule %filet de milieu de tableau
-\thead{Nom}		& \thead{Caractéristique}		& \thead{Avantages} 	& \thead{Inconvénients} \\
+ 	&	\thead{Caractéristique}		& \thead{Avantages} 	& \thead{Inconvénients} \\
 \midrule
 \endhead
 \midrule %filet de milieu de tableau
@@ -41,8 +41,10 @@
 \endfoot %pied de page de toutes les pages du tableau
 \bottomrule
 \endlastfoot %pied de page de la dernièredu tableau
-Confondus (TN-C)		
-& 
+\addlinespace
+\multicolumn{4}{l}{\textit{Confondus (TN-C)}}	\\ 
+\middashrule
+&
 \begin{tabitemize}
 \item conducteurs neutre et PE confondus\,;
 \item PE et neutre vert/jaune nommé conducteur Protection \'Equipotentielle Neutre (PEN).
@@ -53,7 +55,7 @@ Confondus (TN-C)
 \end{tabitemize}
 &		
 \begin{tabitemize}
-\item utilisation de canalisations fixes et rigides.
+\item utilisation de canalisations fixes et rigides\,;
 \item interdiction de pose :
 	\begin{compactitemize}
 	\item locaux à risques d'incendies\,;
@@ -61,7 +63,8 @@ Confondus (TN-C)
 	\end{compactitemize}
 \end{tabitemize}\\
 \addlinespace
-Séparés (TN-S)		
+\multicolumn{4}{l}{\textit{Séparés (TN-S)}}	\\ 
+\middashrule
 &
 \begin{tabitemize}
 \item conducteurs neutre et PE séparés\,;
@@ -78,7 +81,8 @@ Séparés (TN-S)
 \end{tabitemize}
 \\
 \addlinespace
-Mixte (TN-C-S)	
+\multicolumn{4}{l}{\textit{Mixte (TN-C-S)}}	\\ 
+\middashrule	
 &
 \begin{tabitemize}
 \item combinaison des SLT TN-C et TN-S dans une même installation\,;

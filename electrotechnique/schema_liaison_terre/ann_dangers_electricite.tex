@@ -4,13 +4,15 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
 \usepackage{AOCDTF}
 
+\typemedia{screen} %choix screen ou paper pour les vidéos et schémas animés
+
 \marqueurchapitre
+\decoupagechapitre{1} %juste pour éviter les erreurs lors de la compilation des sous-programmations (passera en commentaire)
 
 %--------------------------------------
 %corps du document
@@ -19,7 +21,6 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-\end{comment}
 
 \chapter{Informations complémentaires sur les dangers de l'électricité}
 
@@ -33,7 +34,8 @@ Cette annexe regroupe des données complémentaires mentionnées dans le \superr
 
 Les accidents du travail d'origine électrique diminuent depuis la mise en place du décret du 14 novembre 1962 qui attrait à la protection des travailleurs contre les dangers de l'électricité. Entre 1962 et 2000, le nombre d'incidents a baissé de 74\%. 
 
-\begin{center}
+\begin{figure}[H]
+\caption{Variation du nombre d'accidents du travail d'origine électrique}
 \begin{tikzpicture}
 \begin{axis}[
 /pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
@@ -48,7 +50,7 @@ no markers,
 grid=major,
 ytick={0, 500, 1000, 1500, 2000, 2500, 3000},
 xtick={1975-01-01, 1980-01-01, 1985-01-01, 1990-01-01, 1995-01-01, 2000-01-01, 2005-01-01},
-title={Variation du nombre d'accidents du travail d'origine électrique},
+%title={Variation du nombre d'accidents du travail d'origine électrique},
 height=8cm,width=\linewidth,
 ylabel={Nombre d'accidents},
 legend entries={Accidents avec arrêt, Accidents graves, Accidents mortels},
@@ -63,7 +65,7 @@ xticklabel={\year},
 \addlegendentry{Accidents mortels};
 \end{axis}
 \end{tikzpicture}
-\end{center}
+\end{figure}
 
 \subsection{Secteurs les plus atteints}
 
@@ -111,7 +113,7 @@ On peut conclure de ces statistiques que depuis une trentaine d'années, le nomb
 \item demeurent particulièrement graves.
 \end{itemize}
 
-Le risque d'accidents est certe mieux maitrisé qu'auparavant mais il reste toujours présent.
+Le risque d'accidents est certes mieux maitrisé qu'auparavant mais il reste toujours présent.
 
 \section{Différents effets du courant électriques\label{sec:effet_courant_électrique}}
 
@@ -147,9 +149,18 @@ Il existe trois types de TBT selon la classification du lieux et la nature du co
 
 \subsubsection{Principe}
 
-\paragraph{Très Basse Tension de Sécurité (ou Séparation)} Alimentation basse tension ou il n'existe aucun point commun entre le primaire et le secondaire du transformateur, utilisée pour alimenter des appareillages situés dans des locaux humides.
-\paragraph{Très Basse Tension de Protection} Alimentation basse tension ou il existe un point commun entre le commun du secondaire et le conducteur de protection, utilisée pour alimenter des machines-outils et automatisme. La liaison du commun au conducteur de protection du secondaire permet d'éviter les mises en marche intempestives pouvant survenir après deux défauts de masse consécutifs dans une commande de machine (alimentation possible d'une bobine de contacteur via la carcasse de l'armoire de commande).
-\paragraph{Très Basse Tension Fonctionnelle} Alimentation basse tension ou il existe plusieurs point commun entre le primaire et le secondaire du transformateur (autotransformateur), utilisée pour alimenter des appareillages ne requérant pas d'exigences de sécurité autre qu'une tension nominale de fonctionnement spécifique.
+\begin{definition}{Très Basse Tension de Sécurité (ou Séparation)}{}
+ Alimentation basse tension ou il n'existe aucun point commun entre le primaire et le secondaire du transformateur, utilisée pour alimenter des appareillages situés dans des locaux humides.
+\end{definition}
+
+\begin{definition}{Très Basse Tension de Protection}{}
+Alimentation basse tension ou il existe un point commun entre le commun du secondaire et le conducteur de protection, utilisée pour alimenter des machines-outils et automatisme. La liaison du commun au conducteur de protection du secondaire permet d'éviter les mises en marche intempestives pouvant survenir après deux défauts de masse consécutifs dans une commande de machine (alimentation possible d'une bobine de contacteur via la carcasse de l'armoire de commande).
+\end{definition}
+
+\begin{definition}{Très Basse Tension Fonctionnelle}{}
+Alimentation basse tension ou il existe plusieurs point commun entre le primaire et le secondaire du transformateur (autotransformateur), utilisée pour alimenter des appareillages ne requérant pas d'exigences de sécurité autre qu'une tension nominale de fonctionnement spécifique.
+\end{definition}
+
 
 \subsubsection{Architecture}
 \input{tab_type_TBT}
@@ -217,7 +228,6 @@ W							& Conditions environnementales spécifiées \\
 \newpage
 \end{landscape}
 \newpage
-
 \subsubsection{Classification des locaux selon l'IP}
 
 Selon les locaux à équiper, leurs emplacements et les conditions particulières d'installation, la norme NF C 15-100 indique une protection minimale spécifiée par les indices IP et IK.
@@ -238,15 +248,15 @@ Pour protéger les biens et les personnes contre les contacts indirects, on asso
 
 \subsection{Classe d'isolation des appareils électriques}
 
-\begin{xltabular}{\textwidth}{c X p{3cm} p{2cm} c}
+\begin{xltabular}{\textwidth}{l X p{3cm} p{2cm} c}
 \caption{Classe d'isolation électrique des appareils\label{tab:classe_isolation_electrique}}\\
 \toprule
-\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+	& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
 \midrule
 \endfirsthead %en-tête de la première page du tableau  
 \multicolumn{5}{l}{\small\textit{Page précédente}} \\
 \midrule %filet de milieu de tableau
-\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+	& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
 \midrule
 \endhead
 \midrule %filet de milieu de tableau
@@ -254,13 +264,22 @@ Pour protéger les biens et les personnes contre les contacts indirects, on asso
 \endfoot %pied de page de toutes les pages du tableau
 \bottomrule
 \endlastfoot %pied de page de la dernièredu tableau
-0		& Matériel ayant une simple isolation et ne présentant pas de dispositif de mise à la terre (interdit)		& Lampe de chevet ancienne en bois		& \emph{pas de symbole}			& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\multicolumn{5}{l}{Classe 0} \\
+\middashrule
+		& Matériel ayant une simple isolation et ne présentant pas de dispositif de mise à la terre (interdit)		& Lampe de chevet ancienne en bois		& \emph{pas de symbole}			& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
 \addlinespace
-I		& Matériel ayant une simple isolation mais présentant un dispositif de mise à la terre			& Ordinateur, lampadaire, fer à repasser, fer à souder\ldots		&  \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_I.png}}} & \adjustbox{valign=t}{\includegraphics[width=2cm]{type_e.png}} \\
+\multicolumn{5}{l}{Classe I} \\
+\middashrule
+		& Matériel ayant une simple isolation mais présentant un dispositif de mise à la terre			& Ordinateur, lampadaire, fer à repasser, fer à souder\ldots		&  \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_I.png}}} & \adjustbox{valign=t}{\includegraphics[width=2cm]{type_e.png}} \\
+\noalign{\break} %impose le saut de page au tableau tout en répartissant verticalement le tableau
 \addlinespace
-II		& Matériel présentant une double isolation de la partie active \Circled{1} (isolation fonctionnelle \Circled{2} et isolation supplémentaire \Circled{3}) ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\multicolumn{5}{l}{Classe II} \\
+\middashrule		
+		& Matériel présentant une double isolation de la partie active \Circled{1} (isolation fonctionnelle \Circled{2} et isolation supplémentaire \Circled{3}) ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
 \addlinespace
-III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \SI{24}{\volt}) et ne présentant pas de dangers pour les personnes (aucune précaution particulière à prendre)			& Circuits électriques, sonnette, smartphone\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_III.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{fiche_TBT.png}}
+\multicolumn{5}{l}{Classe III} \\
+\middashrule		
+		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \SI{24}{\volt}) et ne présentant pas de dangers pour les personnes (aucune précaution particulière à prendre)			& Circuits électriques, sonnette, smartphone\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_III.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{fiche_TBT.png}}
 \end{xltabular}
 
 \begin{figure}[h]
@@ -302,13 +321,13 @@ III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \S
 
 \subsubsection{Caractéristiques générales}
 
-\begin{definition}[Dispositif Différentiel Résiduel]
+\begin{definition}{Dispositif Différentiel Résiduel}{}
 Un Dispositif Différentiel Résiduel (DDR) est un appareil de protection chargé d'assurer la protection des personnes contre les défauts d'isolement provoquant potentiellement des contacts indirects (\superref{def:contact_indirect}). Son rôle est de surveiller les fuites de courant d'une installation électrique vers la terre.
 \end{definition}
 
 Il convient de bien différencier deux type de DDR :
 \begin{description}
-\item[Interrupteur différentiel :] protection des personnes contre les contacts indirects dont le symbole est : \\
+\item[Interrupteur différentiel :] protection des personnes contre les contacts indirects dont le symbole est le suivant. \\
 \begin{center}
 
 
@@ -337,7 +356,7 @@ Il convient de bien différencier deux type de DDR :
 \end{tikzpicture}
 \end{center}
 
-\item[Disjoncteur différentiel :] protection des personnes contre les contacts indirects et protection des circuits contre les surintensités et les court-circuits dont le symbole est : \\
+\item[Disjoncteur différentiel :] protection des personnes contre les contacts indirects et protection des circuits contre les surintensités et les court-circuits dont le symbole est le suivant \\
 \begin{center}
 
 
@@ -367,12 +386,6 @@ Il convient de bien différencier deux type de DDR :
 \draw    (558,100.5) -- (562,104.5) ;
 %Straight Lines [id:da5532087619463947] 
 \draw    (562,100.5) -- (558,104.5) ;
-
-
-
-
-
-
 \end{tikzpicture}
 
 \end{center}
@@ -502,7 +515,7 @@ Dans le cas d'une installation électrique composée dont les DDR sont disposés
 \item subdivision des circuits.
 \end{itemize}
 
-\begin{definition}[Sélectivité des DDR]
+\begin{definition}{Sélectivité des DDR}{}
 Méthode d'installation et de calcul des temps de déclenchement des DDR permettant d'éviter le déclenchement des DDR autres que celui situé immédiatement en amont du défaut d'isolement.
 \end{definition}
 
@@ -660,7 +673,7 @@ type B\\
 En présence d'un courant de fuite à la terre possible en courant continu (typiquement le cas pour les chargeurs de voiture), un DDR de type B doit être utilisé pour la protection contre les contacts indirects. Dans ce cas, le DDR en amont ne doit pas être aveuglé par le courant résiduel continu possible et doit assurer sa protection normale lorsqu'un courant de défaut apparait dans une autre partie de l'installation.\\
 Par exemple, dans le schéma en \superref{fig:selectivite_DDR_type_B}, le DDR $I_{\Delta n} = \SI{30}{\milli\ampere}$ de type B au niveau 2 peut avoir un seuil de déclenchement courant continu maximum de $2 \times I_{\Delta n}$, selon la norme produit DDR CEI 62423\supercite{IEC:62423-2009}. Cela signifie que ce DDR de $I_{\Delta n} = \SI{30}{\milli\ampere}$ de type B pourrait laisser passer un courant résiduel de presque \SI{60}{\milli\ampere} $\mathdirectcurrent$ sans déclenchement et que le DDR en amont ne devrait perdre aucune de ses performances avec la présence de ce niveau élevé de courant résiduel $mathdirectcurrent$. C'est pourquoi il est souvent proposé d'utiliser un DDR de type B au niveau 1 pour éviter tout effet d'aveuglement par le courant continu.\\
 
-Toutefois, certains constructeurs implémentent dans leurs DDR de type A la capacité de ne pas être sensibles au courant résiduel $\mathdirectcurrent$ en dessous d'un certain seuil de courant de défaut ($\SI{60}{\milli\ampere}$ pour la marque Schneider\supercite{Schneider:coordinationDDR}. Cela permet d'éviter la pose d'un DDR de type B en amont, plus coûteux qu'un DDR de type A, tout en conservant les capacités de détection des DDR de types A et AC.
+Toutefois, certains constructeurs implémentent dans leurs DDR de type A la capacité de ne pas être sensibles au courant résiduel $\mathdirectcurrent$ en dessous d'un certain seuil de courant de défaut ($\SI{60}{\milli\ampere}$ pour la marque Schneider\supercite{Schneider:coordinationDDR}). Cela permet d'éviter la pose d'un DDR de type B en amont, plus coûteux qu'un DDR de type A, tout en conservant les capacités de détection des DDR de types A et AC.
 
 \subsection{Mise à la terre des appareils et structures conductrices}
 
@@ -678,7 +691,7 @@ Pour protéger les biens et les personnes des contacts indirects, en plus de con
 \item charpente métallique\,;
 \item autres structures métalliques (pouvant varier selon les exigences de sécurité).
 \end{itemize}
-Cette connexion, effectuée par un \emph{conducteur de protection} PE \Circled{5} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \Circled{8} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \Circled{9} par une \emph{barrette de mesure} \\Circled{10} (dénommé également \emph{couteau de terre}).\\
+Cette connexion, effectuée par un \emph{conducteur de protection} PE \Circled{5} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \Circled{8} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \Circled{9} par une \emph{barrette de mesure} \Circled{10} (dénommé également \emph{couteau de terre}).\\
 
 Afin d'assurer la meilleure protection possible, les conducteurs de protection doivent présenter une section de câble et des raccordements dimensionnés à même de garantir une résistance de la liaison équipotentielle d'une valeur inférieure à \SI{2}{\ohm}. Cette résistance est contrôlée au moyen d'un \emph{testeur de continuité} spécifique.
 \begin{table}[H]
@@ -721,17 +734,17 @@ Elle ne doit jamais dépasser :
 \item[\SI{100}{\ohm} :] locaux secs.
 \end{description}
 
-\begin{formule}[Valeur de la résistance de la prise de terre de l'installation électrique $R_A$\label{form:resistance_prise_terre}]
-\begin{align}
+\begin{formule}{Valeur de la résistance de la prise de terre de l'installation électrique $R_A$}{resistance_prise_terre}
+\begin{align*}
 R_A &\leq \frac{U_L}{I_{\Delta n}}
-\end{align}
-\end{formule}
+\end{align*}
 
 \begin{textvariables}
 R_A			& résistance		& ohm		& \ohm 		& résistance de la prise de terre \\
 U_L			& tension			& volt		& \volt		& tension de sécurité du local \\
 I_{\Delta n}	& intensité			& ampère	& \ampere	& intensité de sensibilité du DDR (calibre) \\
 \end{textvariables}
+\end{formule}
 
 Il existe trois méthode de mesure de $R_A$ :
 \begin{description}
@@ -793,31 +806,53 @@ L'eau étant conductrice, si l'on se retrouve immergé ou simplement mouillé, l
 \makecell[C]{\multirow[c]{2}{*}{\thead{Appareils}}} 	& \multirow[c]{2}{*}{\thead{Mesure de\\protection}}		& \thead{Volume 0}		& \thead{Volume 1}		& \thead{Volume 2}		& \multirow{2}{*}{\thead{Hors volume}} \\
 &&	IPX7		& IPX4\tnote{1}			& IPX4\tnote{1}			& \\
 \midrule
-Lave-linge, sèche-linge				& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Lave-linge, sèche-linge}} \\
+\middashrule			
+& classe I													& interdit						& interdit 						& interdit						& autorisé \\
 \addlinespace
-Appareils de chauffage 				& classe I												& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Appareils de chauffage}} \\
+\middashrule
+ 				& classe I												& interdit						& interdit 						& interdit						& autorisé \\
 												&classe II												& interdit						& interdit 						& autorisé						& autorisé \\
 \addlinespace
-\'Eclairage									& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{\'Eclairage}} \\
+\middashrule
+									& classe I													& interdit						& interdit 						& interdit						& autorisé \\
 												& classe II													& interdit						& interdit 						& autorisé						& autorisé \\
 												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}												& autorisé\tnote{2}						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
 \addlinespace
-Chauffe-eau instantané				& classe I													& interdit						& autorisé\tnote{4} 					& autorisé\tnote{4}						& autorisé \\
+\multicolumn{6}{l}{\textit{Chauffe-eau instantané}}\\
+\middashrule
+				& classe I													& interdit						& autorisé\tnote{4} 					& autorisé\tnote{4}						& autorisé \\
 \addlinespace
-Chauffe-eau à accumulation				& classe I												& interdit						& autorisé\tnote{5} 					& autorisé\tnote{4}						& autorisé \\
+\multicolumn{6}{l}{\textit{Chauffe-eau à accumulation}} \\
+\middashrule
+				& classe I												& interdit						& autorisé\tnote{5} 					& autorisé\tnote{4}						& autorisé \\
 \addlinespace
-Interrupteur								& 																& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Interrupteur}}\\
+\middashrule
+								& 																& interdit						& interdit 						& interdit						& autorisé \\
 												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}	& interdit						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
 \addlinespace
-Prise de courant avec terre			& 																& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Prise de courant avec terre}}\\
+\middashrule
+			& 																& interdit						& interdit 						& interdit						& autorisé \\
 \addlinespace
-Prise rasoir (\SIrange{10}{50}{\watt})								& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{transformateur de séparation}}															& interdit						& interdit 						& autorisé						& autorisé \\
+\multicolumn{6}{l}{\textit{Prise rasoir (\SIrange{10}{50}{\watt})}} \\
+\middashrule
+								& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{transformateur de séparation}}															& interdit						& interdit 						& autorisé						& autorisé \\
 \addlinespace
-Transformateur de séparation							& 															& interdit						& interdit 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Transformateur de séparation}} \\
+\middashrule
+							& 															& interdit						& interdit 						& interdit						& autorisé \\
 \addlinespace
-Canalisation							& 															& interdit						& autorisé\tnote{6} 						& autorisé\tnote{6}						& autorisé \\
+\multicolumn{6}{l}{Canalisation} \\
+\middashrule
+							& 															& interdit						& autorisé\tnote{6} 						& autorisé\tnote{6}						& autorisé \\
 \addlinespace
-Boitier de connexion							& 															& interdit						& interdit\tnote{7} 						& interdit						& autorisé \\
+\multicolumn{6}{l}{\textit{Boitier de connexion}} \\
+\middashrule
+							& 															& interdit						& interdit\tnote{7} 						& interdit						& autorisé \\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}
@@ -833,4 +868,4 @@ Boitier de connexion							& 															& interdit						& interdit\tnote{7} 
 \end{table}
 
 
-%\end{document}
+\end{document}
